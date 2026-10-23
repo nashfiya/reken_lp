@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040916" />
+      <stop offset="50%" stop-color="#08142E" />
+      <stop offset="100%" stop-color="#050C1F" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1B3A" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#081228" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Accent Blue Gradient -->
+    <linearGradient id="blue-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Emerald Glow -->
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+
+    <!-- Filter for Subtle Glow Shadow -->
+    <filter id="glow-card" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" fill="url(#bg-grad)" rx="16" />
+
+  <!-- Top App Navigation Bar -->
+  <rect x="0" y="0" width="1200" height="64" fill="#060E22" />
+  <line x1="0" y1="64" x2="1200" y2="64" stroke="#1E293B" stroke-width="1" />
+
+  <!-- Brand Logo & App Title -->
+  <rect x="24" y="16" width="32" height="32" rx="8" fill="#1E3A8A" />
+  <circle cx="40" cy="32" r="7" fill="#38BDF8" />
+  <text x="68" y="38" fill="#FFFFFF" font-family="Plus Jakarta Sans, Outfit, sans-serif" font-size="18" font-weight="800" letter-spacing="1">REKEN<tspan fill="#38BDF8">.ID</tspan></text>
+  <text x="175" y="38" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">| Smart Mobility &amp; Operations System Yogyakarta</text>
+
+  <!-- Status Badges in Top Header -->
+  <!-- IoT GPS Connected -->
+  <g transform="translate(760, 20)">
+    <rect width="180" height="26" rx="13" fill="#064E3B" fill-opacity="0.4" stroke="#059669" stroke-width="1"/>
+    <circle cx="16" cy="13" r="4" fill="#34D399" />
+    <text x="28" y="17" fill="#6EE7B7" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">IoT GPS: 48 Unit Online</text>
+  </g>
+
+  <!-- WhatsApp Gateway Status -->
+  <g transform="translate(955, 20)">
+    <rect width="215" height="26" rx="13" fill="#0C4A6E" fill-opacity="0.4" stroke="#0284C7" stroke-width="1"/>
+    <circle cx="16" cy="13" r="4" fill="#38BDF8" />
+    <text x="28" y="17" fill="#BAE6FD" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">WhatsApp Webhook: Aktif (AI)</text>
+  </g>
+
+  <!-- LEFT SIDEBAR -->
+  <rect x="0" y="64" width="220" height="686" fill="#050C1E" />
+  <line x1="220" y1="64" x2="220" y2="750" stroke="#1E293B" stroke-width="1" />
+
+  <!-- Navigation Section 1: Core -->
+  <text x="24" y="96" fill="#475569" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="1">NAVIGASI UTAMA</text>
+
+  <!-- Item: Dashboard (Active) -->
+  <g transform="translate(16, 110)">
+    <rect width="188" height="38" rx="8" fill="#1E3A8A" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1"/>
+    <rect x="14" y="12" width="14" height="14" rx="3" fill="#38BDF8" />
+    <text x="40" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">Dashboard</text>
+  </g>
+
+  <!-- Navigation Section 2: Modul Operasional -->
+  <text x="24" y="178" fill="#475569" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="1">MODUL OPERASIONAL</text>
+
+  <!-- Item: Customers -->
+  <g transform="translate(16, 192)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#64748B" />
+    <text x="40" y="21" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">Customers</text>
+    <text x="170" y="21" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10">842</text>
+  </g>
+
+  <!-- Item: Drivers -->
+  <g transform="translate(16, 232)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#64748B" />
+    <text x="40" y="21" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">Drivers</text>
+    <text x="175" y="21" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="10">32</text>
+  </g>
+
+  <!-- Item: Travel Orders -->
+  <g transform="translate(16, 272)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#64748B" />
+    <text x="40" y="21" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">Travel Orders</text>
+    <rect x="162" y="10" width="24" height="15" rx="7" fill="#2563EB" />
+    <text x="168" y="21" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">18</text>
+  </g>
+
+  <!-- Item: Vehicles -->
+  <g transform="translate(16, 312)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#64748B" />
+    <text x="40" y="21" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">Vehicles</text>
+    <text x="175" y="21" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10">50</text>
+  </g>
+
+  <!-- Navigation Section 3: Modul WhatsApp -->
+  <text x="24" y="372" fill="#475569" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="1">MODUL WHATSAPP</text>
+
+  <!-- Item: WhatsApp Instances -->
+  <g transform="translate(16, 386)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#10B981" />
+    <text x="40" y="21" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500">WA Instances</text>
+    <circle cx="180" cy="17" r="3" fill="#10B981" />
+  </g>
+
+  <!-- Item: Inbox (AI Copilot) -->
+  <g transform="translate(16, 426)">
+    <rect width="188" height="34" rx="8" fill="transparent" />
+    <circle cx="21" cy="17" r="5" fill="#38BDF8" />
+    <text x="40" y="21" fill="#BAE6FD" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600">Inbox &amp; AI Copilot</text>
+    <rect x="164" y="10" width="22" height="15" rx="7" fill="#10B981" />
+    <text x="170" y="21" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">AI</text>
+  </g>
+
+  <!-- User profile footer on sidebar -->
+  <g transform="translate(16, 680)">
+    <rect width="188" height="48" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <circle cx="26" cy="24" r="14" fill="#2563EB" />
+    <text x="22" y="28" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">R</text>
+    <text x="48" y="20" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Dispatcher Jogja</text>
+    <text x="48" y="34" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">Admin Operasional</text>
+  </g>
+
+  <!-- MAIN DASHBOARD CONTENT AREA -->
+  <g transform="translate(244, 84)">
+    
+    <!-- Top 4 Quick Metric Cards -->
+    <!-- Metric 1: Total Armada Aktif -->
+    <g transform="translate(0, 0)">
+      <rect width="215" height="96" rx="12" fill="url(#card-grad)" stroke="#1E293B" stroke-width="1" filter="url(#glow-card)"/>
+      <text x="16" y="26" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">ARMADA AKTIF JALAN</text>
+      <text x="16" y="60" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="800">42 <tspan fill="#64748B" font-size="14" font-weight="500">/ 50 Unit</tspan></text>
+      <text x="16" y="82" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">● 84% Tingkat Utilisasi DIY</text>
+    </g>
+
+    <!-- Metric 2: Pesanan Travel Hari Ini -->
+    <g transform="translate(235, 0)">
+      <rect width="215" height="96" rx="12" fill="url(#card-grad)" stroke="#1E293B" stroke-width="1" filter="url(#glow-card)"/>
+      <text x="16" y="26" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">TRAVEL ORDERS HARI INI</text>
+      <text x="16" y="60" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="800">28 <tspan fill="#64748B" font-size="14" font-weight="500">Trip</tspan></text>
+      <text x="16" y="82" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">↑ 16 Lepas Kunci · 12 Driver</text>
+    </g>
+
+    <!-- Metric 3: AI Copilot WhatsApp Drafts -->
+    <g transform="translate(470, 0)">
+      <rect width="215" height="96" rx="12" fill="url(#card-grad)" stroke="#059669" stroke-opacity="0.4" stroke-width="1" filter="url(#glow-card)"/>
+      <text x="16" y="26" fill="#6EE7B7" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">AI WHATSAPP COPILOT</text>
+      <text x="16" y="60" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="800">142 <tspan fill="#6EE7B7" font-size="14" font-weight="500">Draf</tspan></text>
+      <text x="16" y="82" fill="#6EE7B7" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">✓ Respon Rata-rata 2.4 Detik</text>
+    </g>
+
+    <!-- Metric 4: Kemitraan Aktif -->
+    <g transform="translate(705, 0)">
+      <rect width="220" height="96" rx="12" fill="url(#card-grad)" stroke="#1E293B" stroke-width="1" filter="url(#glow-card)"/>
+      <text x="16" y="26" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">EKOSISTEM KEMITRAAN</text>
+      <text x="16" y="60" fill="#FBBF24" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="800">36 <tspan fill="#64748B" font-size="14" font-weight="500">Mitra</tspan></text>
+      <text x="16" y="82" fill="#FBBF24" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">22 Titip Mobil · 14 Driver Wisata</text>
+    </g>
+
+    <!-- MIDDLE SECTION: Split Two Columns -->
+    <!-- Left Column: Travel Orders Live Monitoring (Modul Operasional) -->
+    <g transform="translate(0, 116)">
+      <rect width="560" height="330" rx="12" fill="url(#card-grad)" stroke="#1E293B" stroke-width="1" filter="url(#glow-card)"/>
+      
+      <!-- Card Header -->
+      <text x="20" y="32" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700">Monitoring Pesanan Aktif (Travel Orders)</text>
+      <text x="20" y="48" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Siklus operasional rute wisata &amp; rental Jogja secara langsung</text>
+      <rect x="460" y="18" width="80" height="24" rx="6" fill="#1E293B" />
+      <text x="472" y="34" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">Lihat Semua</text>
+
+      <!-- Table Header -->
+      <line x1="20" y1="64" x2="540" y2="64" stroke="#1E293B" stroke-width="1" />
+      <text x="24" y="80" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">ID ORDER</text>
+      <text x="110" y="80" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">UNIT ARMADA</text>
+      <text x="240" y="80" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">RUTE / PELANGGAN</text>
+      <text x="380" y="80" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">DRIVER</text>
+      <text x="465" y="80" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600">STATUS</text>
+
+      <!-- Row 1: Innova Zenix -->
+      <line x1="20" y1="92" x2="540" y2="92" stroke="#1E293B" stroke-width="0.5" />
+      <text x="24" y="112" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">#RK-891</text>
+      <text x="110" y="112" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">Innova Zenix Hybrid</text>
+      <text x="110" y="125" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">AB 1284 QZ · 2024</text>
+      <text x="240" y="112" fill="#E2E8F0" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">YIA → Malioboro (Budi P.)</text>
+      <text x="380" y="112" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Mas Danang</text>
+      <rect x="465" y="100" width="65" height="20" rx="10" fill="#064E3B" />
+      <text x="477" y="114" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">On Trip</text>
+
+      <!-- Row 2: HiAce Premio -->
+      <line x1="20" y1="140" x2="540" y2="140" stroke="#1E293B" stroke-width="0.5" />
+      <text x="24" y="160" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">#RK-892</text>
+      <text x="110" y="160" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">HiAce Premio Luxury</text>
+      <text x="110" y="173" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">AB 7701 KL · 2023</text>
+      <text x="240" y="160" fill="#E2E8F0" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Borobudur &amp; Merapi</text>
+      <text x="380" y="160" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Mas Wahyu</text>
+      <rect x="465" y="148" width="65" height="20" rx="10" fill="#1E3A8A" />
+      <text x="474" y="162" fill="#60A5FA" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">Standby</text>
+
+      <!-- Row 3: All New Veloz -->
+      <line x1="20" y1="188" x2="540" y2="188" stroke="#1E293B" stroke-width="0.5" />
+      <text x="24" y="208" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">#RK-893</text>
+      <text x="110" y="208" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">All New Veloz Matic</text>
+      <text x="110" y="221" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">AB 3412 YB · 2023</text>
+      <text x="240" y="208" fill="#E2E8F0" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Lepas Kunci · Sleman</text>
+      <text x="380" y="208" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Self Drive</text>
+      <rect x="465" y="196" width="65" height="20" rx="10" fill="#78350F" />
+      <text x="473" y="210" fill="#FBBF24" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">Verifikasi</text>
+
+      <!-- Row 4: Toyota Alphard VIP -->
+      <line x1="20" y1="236" x2="540" y2="236" stroke="#1E293B" stroke-width="0.5" />
+      <text x="24" y="256" fill="#38BDF8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">#RK-894</text>
+      <text x="110" y="256" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600">Alphard VIP Facelift</text>
+      <text x="110" y="269" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">AB 1001 VIP · 2023</text>
+      <text x="240" y="256" fill="#E2E8F0" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Tamu VVIP Kepatihan</text>
+      <text x="380" y="256" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">Pak Triyono</text>
+      <rect x="465" y="244" width="65" height="20" rx="10" fill="#064E3B" />
+      <text x="477" y="258" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700">On Trip</text>
+
+      <!-- Bottom Status Note -->
+      <line x1="20" y1="284" x2="540" y2="284" stroke="#1E293B" stroke-width="0.5" />
+      <text x="24" y="306" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10">Pembaruan otomatis via GPS WebSocket tiap 5 detik · Sinkron ke modul Customers &amp; Drivers</text>
+    </g>
+
+    <!-- Right Column: WhatsApp AI Copilot Live Assistant (Modul WhatsApp) -->
+    <g transform="translate(580, 116)">
+      <rect width="345" height="330" rx="12" fill="url(#card-grad)" stroke="#059669" stroke-opacity="0.3" stroke-width="1" filter="url(#glow-card)"/>
+      
+      <!-- Card Header -->
+      <circle cx="36" cy="34" r="14" fill="#065F46" />
+      <path d="M30 34 C30 30.5 33 28 36 28 C39 28 42 30.5 42 34 C42 37.5 39 40 36 40 L33 40 L30 42 Z" fill="#34D399"/>
+      <text x="58" y="30" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">Inbox &amp; AI Copilot Draf</text>
+      <text x="58" y="44" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" font-weight="600">● 100% Terhubung WhatsApp API</text>
+
+      <!-- Chat Bubble 1: Incoming Customer Query -->
+      <g transform="translate(18, 65)">
+        <rect width="260" height="58" rx="10" fill="#1E293B" />
+        <text x="12" y="18" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="600">+62 813-9821-xxxx (Wisatawan YIA)</text>
+        <text x="12" y="34" fill="#F1F5F9" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5">"Halo Reken, besok pagi Innova Zenix lepas kunci 2 hari masih ada unit kosong?"</text>
+        <text x="220" y="50" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">09:41 AM</text>
+      </g>
+
+      <!-- Chat Bubble 2: AI Copilot Auto-Draft Recommendation -->
+      <g transform="translate(48, 135)">
+        <rect width="280" height="110" rx="10" fill="#064E3B" fill-opacity="0.6" stroke="#059669" stroke-width="1"/>
+        <text x="14" y="20" fill="#34D399" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" font-weight="700">✨ Rekomendasi Draf AI Copilot REKEN:</text>
+        <text x="14" y="38" fill="#E2E8F0" font-family="Plus Jakarta Sans, sans-serif" font-size="10" leading="14">
+          <tspan x="14" dy="0">"Halo Kak! Toyota Innova Zenix Hybrid</tspan>
+          <tspan x="14" dy="14">kami masih tersedia 2 unit untuk besok.</tspan>
+          <tspan x="14" dy="14">Tarif lepas kunci Rp850rb/hari incl. asuransi.</tspan>
+          <tspan x="14" dy="14">Bisa kami siapkan formulir booking-nya?"</tspan>
+        </text>
+        <text x="235" y="100" fill="#6EE7B7" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">AI Ready · 2.1s</text>
+      </g>
+
+      <!-- Action Button: Kirim Balasan Draf -->
+      <g transform="translate(48, 256)">
+        <rect width="280" height="36" rx="8" fill="url(#blue-glow)" />
+        <text x="80" y="23" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">Setujui &amp; Kirim Draf (1-Klik)</text>
+      </g>
+
+      <text x="75" y="312" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5">Otomatisasi pesan meningkatkan konversi rental 300%</text>
+    </g>
+
+    <!-- BOTTOM ROW: Fleet IoT GPS Telemetry Summary -->
+    <g transform="translate(0, 462)">
+      <rect width="925" height="135" rx="12" fill="url(#card-grad)" stroke="#1E293B" stroke-width="1" filter="url(#glow-card)"/>
+      
+      <text x="20" y="26" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">Status Perangkat Terhubung &amp; Telemetri Wilayah DIY</text>
+      <text x="20" y="40" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="10">Koneksi modul Vehicles &amp; Drivers dengan perangkat IoT GPS terintegrasi</text>
+
+      <!-- 4 Telemetry Nodes -->
+      <!-- Node 1: Kota Jogja & Malioboro -->
+      <g transform="translate(20, 56)">
+        <rect width="210" height="60" rx="8" fill="#14213D" stroke="#1E293B" stroke-width="0.5"/>
+        <circle cx="20" cy="30" r="5" fill="#34D399" />
+        <text x="34" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Wilayah Kota &amp; Malioboro</text>
+        <text x="34" y="38" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10">18 Unit Beroperasi</text>
+        <text x="34" y="50" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">Geofence: Normal (Dalam DIY)</text>
+      </g>
+
+      <!-- Node 2: Bandara YIA Kulon Progo -->
+      <g transform="translate(245, 56)">
+        <rect width="210" height="60" rx="8" fill="#14213D" stroke="#1E293B" stroke-width="0.5"/>
+        <circle cx="20" cy="30" r="5" fill="#38BDF8" />
+        <text x="34" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Bandara YIA Kulon Progo</text>
+        <text x="34" y="38" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10">10 Unit Shuttle Standby</text>
+        <text x="34" y="50" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">ETA ke Kota: 42 Menit</text>
+      </g>
+
+      <!-- Node 3: Wisata Kaliurang & Merapi -->
+      <g transform="translate(470, 56)">
+        <rect width="210" height="60" rx="8" fill="#14213D" stroke="#1E293B" stroke-width="0.5"/>
+        <circle cx="20" cy="30" r="5" fill="#FBBF24" />
+        <text x="34" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Kaliurang &amp; Lava Tour</text>
+        <text x="34" y="38" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10">8 Unit Tur Pariwisata</text>
+        <text x="34" y="50" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">Driver Wisata Terpandu</text>
+      </g>
+
+      <!-- Node 4: Wisata Pantai Gunungkidul -->
+      <g transform="translate(695, 56)">
+        <rect width="210" height="60" rx="8" fill="#14213D" stroke="#1E293B" stroke-width="0.5"/>
+        <circle cx="20" cy="30" r="5" fill="#34D399" />
+        <text x="34" y="24" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Pantai Gunungkidul</text>
+        <text x="34" y="38" fill="#94A3B8" font-family="Plus Jakarta Sans, sans-serif" font-size="10">6 Unit Family Trip</text>
+        <text x="34" y="50" fill="#64748B" font-family="Plus Jakarta Sans, sans-serif" font-size="8.5">Telemetri Rem &amp; Ban OK</text>
+      </g>
+
+    </g>
+
+  </g>
+</svg>

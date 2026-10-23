@@ -3,21 +3,35 @@
   <!-- Beranda Utama Reken.id -->
   <url>
     <loc>https://reken.id/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Tentang Kami (Company Profile) -->
   <url>
     <loc>https://reken.id/tentang.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- Fitur Sistem & AI Copilot -->
+  <url>
+    <loc>https://reken.id/fitur.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Peluang Kemitraan (Titip Mobil & Driver) -->
+  <url>
+    <loc>https://reken.id/mitra.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <!-- Kontak & Lokasi Pool Jogja -->
   <url>
     <loc>https://reken.id/kontak.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

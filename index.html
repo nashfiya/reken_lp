@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reken - Rental Mobil & Layanan Wisata Eksekutif Yogyakarta</title>
+  <title>REKEN – Aplikasi Rental Mobil, Pariwisata &amp; Ekosistem Kemitraan Yogyakarta</title>
   
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Reken menghadirkan rental mobil eksekutif, sewa lepas kunci, all-in supir profesional, dan paket wisata eksklusif Yogyakarta dengan kenyamanan bintang lima.">
-  <meta name="keywords" content="rental mobil jogja, sewa mobil yogyakarta, sewa innova zenix jogja, rental alphard jogja, sewa mobil lepas kunci jogja, paket wisata yogyakarta, reken">
-  <meta name="author" content="Reken Indonesia">
+  <meta name="description" content="Pusat informasi resmi aplikasi REKEN: Solusi cerdas sewa mobil Jogja lepas kunci & supir, paket wisata DIY, software operasional travel bertenaga WhatsApp AI Copilot, serta peluang kemitraan titip mobil & lowongan driver.">
+  <meta name="keywords" content="aplikasi reken jogja, rental mobil jogja, paket wisata yogyakarta, kemitraan rental mobil, titip mobil jogja, lowongan driver jogja, software rental travel yogyakarta, whatsapp ai copilot">
+  <meta name="author" content="REKEN Mobility Ecosystem Yogyakarta">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://reken.id/">
-  <meta property="og:title" content="Reken - Rental Mobil & Solusi Transportasi Cerdas Yogyakarta">
-  <meta property="og:description" content="Elegansi mobilitas dan kenyamanan sejati untuk perjalanan Anda di Yogyakarta.">
-  <meta property="og:image" content="src/images/hero-zenix.jpg">
+  <meta property="og:title" content="REKEN – Aplikasi Rental Mobil, Pariwisata & Ekosistem Kemitraan Yogyakarta">
+  <meta property="og:description" content="Satu platform mobilitas cerdas di Yogyakarta: layanan sewa mobil, manajemen software travel berbasis AI WhatsApp, dan peluang kemitraan inklusif.">
+  <meta property="og:image" content="src/images/dashboard-preview.svg">
 
   <!-- Favicon: Vector Glass Logo -->
   <link rel="icon" type="image/svg+xml" href="src/images/logo.svg">
@@ -28,6 +28,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Model-Viewer (PBR 3D Real Automotive Engine) -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,70 +60,71 @@
     }
   </script>
 
+  <!-- Theme Guard: Consistent Dark Luxury Theme -->
+  <script>
+    try { localStorage.removeItem('reken-theme'); } catch (e) {}
+    document.documentElement.classList.remove('light-theme');
+    document.documentElement.setAttribute('data-theme', 'dark');
+  </script>
+
   <!-- Custom Styles: Blue-Black Glassmorphism -->
   <link rel="stylesheet" href="src/style.css">
 </head>
 <body class="bg-[#030712] text-slate-100 antialiased selection:bg-sky-500 selection:text-white relative overflow-x-hidden min-h-screen">
 
+  <!-- Top Animated Page Progress Bar -->
+  <div id="page-progress-bar" class="page-progress-line" aria-hidden="true"></div>
+
   <!-- ========================================================================
-       FLOATING ISLAND NAVBAR (Dark Glassmorphic Edition)
+       FLOATING ISLAND NAVBAR (Dark Glassmorphism Edition)
        ======================================================================== -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6">
     <div id="header-island-container" class="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-all duration-300 header-island">
       
       <!-- Brand Logo (Clean Single Line, No Subtitle Description) -->
       <a href="index.html" class="flex items-center gap-2.5 group" id="brand-logo-link">
-        <div class="relative w-8 h-8 rounded-lg overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105">
+        <div class="relative w-8 h-8 rounded-full overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 brand-logo-icon">
           <img src="src/images/logo.svg" alt="Reken Logo" class="w-full h-full object-contain">
         </div>
-        <span class="text-base sm:text-lg font-bold tracking-tight text-white font-alt">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-white font-alt brand-logo-text">
           REKEN<span class="text-sky-400 font-extrabold">.ID</span>
         </span>
       </a>
 
-      <!-- Desktop Nav Menu (Simple, Clean, Essential) -->
+      <!-- Desktop Nav Menu (Simple & Clean: Beranda, Tentang, Fitur, Mitra, Kontak) -->
       <nav class="hidden lg:flex items-center gap-1 xl:gap-2" id="desktop-navigation">
-        <a href="#beranda" data-target="beranda" class="nav-link-item">
-          Beranda
-        </a>
-        <a href="#armada" data-target="armada" class="nav-link-item">
-          Armada
-        </a>
-        <a href="#cara-sewa" data-target="cara-sewa" class="nav-link-item">
-          Cara Sewa
-        </a>
-        <a href="#keunggulan" data-target="keunggulan" class="nav-link-item">
-          Keunggulan
-        </a>
-        <a href="#wisata" data-target="wisata" class="nav-link-item">
-          Wisata
-        </a>
-        <a href="#testimoni" data-target="testimoni" class="nav-link-item">
-          Testimoni
+        <a href="index.html" class="nav-link-item active">
+          <span class="nav-link-text">Beranda</span>
         </a>
         <a href="tentang.html" class="nav-link-item">
-          Tentang
+          <span class="nav-link-text">Tentang</span>
+        </a>
+        <a href="fitur.html" class="nav-link-item">
+          <span class="nav-link-text">Fitur Sistem</span>
+        </a>
+        <a href="mitra.html" class="nav-link-item">
+          <span class="nav-link-text">Kemitraan</span>
         </a>
         <a href="kontak.html" class="nav-link-item">
-          Kontak
+          <span class="nav-link-text">Kontak</span>
         </a>
       </nav>
 
-      <!-- Right Action CTA Button (Simple, Matching Radius) -->
-      <div class="hidden sm:flex items-center gap-3">
-        <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20ingin%20konsultasi%20rental%20mobil%20Jogja" target="_blank" rel="noopener noreferrer" class="btn-nav-simple" id="nav-cta-wa">
-          <span>Booking</span>
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-2.5">
+        <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20ingin%20konsultasi%20layanan%20dan%20kemitraan" target="_blank" rel="noopener noreferrer" class="btn-nav-simple" id="nav-cta-wa">
+          <span>Konsultasi REKEN</span>
           <i class="fa-solid fa-arrow-right text-xs text-sky-400"></i>
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <div class="flex lg:hidden items-center gap-2">
-        <a href="https://wa.me/6281234567890?text=Halo%20Reken" target="_blank" rel="noopener noreferrer" class="sm:hidden px-3 py-1.5 rounded-lg bg-sky-500/15 border border-sky-400/25 text-sky-300 text-xs font-semibold flex items-center gap-1.5">
+      <!-- Mobile Controls (Chat + Hamburger) -->
+      <div class="flex lg:hidden items-center gap-1.5 sm:gap-2">
+        <a href="https://wa.me/6281234567890?text=Halo%20Reken" target="_blank" rel="noopener noreferrer" class="sm:hidden px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/25 text-sky-300 text-xs font-semibold flex items-center gap-1.5">
           <i class="fa-brands fa-whatsapp text-emerald-400 text-xs"></i>
           <span>Chat</span>
         </a>
-        <button id="mobile-menu-toggle" type="button" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none" aria-label="Toggle menu">
+        <button id="mobile-menu-toggle" type="button" class="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none" aria-label="Toggle menu">
           <i class="fa-solid fa-bars text-lg"></i>
         </button>
       </div>
@@ -143,36 +147,24 @@
         </div>
 
         <nav class="mt-6 flex flex-col gap-1.5 text-sm font-medium text-slate-300">
-          <a href="#beranda" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Beranda</span>
+          <a href="index.html" class="mobile-nav-link active px-4 py-3 rounded-xl bg-sky-500/10 text-sky-300 border border-sky-400/20 flex items-center justify-between">
+            <span class="mobile-nav-text">Beranda</span>
+            <i class="fa-solid fa-chevron-right text-xs text-sky-400"></i>
+          </a>
+          <a href="tentang.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
+            <span class="mobile-nav-text">Tentang REKEN</span>
             <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
           </a>
-          <a href="#armada" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Armada Kami</span>
+          <a href="fitur.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
+            <span class="mobile-nav-text">Fitur Sistem</span>
             <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
           </a>
-          <a href="#cara-sewa" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Cara Sewa</span>
+          <a href="mitra.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
+            <span class="mobile-nav-text">Kemitraan (Titip Mobil &amp; Driver)</span>
             <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
           </a>
-          <a href="#keunggulan" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Keunggulan</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
-          </a>
-          <a href="#wisata" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Wisata Jogja</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
-          </a>
-          <a href="#testimoni" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Testimoni</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
-          </a>
-          <a href="tentang.html" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Tentang Reken</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
-          </a>
-          <a href="kontak.html" class="px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span>Kontak &amp; Pool</span>
+          <a href="kontak.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
+            <span class="mobile-nav-text">Kontak &amp; Lokasi Jogja</span>
             <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
           </a>
         </nav>
@@ -198,18 +190,34 @@
       id="beranda"
     >
       
-      <!-- Background Automotive Visual with Subtle Gradient Overlays (Edge-to-Edge) -->
-      <div class="hero-bg-media absolute inset-0 z-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-        <img 
-          src="src/images/hero-zenix.jpg" 
-          alt="Toyota Innova Zenix Hybrid Reken Yogyakarta" 
-          class="hero-bg-photo w-full h-full object-cover object-[80%_center] sm:object-[76%_center] lg:object-[72%_center]"
-          id="hero-bg-photo"
+      <!-- Interactive 3D Real Automotive Stage (Edge-to-Edge) -->
+      <div class="hero-bg-media absolute inset-0 z-0 overflow-hidden select-none" aria-label="Interactive 3D Showroom Toyota Innova Zenix">
+        <!-- 1 Real 3D Car Object (Bisa Digerakkan Segala Arah 360°, Latar Polos Netral Studio, Bebas Efek Cahaya Biru AI) -->
+        <model-viewer
+          id="hero-3d-car"
+          src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb"
+          poster="src/images/zenix-real.jpg"
+          alt="REKEN 3D Real Car Showroom"
+          camera-controls
+          touch-action="pan-y"
+          shadow-intensity="1.5"
+          shadow-softness="0.8"
+          exposure="1.0"
+          environment-image="neutral"
+          interaction-prompt="none"
+          auto-rotate="false"
+          camera-orbit="45deg 75deg 105%"
+          min-camera-orbit="auto 45deg auto"
+          max-camera-orbit="auto 95deg auto"
+          disable-zoom
+          class="w-full h-full absolute inset-0"
+          style="background-color: #0B0C0E; --poster-color: #0B0C0E;"
         >
-        <!-- Dark Editorial Gradient Overlays (No artificial color glows) -->
-        <div class="hero-bg-overlay-top absolute inset-0"></div>
-        <div class="hero-bg-overlay-left absolute inset-0"></div>
-        <div class="hero-bg-overlay-bottom absolute inset-0"></div>
+        </model-viewer>
+        <!-- Balanced Neutral Editorial Gradient Overlays -->
+        <div class="hero-bg-overlay-top absolute inset-0 pointer-events-none"></div>
+        <div class="hero-bg-overlay-left absolute inset-0 pointer-events-none"></div>
+        <div class="hero-bg-overlay-bottom absolute inset-0 pointer-events-none"></div>
       </div>
 
       <!-- Inner Content Container (Aligned with site max-w-7xl grid) -->
@@ -217,50 +225,48 @@
         
         <!-- Top Header Rail: Eyebrow + Dignified Text Tag -->
         <div class="relative z-10 flex items-center justify-between gap-4 mb-6 sm:mb-8 hero-anim-1">
-          <!-- Text-only Category Tag (No icon, clean typography) -->
+          <!-- Text-only Category Tag -->
           <div class="editorial-tag font-alt">
-            SEWA MOBIL &amp; WISATA JOGJA
+            EKOSISTEM MOBILITAS &amp; RENTAL JOGJA
           </div>
 
-          <!-- Subtle Editorial Fleet Spec Tag (Text-only, no AI-style icon/pulse) -->
+          <!-- Subtle Editorial Fleet Spec Tag -->
           <div class="hidden sm:inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-black/40 border border-white/10 text-[11px] font-mono tracking-wider text-slate-300 backdrop-blur-md">
-            <span class="text-slate-400">ARMADA UNGGULAN</span>
+            <span class="text-sky-400">PLATFORM SMART MOBILITY</span>
             <span class="text-slate-600">·</span>
-            <span class="text-white font-medium">INNOVA ZENIX HYBRID 2024</span>
+            <span class="text-white font-medium">YOGYAKARTA</span>
           </div>
         </div>
 
         <!-- Middle Content: Grand Headline, Copy & Actions -->
         <div class="relative z-10 max-w-2xl lg:max-w-3xl my-auto py-1">
           <!-- Grand Headline -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-medium text-white tracking-tight leading-[1.14] hero-anim-2">
-            Elegansi Mobilitas.<br>
-            <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-sky-200 via-slate-100 to-white">
-              Kenyamanan Sejati.
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-medium text-white tracking-tight leading-[1.14] hero-anim-2 hero-main-heading">
+            Ekosistem Rental Mobil.<br>
+            <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-sky-200 via-slate-100 to-white hero-headline-gradient">
+              Terpadu &amp; Berdaya di Jogja.
             </span>
           </h1>
 
           <!-- Description Body -->
-          <p class="mt-3.5 sm:mt-4 text-sm sm:text-base text-slate-300/90 max-w-xl leading-relaxed font-normal hero-anim-3">
-            Layanan rental mobil eksekutif, sewa lepas kunci terawat, dan paket wisata eksklusif Yogyakarta dengan standar kenyamanan bintang lima. Nikmati perjalanan tanpa batas di setiap kilometer Anda.
+          <p class="mt-3.5 sm:mt-4 text-sm sm:text-base text-slate-300/90 max-w-xl leading-relaxed font-normal hero-anim-3 hero-body-text">
+            Pusat informasi resmi aplikasi <strong class="text-white font-semibold">REKEN</strong>: Solusi mobilitas cerdas yang menyediakan layanan sewa armada &amp; wisata Jogja, software manajemen travel bertenaga WhatsApp AI Copilot, serta wadah kemitraan inklusif bagi pemilik mobil dan pengemudi lokal.
           </p>
 
-          <!-- Dual Action Buttons -->
+          <!-- Dual Harmonized Action Buttons -->
           <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 sm:gap-6 hero-anim-4">
-            <!-- Primary Pill Button -->
-            <a href="#armada" class="btn-glass-primary group" id="hero-explore-btn">
-              <span>Eksplorasi Armada</span>
-              <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+            <a href="fitur.html" class="btn-glass-primary group" id="hero-features-btn">
+              <span>Fitur Sistem &amp; AI</span>
+              <span class="btn-icon-bubble">
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </span>
             </a>
 
-            <!-- Secondary Play Button -->
-            <a href="#cara-sewa" class="btn-glass-play group" id="hero-guide-btn">
-              <span class="play-circle group-hover:border-white/40">
-                <i class="fa-solid fa-play text-xs text-sky-400 ml-0.5 transition-transform duration-300 group-hover:scale-110"></i>
+            <a href="mitra.html" class="btn-glass-secondary group" id="hero-partner-btn">
+              <span class="play-circle-bubble">
+                <i class="fa-solid fa-handshake text-xs"></i>
               </span>
-              <span class="font-medium text-sm text-slate-200 group-hover:text-white transition-colors">
-                Panduan &amp; Cara Sewa
-              </span>
+              <span>Peluang Kemitraan</span>
             </a>
           </div>
         </div>
@@ -307,8 +313,226 @@
 
 
     <!-- ========================================================================
-         FLEET SHOWCASE SECTION (Katalog Armada Pilihan)
+         3 PINTU MASUK EKOSISTEM: Siapa Saja yang Terhubung di REKEN?
          ======================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="editorial-tag mb-2 font-alt">PINTU MASUK KOLABORASI</div>
+        <h2 class="text-2xl sm:text-4xl font-display font-medium text-white tracking-tight">
+          Satu Aplikasi untuk Berbagai Kebutuhan
+        </h2>
+        <p class="mt-2 text-slate-400 text-sm">
+          REKEN bukan sekadar persewaan mobil biasa. Kami membangun ekosistem yang menghubungkan wisatawan, pemilik armada, pengemudi, hingga pengusaha travel lokal di Yogyakarta.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Segment 1: Wisatawan & Pelancong -->
+        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between rounded-3xl border border-sky-400/20 hover:border-sky-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/15 border border-sky-400/25 flex items-center justify-center text-sky-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="text-[11px] font-mono text-sky-400 mb-1 uppercase tracking-wider">SEGMEN 01 • PELANCONG &amp; KELUARGA</div>
+            <h3 class="text-xl font-bold text-white mb-3 font-alt">Sewa Mobil &amp; Wisata Jogja</h3>
+            <p class="text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Butuh kendaraan prima untuk liburan di Jogja? Tersedia opsi sewa lepas kunci 24 jam maupun paket all-in dengan supir ramah. Antar jemput Bandara YIA &amp; stasiun tepat waktu.
+            </p>
+          </div>
+          <a href="#armada" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300">
+            <span>Lihat Katalog Armada</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Segment 2: Pemilik Mobil & Calon Driver -->
+        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between rounded-3xl border border-emerald-400/20 hover:border-emerald-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-400/25 flex items-center justify-center text-emerald-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <div class="text-[11px] font-mono text-emerald-400 mb-1 uppercase tracking-wider">SEGMEN 02 • MASYARAKAT &amp; PENGEMUDI</div>
+            <h3 class="text-xl font-bold text-white mb-3 font-alt">Titip Mobil &amp; Lowongan Driver</h3>
+            <p class="text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Punya mobil menganggur di garasi? Titipkan di REKEN untuk passive income aman bergaransi GPS. Bisa menyetir? Bergabunglah sebagai driver mitra pariwisata berpenghasilan fleksibel.
+            </p>
+          </div>
+          <a href="mitra.html" class="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
+            <span>Pelajari Syarat Kemitraan</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Segment 3: Pengusaha Rental & Biro Travel -->
+        <div class="glass-card p-6 sm:p-8 flex flex-col justify-between rounded-3xl border border-blue-400/20 hover:border-blue-400/40 transition-all group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-400/25 flex items-center justify-center text-blue-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="text-[11px] font-mono text-blue-400 mb-1 uppercase tracking-wider">SEGMEN 03 • BISNIS RENTAL LOKAL</div>
+            <h3 class="text-xl font-bold text-white mb-3 font-alt">Adopsi Sistem REKEN</h3>
+            <p class="text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Punya bisnis travel di Jogja tapi pencatatan order masih manual? Adopsi aplikasi REKEN dengan Dashboard GPS, Modul Operasional, dan WhatsApp AI Copilot untuk otomatisasi booking.
+            </p>
+          </div>
+          <a href="fitur.html" class="inline-flex items-center gap-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+            <span>Eksplorasi Fitur Sistem</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================
+         SOROTAN FITUR SISTEM & AI COPILOT REKEN
+         ======================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="glass-panel p-6 sm:p-10 lg:p-12 rounded-3xl border border-white/10 relative overflow-hidden bg-gradient-to-b from-[#091530] via-[#050D20] to-[#030712]">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-sky-500/10 border border-sky-400/20 text-sky-400 text-xs font-semibold mb-4 font-mono">
+              <i class="fa-solid fa-microchip text-xs"></i>
+              <span>ARSITEKTUR PERANGKAT LUNAK REKEN</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4 font-alt tracking-tight">
+              Sistem Operasional Rental Terintegrasi AI Copilot
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+              Aplikasi REKEN dirancang untuk menyelesaikan kerumitan operasional bisnis rental mobil dan travel di Daerah Istimewa Yogyakarta:
+            </p>
+
+            <div class="space-y-4 mb-8">
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-chart-line text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white font-alt">Dashboard &amp; Status Perangkat</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Monitoring status perangkat IoT GPS armada yang terhubung dan ringkasan operasional secara langsung.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-sliders text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white font-alt">Modul Operasional (4 Halaman Kerja)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Kelola Customers (pelanggan), Drivers (supir), Travel Orders (pesanan masuk), dan Vehicles (inventaris mobil) dalam satu alur kerja.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-brands fa-whatsapp text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white font-alt">Modul WhatsApp &amp; AI Copilot Inbox</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Konfigurasi WhatsApp Instances multi-device serta AI Copilot yang otomatis meracik draf balasan booking armada 24 jam nonstop.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="fitur.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-sky-500/25 hover:opacity-95 transition-all">
+              <span>Pelajari Detail Seluruh Fitur Sistem</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#081228] p-2">
+              <img src="src/images/dashboard-preview.svg" alt="Preview Software REKEN Yogyakarta" class="w-full h-auto rounded-xl object-cover">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================
+         SOROTAN KEMITRAAN & LOWONGAN JOGJA
+         ======================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="editorial-tag mb-2 font-alt">PELUANG KEMITRAAN TERBUKA</div>
+        <h2 class="text-2xl sm:text-4xl font-display font-medium text-white tracking-tight">
+          Peluang Kerjasama &amp; Lowongan di REKEN
+        </h2>
+        <p class="mt-2 text-slate-400 text-sm">
+          Buka potensi ekonomi baru bersama kami. Pilih peran yang sesuai dengan kesiapan Anda:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        
+        <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 font-alt">Titip Mobil</h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Punya mobil menganggur? Daripada diam di garasi, sewakan melalui REKEN dengan proteksi GPS 24 jam &amp; kontrak notarial.
+            </p>
+          </div>
+          <span class="text-xs font-semibold text-sky-400">Rp 4 - 14 Jt / Bulan</span>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-id-card"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 font-alt">Lowongan Driver</h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Bisa nyetir &amp; paham jalanan Jogja? Bergabung sebagai driver mitra wisata untuk order harian dan carter luar kota.
+            </p>
+          </div>
+          <span class="text-xs font-semibold text-blue-400">Jadwal Fleksibel &amp; Tips</span>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 font-alt">Rental Lokal</h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Pengusaha rental konvensional yang ingin mengadopsi software REKEN untuk digitalisasi armada dan AI WhatsApp.
+            </p>
+          </div>
+          <span class="text-xs font-semibold text-emerald-400">Otomatisasi Sistem</span>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-umbrella-beach"></i>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 font-alt">Agen &amp; Reseller</h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Biro wisata atau hotel concierge di Jogja yang butuh suplai armada prima dengan sistem komisi menguntungkan.
+            </p>
+          </div>
+          <span class="text-xs font-semibold text-amber-400">Komisi &amp; Harga Khusus</span>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="mitra.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs sm:text-sm font-semibold transition-all">
+          <span>Pelajari Seluruh Program Kemitraan &amp; Cara Daftar</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </section>
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24" id="armada">
       
       <!-- Section Header -->
@@ -345,10 +569,9 @@
         
         <!-- Fleet Card 1: Innova Zenix Hybrid -->
         <div class="fleet-item-card glass-card flex flex-col justify-between overflow-hidden group" data-category="mpv">
-          <div class="relative overflow-hidden aspect-[16/10] bg-black">
-            <img src="src/images/hero-zenix.jpg" alt="Toyota Innova Zenix" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F] via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#060D1E]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-sky-300 uppercase tracking-wider">
+          <div class="relative overflow-hidden aspect-[16/10] bg-[#0D0E12]">
+            <div class="fleet-single-car-stage w-full h-full" data-fleet-car="zenix"></div>
+            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-slate-200 uppercase tracking-wider pointer-events-none z-10">
               Favorit Wisata
             </div>
           </div>
@@ -390,10 +613,9 @@
 
         <!-- Fleet Card 2: Toyota Alphard VIP -->
         <div class="fleet-item-card glass-card flex flex-col justify-between overflow-hidden group" data-category="vip">
-          <div class="relative overflow-hidden aspect-[16/10] bg-black">
-            <img src="src/images/fleet-alphard.jpg" alt="Toyota Alphard VIP Reken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F] via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#060D1E]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-amber-300 uppercase tracking-wider">
+          <div class="relative overflow-hidden aspect-[16/10] bg-[#0D0E12]">
+            <div class="fleet-single-car-stage w-full h-full" data-fleet-car="alphard"></div>
+            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-slate-200 uppercase tracking-wider pointer-events-none z-10">
               VIP Executive
             </div>
           </div>
@@ -435,10 +657,9 @@
 
         <!-- Fleet Card 3: All New Veloz -->
         <div class="fleet-item-card glass-card flex flex-col justify-between overflow-hidden group" data-category="family">
-          <div class="relative overflow-hidden aspect-[16/10] bg-black">
-            <img src="src/images/fleet-veloz.jpg" alt="Toyota Veloz Modern Reken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F] via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#060D1E]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-sky-300 uppercase tracking-wider">
+          <div class="relative overflow-hidden aspect-[16/10] bg-[#0D0E12]">
+            <div class="fleet-single-car-stage w-full h-full" data-fleet-car="veloz"></div>
+            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-slate-200 uppercase tracking-wider pointer-events-none z-10">
               Best Value
             </div>
           </div>
@@ -708,12 +929,11 @@
           
           <!-- Left: Scenic Route Image with Glow -->
           <div class="lg:col-span-6 relative">
-            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-2 border border-sky-400/30 shadow-2xl">
-              <div class="rounded-xl overflow-hidden aspect-[16/10] bg-black">
-                <img src="src/images/tour-jogja.jpg" alt="Pemandangan Rute Wisata Merapi Yogyakarta Reken" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-4 left-4 text-left">
-                  <span class="text-[10px] uppercase tracking-wider font-bold text-sky-400 bg-black/60 px-2.5 py-1 rounded-full border border-white/10">Rute Eksotis</span>
+            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-2 border border-white/10 shadow-2xl">
+              <div class="rounded-xl overflow-hidden aspect-[16/10] bg-[#0D0E12] relative">
+                <div class="fleet-single-car-stage w-full h-full" data-fleet-car="zenix"></div>
+                <div class="absolute bottom-4 left-4 text-left z-10 pointer-events-none">
+                  <span class="text-[10px] uppercase tracking-wider font-bold text-sky-400 bg-black/60 px-2.5 py-1 rounded-full border border-white/10">Armada Tour Wisata</span>
                   <h4 class="text-lg font-bold text-white mt-1.5 font-alt">Sunrise Lava Tour &amp; Winding Merapi</h4>
                 </div>
               </div>
@@ -1034,14 +1254,13 @@
 
         <!-- Quick Links: Navigasi -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-4 font-alt">Navigasi</h4>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-4 font-alt">Halaman Utama</h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
-            <li><a href="#armada" class="hover:text-white transition-colors">Armada Pilihan</a></li>
-            <li><a href="#cara-sewa" class="hover:text-white transition-colors">Cara Sewa</a></li>
-            <li><a href="#wisata" class="hover:text-white transition-colors">Paket Wisata Jogja</a></li>
-            <li><a href="tentang.html" class="hover:text-white transition-colors">Profil Perusahaan</a></li>
-            <li><a href="kontak.html" class="hover:text-white transition-colors">Hubungi Kami</a></li>
+            <li><a href="index.html" class="text-sky-400 font-semibold">Beranda</a></li>
+            <li><a href="tentang.html" class="hover:text-white transition-colors">Tentang REKEN</a></li>
+            <li><a href="fitur.html" class="hover:text-white transition-colors">Fitur Sistem &amp; AI</a></li>
+            <li><a href="mitra.html" class="hover:text-white transition-colors">Peluang Kemitraan</a></li>
+            <li><a href="kontak.html" class="hover:text-white transition-colors">Kontak &amp; Lokasi</a></li>
           </ul>
         </div>
 
@@ -1163,7 +1382,8 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Unified 3D Real Automotive Engine & Core Logic -->
+  <script src="src/car-single-3d.js"></script>
   <script src="src/script.js"></script>
 </body>
 </html>

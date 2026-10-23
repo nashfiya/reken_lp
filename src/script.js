@@ -4,8 +4,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPageTransitions();
   initNavbar();
   initHeroParallax();
+  initGlobalClickRipples();
   initDownloadModal();
   initStepSwitcher();
   initFaqAccordion();
@@ -13,6 +15,196 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialSlider();
   initFleetFilter();
 });
+
+/* ==========================================================================
+   0. Ultra-Smooth Page Transitions & Dynamic Navigation Movement
+   ========================================================================== */
+function initPageTransitions() {
+  // Ensure top progress bar exists
+  let progressBar = document.getElementById('page-progress-bar');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.id = 'page-progress-bar';
+    progressBar.className = 'page-progress-line';
+    progressBar.setAttribute('aria-hidden', 'true');
+    document.body.prepend(progressBar);
+  }
+
+  // Handle bfcache (Back/Forward Cache) page restoration
+  window.addEventListener('pageshow', () => {
+    document.body.classList.remove('page-exiting');
+    if (progressBar) {
+      progressBar.classList.remove('active');
+      progressBar.style.opacity = '0';
+      progressBar.style.width = '0%';
+    }
+  });
+
+  // Dynamic Magnetic Movement for Desktop Nav Items
+  const navItems = document.querySelectorAll('.nav-link-item');
+  navItems.forEach((item) => {
+    item.addEventListener('mousemove', (e) => {
+      const rect = item.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const text = item.querySelector('.nav-link-text');
+      if (text) {
+        text.style.transform = `translate(${x * 0.16}px, ${y * 0.16 - 1.5}px)`;
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      const text = item.querySelector('.nav-link-text');
+      if (text) {
+        text.style.transform = '';
+      }
+    });
+  });
+
+  // Initialize Smooth Sliding Indicator Pill on Desktop Nav
+  initNavSlidingPill();
+
+  // Intercept internal page navigation for animated transitions
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    // Skip hash links, external links, protocols
+    if (
+      href.startsWith('#') ||
+      href.startsWith('http://') ||
+      href.startsWith('https://') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('javascript:') ||
+      link.target === '_blank'
+    ) {
+      return;
+    }
+
+    // Check if link points to an HTML page
+    const isInternalPage = href.endsWith('.html') || href === '/' || href.includes('.html#');
+    if (!isInternalPage) return;
+
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const targetPath = href.split('#')[0] || 'index.html';
+
+    // If clicking the current page without hash, smooth scroll to top with bounce
+    if (targetPath === currentPath && !href.includes('#')) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      link.classList.add('nav-link-clicked');
+      setTimeout(() => link.classList.remove('nav-link-clicked'), 350);
+      return;
+    }
+
+    // When navigating to a DIFFERENT page:
+    e.preventDefault();
+
+    // Trigger visual click response on link
+    link.classList.add('nav-link-clicked');
+    const textEl = link.querySelector('.nav-link-text, .mobile-nav-text');
+    if (textEl) {
+      textEl.style.transform = 'translateY(-3px) scale(1.08)';
+      textEl.style.color = '#38BDF8';
+    }
+
+    // Start top glowing progress line
+    if (progressBar) {
+      progressBar.style.opacity = '1';
+      progressBar.classList.add('active');
+    }
+
+    // Trigger smooth horizontal slide exit animation on main
+    document.body.classList.add('page-exiting');
+
+    // Smooth navigation delay
+    setTimeout(() => {
+      window.location.href = href;
+    }, 240);
+  });
+}
+
+/* ==========================================================================
+   Smooth Sliding Indicator Pill across Navigation Menu (Efek Geser & Timbul)
+   ========================================================================== */
+function initNavSlidingPill() {
+  const navContainer = document.getElementById('desktop-navigation');
+  if (!navContainer) return;
+
+  // Create sliding pill element if not present
+  let pill = document.getElementById('nav-sliding-pill');
+  if (!pill) {
+    pill = document.createElement('div');
+    pill.id = 'nav-sliding-pill';
+    pill.className = 'nav-sliding-pill';
+    navContainer.prepend(pill);
+  }
+
+  const items = Array.from(navContainer.querySelectorAll('.nav-link-item'));
+  const activeItem = navContainer.querySelector('.nav-link-item.active') || items[0];
+
+  function movePillTo(targetEl) {
+    if (!targetEl || !pill) return;
+    const containerRect = navContainer.getBoundingClientRect();
+    const targetRect = targetEl.getBoundingClientRect();
+
+    pill.style.left = `${targetRect.left - containerRect.left}px`;
+    pill.style.width = `${targetRect.width}px`;
+    pill.style.opacity = '1';
+  }
+
+  // Initial positioning on active item after staggered entrance animations settle
+  if (activeItem) {
+    setTimeout(() => movePillTo(activeItem), 120);
+    setTimeout(() => movePillTo(activeItem), 450);
+  }
+
+  items.forEach((item, index) => {
+    // Hover: smoothly slide pill & cascade wave to neighbor words
+    item.addEventListener('mouseenter', () => {
+      movePillTo(item);
+
+      // Ripple wave to left neighbor word
+      if (items[index - 1]) {
+        items[index - 1].classList.add('nav-wave-neighbor');
+        setTimeout(() => items[index - 1]?.classList.remove('nav-wave-neighbor'), 280);
+      }
+      // Ripple wave to right neighbor word
+      if (items[index + 1]) {
+        items[index + 1].classList.add('nav-wave-neighbor');
+        setTimeout(() => items[index + 1]?.classList.remove('nav-wave-neighbor'), 280);
+      }
+    });
+
+    // Click: spring bounce on pill
+    item.addEventListener('click', () => {
+      movePillTo(item);
+      pill.style.transform = 'scale(1.08)';
+      setTimeout(() => {
+        if (pill) pill.style.transform = 'scale(1)';
+      }, 200);
+    });
+  });
+
+  // When mouse leaves nav, smoothly glide pill back to active item
+  navContainer.addEventListener('mouseleave', () => {
+    const currentActive = navContainer.querySelector('.nav-link-item.active') || items[0];
+    if (currentActive) {
+      movePillTo(currentActive);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    const currentActive = navContainer.querySelector('.nav-link-item.active') || items[0];
+    if (currentActive) movePillTo(currentActive);
+  });
+}
+
+
 
 /* ==========================================================================
    1. Ultra-Modern Navbar, Active Scroll Spy & Mobile Drawer
@@ -437,8 +629,8 @@ function initDownloadModal() {
    ========================================================================== */
 function initHeroParallax() {
   const heroSection = document.getElementById('beranda') || document.getElementById('hero-frame');
-  const heroImg = document.getElementById('hero-bg-photo');
-  if (!heroSection || !heroImg) return;
+  const heroImages = document.querySelectorAll('.hero-bg-photo');
+  if (!heroSection || !heroImages.length) return;
 
   // Respect reduced motion accessibility
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -455,9 +647,9 @@ function initHeroParallax() {
     const rect = heroSection.getBoundingClientRect();
     const normX = (e.clientX - rect.left) / rect.width - 0.5;
     const normY = (e.clientY - rect.top) / rect.height - 0.5;
-    // Very gentle shift (max 10px X, 6px Y)
-    targetX = normX * -10;
-    targetY = normY * -6;
+    // Gentle luxury shift (max 8px X, 5px Y)
+    targetX = normX * -8;
+    targetY = normY * -5;
   });
 
   heroSection.addEventListener('mouseleave', () => {
@@ -466,14 +658,47 @@ function initHeroParallax() {
   });
 
   function update() {
-    currentX += (targetX - currentX) * 0.06;
-    currentY += (targetY - currentY) * 0.06;
-    heroImg.style.transform = `scale(1.02) translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+    currentX += (targetX - currentX) * 0.05;
+    currentY += (targetY - currentY) * 0.05;
+    heroImages.forEach((img) => {
+      img.style.transform = `scale(1.02) translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+    });
     requestAnimationFrame(update);
   }
 
   // Start smooth tracking after initial entrance settling
   setTimeout(() => {
     requestAnimationFrame(update);
-  }, 2200);
+  }, 2000);
 }
+
+
+
+/* ==========================================================================
+   Real Tactile Click Ripples (Alive & Magnetic Feel)
+   ========================================================================== */
+function initGlobalClickRipples() {
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('button, a, .glass-card, .hero-car-interactive-deck');
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const ripple = document.createElement('span');
+    ripple.className = 'click-ripple-bubble';
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+    const prevPos = window.getComputedStyle(target).position;
+    if (prevPos === 'static') {
+      target.style.position = 'relative';
+    }
+    target.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+}
+

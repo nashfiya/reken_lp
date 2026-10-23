@@ -1,58 +1,53 @@
-# TODO: Checklist Landing Page & Floating Island Navbar Reken
+# TODO: Checklist Multi-Page Landing Page & Portal Ekosistem REKEN
 
-Fokus pengembangan diarahkan khusus pada **Ultra-Modern Living Navbar** dan **Landing Page Publik** aplikasi rental mobil & pariwisata Yogyakarta (**Reken.id**).
-
----
-
-## 🚀 Navbar Architecture (6 Elemen Wajib)
-- [x] **Tentang Kami** (`#tentang` / `tentang.html`)
-- [x] **Mitra** (`#mitra` / Program Kemitraan Reken)
-- [x] **Fitur** (`#fitur` / 8 AI & Telematics Features)
-- [x] **Harga** (`#harga` / Katalog Sewa & Tour Jogja)
-- [x] **Kontak** (`#kontak` / `kontak.html`)
-- [x] **Download Sekarang** (CTA Glow Shimmering Button & Modal Interaktif)
+Fokus pengembangan: **Landing Page Multi-Page Publik & Portal Informasi Ekosistem REKEN** untuk mobilitas, software rental, dan kemitraan di Daerah Istimewa Yogyakarta.
 
 ---
 
-## 🎨 Visual Aesthetics & Micro-Interactions (Aturan Desain Terverifikasi)
-- [x] **Floating Island Container (`.header-island`)**:
-  - [x] Frosted glassmorphism `backdrop-blur-2xl` dengan specular edge highlight.
-  - [x] Dual-layer border & ambient shadow elevation.
-  - [x] Kompresi vertikal dinamis saat discroll (`.scrolled`).
-- [x] **Brand Logo Asli (`src/images/logo.png`)**:
-  - [x] Menggunakan asset gambar logo asli (`src/images/logo.png`), bukan icon SVG buatan.
-  - [x] Favicon diselaraskan ke `src/images/logo.png`.
-- [x] **Kepatuhan Aturan Desain**:
-  - [x] **Didalam badge tidak boleh ada icon**: Semua badge text-only (tanpa dot, tanpa icon, tanpa emoji).
-  - [x] **Icon library Font Awesome 6**: Tidak menggunakan icon system buatan tangan; seluruh icon menggunakan library Font Awesome 6.
-  - [x] **Jumlah Badge Terukur**: Menghilangkan badge berlebihan pada menu navbar dan drawer; tampilan bersih dan elegan.
-  - [x] **Bebas Efek Pulse**: Menghilangkan seluruh efek pulse (`animate-pulse`, `animate-ping`, `.live-beacon-ring`).
-  - [x] **Logo Real Image**: Menggunakan `src/images/logo.png` di header, drawer, dan footer di seluruh halaman.
-- [x] **Active Scroll Spy & Smooth Scroll (`src/script.js`)**:
-  - [x] Viewport detection presisi dengan `getBoundingClientRect()`.
-  - [x] Smooth scroll dengan kalkulasi offset tinggi floating navbar island.
-  - [x] Mobile drawer responsive dengan glassmorphism backdrop dan link lengkap.
+## 🧭 Navigasi Simple & Terpadu (5 Menu Esensial)
+- [x] **Beranda** (`index.html`) – Hero immersive, 3 pintu masuk ekosistem, sorotan fitur sistem, sorotan kemitraan, katalog armada Jogja, alur sewa, dan FAQ.
+- [x] **Tentang** (`tentang.html`) – Profil PT Reken Transport Indonesia, transformasi menjadi ekosistem digital mobilitas, komitmen transparansi, dan filosofi hospitality DIY.
+- [x] **Fitur Sistem** (`fitur.html`) – Informasi komprehensif software operasional REKEN untuk SEO & B2B:
+  - [x] **Dashboard**: Metrik status perangkat terhubung (GPS IoT & WhatsApp webhook) serta ringkasan operasional real-time.
+  - [x] **Modul Operasional** (4 Workspace): Customers (data kontak & histori), Drivers (status ketersediaan & lisensi), Travel Orders (siklus pemesanan armada & invoice), Vehicles (katalog inventaris plat nomor & servis).
+  - [x] **Modul WhatsApp**: WhatsApp Instances (sinkronisasi multi-device) & Inbox AI Copilot (rekomendasi draf balasan otomatis 24 jam).
+  - [x] **Layanan Mobilitas & Wisata Jogja**: Lepas kunci, dengan driver, antar jemput luar kota / bandara YIA, dan paket tour DIY.
+- [x] **Kemitraan** (`mitra.html`) – Hub peluang kolaborasi & lowongan:
+  - [x] **Titip Mobil**: Ubah mobil menganggur jadi passive income dengan proteksi GPS IoT & kontrak notarial.
+  - [x] **Mitra Driver**: Lowongan pengemudi wisata & carter Jogja dengan komisi harian, tips adil, dan jadwal fleksibel.
+  - [x] **Mitra Rental & Travel Lokal (Adopsi Sistem)**: Solusi bagi pengusaha rental lokal yang belum memiliki sistem terintegrasi.
+  - [x] **Mitra Agen & Biro Wisata**: Kerjasama suplai unit, kode referral, dan komisi transparan untuk hotel concierge & tour leader.
+- [x] **Kontak** (`kontak.html`) – WhatsApp 24 jam, telepon kantor, email, formulir reservasi/konsultasi terpadu, dan 3 titik pool Jogja.
 
 ---
 
-## 🧹 Pembersihan File & Folder Usang
-- [x] Hapus seluruh file dashboard & modul backend operasional yang tidak relevan:
-  - `customers.html` (dihapus)
-  - `dashboard.html` (dihapus)
-  - `drivers.html` (dihapus)
-  - `inbox.html` (dihapus)
-  - `travel-orders.html` (dihapus)
-  - `vehicles.html` (dihapus)
-  - `whatsapp-instances.html` (dihapus)
-- [x] Pembersihan tautan mati (*dead links*) di seluruh halaman:
-  - `index.html` (semua tautan internal aktif ke anchor atau halaman terkait)
-  - `tentang.html` (selaras dengan floating navbar)
-  - `kontak.html` (selaras dengan floating navbar & modal download terpasang)
-- [x] Pembaruan `sitemap.xml` agar hanya mengindeks halaman pemasaran aktif.
+## 🎨 Visual Aesthetics & Standar Desain
+- [x] **Luxury Blue-Black Glassmorphism**:
+  - [x] Mode siang/cerah telah dihapus total.
+  - [x] Penegakan Dark Theme Guard di `<head>` semua file HTML.
+  - [x] Palet warna konsisten: deep obsidian `#030712`, navy `#0A142F`, aksen electric blue `#2563EB`, dan sky `#38BDF8`.
+- [x] **Floating Island Navbar (`.header-island`)**:
+  - [x] Tampilan bersih, minimalis, dan elegan tanpa badge berlebihan.
+  - [x] Single-line brand logo (`REKEN.ID`).
+  - [x] Mobile drawer responsif dengan tautan navigasi multi-page yang sinkron.
+  - [x] Efek timbul 3D tegas & animasi kata berjalan bergelombang (`navWordWalkPop`).
+- [x] **Halaman Utama Slide dari Kiri**:
+  - [x] Seluruh teks judul dan deskripsi hero meluncur halus dari sebelah kiri.
+- [x] **Interactive 3D WebGL Car Showroom (Bebas Gambar AI)**:
+  - [x] Mengganti gambar statis dengan model mobil 3D Three.js interaktif yang dapat diputar 360° secara bebas oleh pengguna saat disentuh/di-drag.
+  - [x] Turntable studio otomatis dan material metallic reflection PBR.
+- [x] **Natural Smooth Scrolling**:
+  - [x] Efek melipat seperti buku telah dihapus total sesuai permintaan, scrolling kembali alami, flat, dan mulus.
 
 ---
 
-## 🔍 Status Verifikasi
-- [x] 100% Bebas dari tautan 404 / broken link.
-- [x] Desain floating navbar teruji responsif di desktop dan mobile drawer.
-- [x] Modal download dapat dibuka dari tombol CTA navbar di seluruh halaman (`index.html`, `tentang.html`, `kontak.html`).
+## 🚀 Optimasi SEO & Mesin Pencari
+- [x] Arsitektur Multi-Page untuk dominasi kata kunci pencarian rental mobil, travel, dan kemitraan di Yogyakarta.
+- [x] Meta tags lengkap: Title, Description, Keywords, Canonical URL, Open Graph.
+- [x] JSON-LD Structured Data:
+  - [x] `index.html`: `AutoRental` & `LocalBusiness`
+  - [x] `fitur.html`: `SoftwareApplication`
+  - [x] `mitra.html`: `Organization` & `JobPosting`
+- [x] `sitemap.xml`: Terdaftar 5 halaman aktif dengan pembobotan prioritas index.
+- [x] `robots.txt`: Mengizinkan seluruh bot mesin pencari mengindeks sitemap.
+

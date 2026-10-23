@@ -1,487 +1,148 @@
 /* ==========================================================================
-   REKEN - Premium Mobility & Travel Yogyakarta
-   Design System: Blue-Black Glassmorphism (Inspired by Luxury Editorial UI)
+   REKEN - B2B Rental Operating System & Dashboard SaaS
+   Design System: Light Modern SaaS (Inspired by Linear, Stripe, Modern Cloud UX)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* Blue-Black Palette */
-  --bg-deep-black: #030712;
-  --bg-midnight: #060D1E;
-  --bg-dark-navy: #0A142F;
-  --bg-surface: #0E1A3D;
-  --bg-glass: rgba(10, 20, 45, 0.65);
-  --bg-glass-heavy: rgba(6, 13, 30, 0.85);
-  --bg-glass-subtle: rgba(255, 255, 255, 0.04);
+  /* Light Theme Canvas */
+  --bg-base: #FFFFFF;
+  --bg-muted: #F8FAFC;
+  --bg-surface: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAFAFA;
 
-  /* Accents */
-  --accent-electric: #2563EB;
-  --accent-sky: #38BDF8;
-  --accent-cyan: #22D3EE;
-  --accent-ice: #E0F2FE;
-  --accent-glow: rgba(56, 189, 248, 0.28);
-  --accent-deep-glow: rgba(37, 99, 235, 0.35);
+  /* Brand Accents */
+  --accent-blue: #1D4ED8;
+  --accent-blue-hover: #1E40AF;
+  --accent-cyan: #0EA5E9;
+  --accent-teal: #06B6D4;
+  --accent-emerald: #10B981;
+  --accent-amber: #D97706;
 
   /* Borders */
-  --border-glass: rgba(255, 255, 255, 0.09);
-  --border-glass-light: rgba(255, 255, 255, 0.16);
-  --border-glass-active: rgba(56, 189, 248, 0.4);
+  --border-light: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --border-focus: #2563EB;
 
-  /* Text Colors */
-  --text-main: #F8FAFC;
-  --text-muted: #94A3B8;
-  --text-dim: #64748B;
+  /* Typography */
+  --text-main: #0F172A;      /* Slate 900 */
+  --text-body: #334155;      /* Slate 700 */
+  --text-muted: #475569;     /* Slate 600 - contrast safe */
+  --text-subtle: #64748B;    /* Slate 500 - contrast safe */
+  --text-on-dark: #F8FAFC;
+}
+
+/* ==========================================================================
+   Browser Surfaces & Base Typography
+   ========================================================================== */
+::selection {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+a:focus-visible, 
+button:focus-visible, 
+input:focus-visible, 
+textarea:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Base Typographic Scale - Strict >1.25x Hierarchy */
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+}
+
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+p {
+  line-height: 1.6;
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-deep-black);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-base);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: var(--bg-deep-black);
-  color: var(--text-main);
+  background-color: var(--bg-base);
+  color: var(--text-body);
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
 }
 
-/* Luxury Editorial Headings */
-.font-display {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-.font-sans-alt {
+.font-alt {
   font-family: 'Outfit', sans-serif;
 }
 
 /* ==========================================================================
-   Ambient Background (Clean Subtle Tone, No Neon Glow Orbs)
+   Top Animated Page Progress Bar
    ========================================================================== */
-.ambient-glow-mesh {
-  display: none;
-}
-
-/* ==========================================================================
-   Full-Bleed Hero Section (Edge-to-Edge Immersive, No Card Boxing)
-   ========================================================================== */
-.hero-full-section {
-  position: relative;
-  width: 100%;
-  background: var(--bg-deep-black);
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* ==========================================================================
-   Hero Background Media & Atmosphere (Car as True Background)
-   ========================================================================== */
-.hero-bg-media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.hero-bg-photo {
-  transform: scale(1.04);
-  animation: heroBgScale 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-bg-night {
-  opacity: 1;
-  z-index: 1;
-}
-
-@keyframes heroBgScale {
-  0% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-.hero-bg-overlay-top {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 12, 14, 0.88) 0%,
-    rgba(11, 12, 14, 0.45) 120px,
-    transparent 240px
-  );
-  pointer-events: none;
-  transition: background 0.6s ease;
-}
-
-.hero-bg-overlay-left {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    90deg,
-    #0B0C0E 0%,
-    rgba(11, 12, 14, 0.96) 26%,
-    rgba(11, 12, 14, 0.84) 44%,
-    rgba(11, 12, 14, 0.35) 65%,
-    rgba(11, 12, 14, 0.05) 85%,
-    transparent 100%
-  );
-  pointer-events: none;
-  transition: background 0.6s ease;
-}
-
-@media (max-width: 768px) {
-  .hero-bg-overlay-left {
-    background: linear-gradient(
-      180deg,
-      rgba(11, 12, 14, 0.85) 0%,
-      rgba(11, 12, 14, 0.92) 45%,
-      rgba(11, 12, 14, 0.98) 100%
-    );
-  }
-}
-
-.hero-bg-overlay-bottom {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    transparent 60%,
-    rgba(11, 12, 14, 0.6) 82%,
-    #0B0C0E 100%
-  );
-  pointer-events: none;
-  transition: background 0.6s ease;
-}
-
-/* Hero Staggered Slide From Left Animation (Khusus Halaman Utama index.html) */
-.hero-anim-1 {
-  opacity: 0;
-  transform: translateX(-70px);
-  animation: heroSlideFromLeft 0.82s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards !important;
-  will-change: transform, opacity, filter;
-}
-
-.hero-anim-2,
-.hero-main-heading {
-  opacity: 0;
-  transform: translateX(-100px);
-  animation: heroSlideFromLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards !important;
-  will-change: transform, opacity, filter;
-}
-
-.hero-anim-3,
-.hero-body-text {
-  opacity: 0;
-  transform: translateX(-85px);
-  animation: heroSlideFromLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards !important;
-  will-change: transform, opacity, filter;
-}
-
-.hero-anim-4 {
-  opacity: 0;
-  transform: translateX(-75px);
-  animation: heroSlideFromLeft 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards !important;
-  will-change: transform, opacity, filter;
-}
-
-.hero-anim-5 {
-  opacity: 0;
-  transform: translateX(-65px);
-  animation: heroSlideFromLeft 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.48s forwards !important;
-  will-change: transform, opacity, filter;
-}
-
-@keyframes heroSlideFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-95px);
-    filter: blur(8px);
-  }
-  65% {
-    opacity: 0.98;
-    transform: translateX(8px);
-    filter: blur(0);
-  }
-  85% {
-    transform: translateX(-2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-/* Feature Spec Items (Text-only, clean hairlines) */
-.feature-spec-item {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-@media (min-width: 640px) {
-  .feature-spec-item:not(:last-child) {
-    padding-right: 1.5rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-  }
-}
-
-/* ==========================================================================
-   Glassmorphism Foundations & Cards
-   ========================================================================== */
-.glass-panel,
-.editorial-container-frame {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--border-glass);
-  border-radius: 2rem;
-  box-shadow: 
-    0 15px 35px -10px rgba(0, 0, 0, 0.5),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.glass-panel-subtle {
-  background: rgba(14, 26, 56, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.glass-card {
-  position: relative;
-  background: rgba(10, 20, 48, 0.55);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-}
-
-.glass-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 
-    0 20px 40px -12px rgba(0, 0, 0, 0.6),
-    0 0 25px -5px rgba(56, 189, 248, 0.15),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-/* ==========================================================================
-/* ==========================================================================
-   Modern Minimal Floating Navbar (Full Capsule Pill, Bebas Radius Kotak)
-   ========================================================================== */
-.header-island {
-  border-radius: 9999px !important;
-  background: rgba(6, 12, 26, 0.82);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 16px 40px -10px rgba(0, 0, 0, 0.7),
-    0 0 25px -4px rgba(56, 189, 248, 0.16),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
-  padding: 0.5rem 1.25rem !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.header-island.scrolled {
-  border-radius: 9999px !important;
-  background: rgba(4, 8, 18, 0.96);
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 
-    0 18px 45px -10px rgba(0, 0, 0, 0.85),
-    0 0 25px -3px rgba(56, 189, 248, 0.28),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Desktop Navigation Outer Track (Recessed Capsule Trench) */
-#desktop-navigation {
-  position: relative;
-  background: rgba(3, 7, 18, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px !important;
-  padding: 4px 5px;
-  box-shadow: 
-    inset 0 2px 6px rgba(0, 0, 0, 0.6),
-    0 8px 20px -6px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.04);
-}
-
-/* ==========================================================================
-   Smooth 3D Elevated Sliding Indicator Pill (Efek Timbul Tegas & Pijaran Cyan)
-   ========================================================================== */
-.nav-sliding-pill {
-  position: absolute;
-  top: 4px;
-  height: calc(100% - 8px);
-  border-radius: 9999px !important;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.45) 0%, rgba(56, 189, 248, 0.32) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.65);
-  box-shadow: 
-    0 8px 22px -2px rgba(56, 189, 248, 0.55),
-    0 2px 6px rgba(0, 0, 0, 0.5),
-    inset 0 1px 2px 0 rgba(255, 255, 255, 0.45);
-  pointer-events: none;
-  z-index: 1;
-  transition: left 0.34s cubic-bezier(0.16, 1, 0.3, 1),
-              width 0.34s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.22s ease,
-              opacity 0.22s ease;
-  opacity: 0;
-}
-
-/* ==========================================================================
-   Animated Navigation Links (Capsule Pill, Efek Timbul & Kata Berjalan)
-   ========================================================================== */
-.nav-link-item {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #94A3B8;
-  font-weight: 500;
-  font-size: 0.85rem;
-  padding: 0.42rem 1.1rem;
-  border-radius: 9999px !important;
-  text-decoration: none;
-  background: transparent;
-  z-index: 2;
-  transition: color 0.22s ease, transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.22s ease;
-  will-change: transform, color;
-
-  /* Animasi Timbul Bergelombang Kata demi Kata (Tidak bareng-bareng) */
-  animation: navWordWalkPop 0.68s cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
-}
-
-/* Staggered Delay: Setiap kata berjalan satu per satu secara berurutan */
-.nav-link-item:nth-child(1) { animation-delay: 0.06s; }
-.nav-link-item:nth-child(2) { animation-delay: 0.16s; }
-.nav-link-item:nth-child(3) { animation-delay: 0.26s; }
-.nav-link-item:nth-child(4) { animation-delay: 0.36s; }
-.nav-link-item:nth-child(5) { animation-delay: 0.46s; }
-.nav-link-item:nth-child(6) { animation-delay: 0.56s; }
-#nav-cta-wa {
-  animation: navWordWalkPop 0.68s cubic-bezier(0.2, 0.9, 0.3, 1.25) 0.60s both;
-}
-
-/* Keyframe Animasi Timbul & Kata Berjalan */
-@keyframes navWordWalkPop {
-  0% {
-    opacity: 0;
-    transform: translateY(18px) scale(0.82);
-    filter: blur(4px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-6px) scale(1.12); /* Efek timbul terangkat jelas */
-    filter: blur(0);
-    text-shadow: 0 0 16px rgba(56, 189, 248, 0.95);
-  }
-  75% {
-    transform: translateY(1.5px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-.nav-link-item .nav-link-text {
-  display: inline-block;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, text-shadow 0.2s ease;
-  will-change: transform;
-}
-
-/* Hover: Timbul Kuat, Terangkat & Pijar Cyan Mempesona */
-.nav-link-item:hover {
-  transform: translateY(-3px) scale(1.05) !important;
-}
-
-.nav-link-item:hover .nav-link-text {
-  color: #FFFFFF !important;
-  text-shadow: 0 0 16px rgba(56, 189, 248, 0.95), 0 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-/* Efek Riak Tetangga (Neighbor Ripple saat mouse bergerak antar kata) */
-.nav-link-item.nav-wave-neighbor {
-  transform: translateY(-1.5px) scale(1.02);
-  color: #CBD5E1;
-}
-
-/* Click/Active press effect */
-.nav-link-item:active {
-  transform: translateY(1px) scale(0.96) !important;
-}
-
-/* Active Page State - Sangat Timbul & Pijaran Terang */
-.nav-link-item.active {
-  color: #FFFFFF !important;
-  font-weight: 700;
-  transform: translateY(-1.2px);
-}
-
-.nav-link-item.active .nav-link-text {
-  color: #FFFFFF !important;
-  text-shadow: 0 0 18px rgba(56, 189, 248, 1), 0 2px 8px rgba(0, 0, 0, 0.9);
-}
-
-/* Click Animation Triggered by JS */
-.nav-link-item.nav-link-clicked {
-  animation: navItemPulse 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.nav-link-item.nav-link-clicked .nav-link-text {
-  animation: navTextPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-@keyframes navItemPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.94); }
-  100% { transform: scale(1); }
-}
-
-@keyframes navTextPop {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-4px) scale(1.12); color: #38BDF8; text-shadow: 0 0 20px #38BDF8; }
-  100% { transform: translateY(0) scale(1); }
-}
-
-/* ==========================================================================
-   Page Transitions: Geser Mulus & Timbul Muncul Melebar dari Tengah ke Samping
-   ========================================================================== */
-
-/* 1. Top Glowing Laser Progress Bar */
 .page-progress-line {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, #2563EB, #38BDF8, #60A5FA, #22D3EE);
-  z-index: 99999;
-  pointer-events: none;
+  background: linear-gradient(90deg, #0ea5e9, #2563eb, #06b6d4);
+  z-index: 9999;
   opacity: 0;
-  border-radius: 0 9999px 9999px 0;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.9), 0 0 4px #FFFFFF;
-  transition: width 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+  transition: width 0.3s ease, opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .page-progress-line.active {
@@ -489,608 +150,390 @@ body {
   width: 100%;
 }
 
-/* 2. Main Page Content: Timbul & Muncul Mengembang dari Tengah */
-main {
-  animation: pageContentEmergeOutward 0.68s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transform-origin: center 25%;
-  will-change: transform, opacity, filter;
+/* ==========================================================================
+   Floating Island Navbar (Light Frosted Modern SaaS)
+   ========================================================================== */
+.header-island {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
 }
 
-@keyframes pageContentEmergeOutward {
-  0% {
-    opacity: 0;
-    transform: scaleX(0.88) scaleY(0.92) translateY(28px);
-    filter: blur(8px);
-  }
-  50% {
-    opacity: 0.95;
-    filter: blur(1px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
-  }
+.header-island.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.1);
+  border-color: #cbd5e1;
 }
 
-/* 3. Page Exit: Efek Geser Mulus ke Kiri Saat Berpindah Halaman */
-body.page-exiting main {
-  opacity: 0 !important;
-  transform: translateX(-40px) scale(0.97) !important;
-  filter: blur(5px) !important;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* 4. Tulisan Timbul Muncul & Melebar dari Tengah ke Samping (Khusus Sub-Halaman: Tentang, Fitur, Mitra, Kontak) */
-.page-anim-title {
-  animation: timbulMelebarTengah 0.78s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
-  transform-origin: center center;
-  will-change: transform, opacity, letter-spacing, filter;
-}
-
-.page-anim-sub {
-  animation: timbulMelebarTengah 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
-  transform-origin: center center;
-  will-change: transform, opacity, letter-spacing;
-}
-
-.page-anim-badge {
-  animation: timbulMelebarTengah 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  transform-origin: center center;
-}
-
-@keyframes timbulMelebarTengah {
-  0% {
-    opacity: 0;
-    transform: scale(0.82) translateY(24px);
-    letter-spacing: -0.05em;
-    filter: blur(6px);
-  }
-  60% {
-    opacity: 0.98;
-    transform: scale(1.025) translateY(-2px);
-    letter-spacing: 0.02em;
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    letter-spacing: normal;
-    filter: blur(0);
-  }
-}
-
-/* 5. Mobile Drawer Animated Links (Pill Shaped) */
-.mobile-nav-link {
+.nav-link-item {
   position: relative;
-  border-radius: 9999px !important;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.mobile-nav-link .mobile-nav-text {
-  display: inline-block;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+.nav-link-item:hover {
+  color: var(--text-main);
+  background: rgba(241, 245, 249, 0.7);
 }
 
-.mobile-nav-link:hover {
-  background: rgba(255, 255, 255, 0.08);
+.nav-link-item.active {
+  color: var(--accent-blue);
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  font-weight: 600;
 }
 
-.mobile-nav-link:hover .mobile-nav-text {
-  transform: translateX(6px);
-  color: #38BDF8;
+.btn-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.mobile-nav-link:active {
-  transform: scale(0.97);
+.btn-nav-cta:hover {
+  transform: translateY(-1px);
+  background: #1e40af;
+  box-shadow: 0 4px 12px -1px rgba(15, 23, 42, 0.16);
 }
 
 /* ==========================================================================
-   Harmonized Design System: Buttons & Interactive Elements
+   Cards & Surfaces (Light Modern SaaS with Crisp Borders)
    ========================================================================== */
-
-/* 1. Nav CTA Button (Harmonized Pill / Subtle Radius) */
-.btn-nav-simple {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border-radius: 9999px;
-  min-height: 2.375rem;
-  padding: 0.45rem 1.15rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-nav-simple:hover {
-  background: rgba(56, 189, 248, 0.2);
-  border-color: rgba(56, 189, 248, 0.55);
-  transform: translateY(-2.5px);
-  box-shadow: 0 8px 24px -2px rgba(56, 189, 248, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+.glass-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
 }
 
-.btn-nav-simple:active {
-  transform: translateY(1px) scale(0.97);
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+/* Dark Contrast Surface Breaks */
+.dark-contrast-frame {
+  background: #090e1a;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.45);
+}
+
+/* Step Switcher Dots */
+.step-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.step-dot.active {
+  width: 2rem;
+  background-color: #1d4ed8;
 }
 
 /* ==========================================================================
-   Editorial Pill Badges & Buttons
+   Editorial Tags & Pill Badges
    ========================================================================== */
 .editorial-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent-sky);
-}
-
-.editorial-tag::after {
-  content: '';
-  display: inline-block;
-  width: 42px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-sky), transparent);
-}
-
-/* 2. Primary Hero Glass Pill Button (Harmonized Height: 48px) */
-.btn-glass-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  border-radius: 9999px;
-  min-height: 3rem;
-  height: 3rem;
-  padding: 0 1.625rem;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  line-height: 1;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 50%, #E2E8F0 100%);
-  color: #0A142F;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 18px -2px rgba(56, 189, 248, 0.25), 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-glass-primary:hover {
-  transform: translateY(-2px);
-  background: #FFFFFF;
-  box-shadow: 0 8px 25px -4px rgba(56, 189, 248, 0.45), 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.btn-glass-primary:active {
-  transform: scale(0.97);
-}
-
-.btn-icon-bubble {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.625rem;
-  height: 1.625rem;
-  border-radius: 9999px;
-  background: rgba(10, 20, 47, 0.08);
-  color: #0A142F;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.btn-glass-primary:hover .btn-icon-bubble {
-  transform: translateX(3px);
-  background: rgba(10, 20, 47, 0.16);
-}
-
-/* 3. Secondary Hero Glass Button (Harmonized: Exactly Matching 48px Height & Pill Curvature) */
-.btn-glass-secondary,
-.btn-glass-play {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  border-radius: 9999px;
-  min-height: 3rem;
-  height: 3rem;
-  padding: 0 1.5rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1;
-  color: #F1F5F9;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-glass-secondary:hover,
-.btn-glass-play:hover {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(56, 189, 248, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(56, 189, 248, 0.2);
-}
-
-.btn-glass-secondary:active,
-.btn-glass-play:active {
-  transform: scale(0.97);
-}
-
-.play-circle-bubble,
-.play-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.875rem;
-  height: 1.875rem;
-  border-radius: 9999px;
-  background: rgba(56, 189, 248, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: #38BDF8;
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-}
-
-.btn-glass-secondary:hover .play-circle-bubble,
-.btn-glass-play:hover .play-circle {
-  background: rgba(56, 189, 248, 0.28);
-  color: #FFFFFF;
-  border-color: rgba(56, 189, 248, 0.6);
-  transform: scale(1.08);
-}
-
-/* 4. Glass Outline Pill (Harmonized for Fleet and Cards) */
-.btn-glass-pill-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 9999px;
-  min-height: 2.25rem;
-  padding: 0.45rem 1.25rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-cyan {
+  background: #ecfeff;
+  border: 1px solid #a5f3fc;
+  color: #0e7490;
+}
+
+.badge-emerald {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+.badge-amber {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn-primary-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.16);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary-hero:hover {
+  transform: translateY(-2px);
+  background: #1e40af;
+  box-shadow: 0 6px 20px -3px rgba(15, 23, 42, 0.22);
+}
+
+.btn-secondary-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.625rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-secondary-hero:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Dashboard Interactive Showcase Switcher
+   ========================================================================== */
+.dashboard-tab-btn {
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
   font-size: 0.8125rem;
   font-weight: 600;
-  line-height: 1;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
+  color: #cbd5e1;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.btn-glass-pill-outline:hover {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
+.dashboard-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.btn-glass-pill-outline:active {
-  transform: scale(0.97);
-}
-
-/* Real User Click Ripple Animation */
-.click-ripple-bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.6) 0%, rgba(37, 99, 235, 0.2) 60%, transparent 80%);
-  transform: scale(0);
-  animation: rippleExpand 0.6s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
-  pointer-events: none;
-  z-index: 99;
-}
-
-@keyframes rippleExpand {
-  to {
-    transform: scale(3.5);
-    opacity: 0;
-  }
-}
-
-/* Shimmer Button */
-.btn-download-glow {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-download-glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(56, 189, 248, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35);
-}
-
-.btn-download-glow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.25) 50%,
-    transparent 100%
-  );
-  transform: skewX(-25deg);
-  animation: shimmerSweep 3.6s infinite;
-  pointer-events: none;
-}
-
-@keyframes shimmerSweep {
-  0% { left: -120%; }
-  30% { left: 160%; }
-  100% { left: 160%; }
+.dashboard-tab-btn.active {
+  color: #ffffff;
+  background: #1d4ed8;
+  border-color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
-   Feature Triplets (Matches 3 icon points at bottom of reference image)
+   3-Step Interactive Qualification Wizard (Kontak)
    ========================================================================== */
-.feature-triplet-item {
+.wizard-choice-card {
+  padding: 1.125rem 1.25rem;
+  border-radius: 1.25rem;
+  border: 1.5px solid var(--border-light);
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding-right: 1.5rem;
-  position: relative;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.feature-triplet-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 15%;
-  height: 70%;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+.wizard-choice-card:hover {
+  border-color: #38bdf8;
+  background: #f0f9ff;
+  transform: translateY(-1px);
+}
+
+.wizard-choice-card.selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.wizard-step-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  background: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.wizard-step-circle.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.wizard-step-circle.completed {
+  border-color: #10b981;
+  background: #10b981;
+  color: #ffffff;
 }
 
 /* ==========================================================================
-   Keyframe Micro-Animations (Alive & Soft)
+   Micro-animations & Motion System (Impeccable Craft)
    ========================================================================== */
-@keyframes floatCar {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(0.4deg);
-  }
-}
-
-.animate-float-car {
-  animation: floatCar 6.5s ease-in-out infinite;
-}
-
 @keyframes floatBadge {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
 .animate-float-badge {
-  animation: floatBadge 4.5s ease-in-out infinite;
+  animation: floatBadge 4s ease-in-out infinite;
 }
 
-/* Accessibility & Reduced Motion Preference */
+/* Dashboard Showcase Tab Image Crossfade & Micro-Scale */
+.dashboard-showcase-img {
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.dashboard-showcase-img.switching {
+  opacity: 0.3;
+  transform: scale(0.985);
+}
+
+/* Staggered Scroll-Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth CSS Grid FAQ Accordion */
+.faq-content-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-content-grid.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-content-grid-inner {
+  overflow: hidden;
+}
+
+.faq-chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-chevron.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Live Dispatch Simulator Animation Elements */
+.sim-bubble {
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.sim-bubble.sim-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.sim-badge-live {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ==========================================================================
+   Motion Accessibility Guard (prefers-reduced-motion)
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg-photo,
-  .hero-anim-1,
-  .hero-anim-2,
-  .hero-anim-3,
-  .hero-anim-4,
-  .hero-anim-5 {
+  .animate-float-badge {
     animation: none !important;
+  }
+  .dashboard-showcase-img {
+    transition: none !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .faq-content-grid {
+    transition: none !important;
+  }
+  .sim-bubble {
+    transition: none !important;
     transform: none !important;
     opacity: 1 !important;
   }
-}
-
-/* ==========================================================================
-   Watermark Typography
-   ========================================================================== */
-.giant-watermark {
-  font-size: clamp(4.5rem, 15vw, 14rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  color: rgba(56, 189, 248, 0.035);
-  line-height: 0.8;
-  text-transform: uppercase;
-  pointer-events: none;
-  user-select: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-/* ==========================================================================
-   Custom Glass Scrollbar
-   ========================================================================== */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #030712;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
-}
-
-/* ==========================================================================
-   Modal Animations
-   ========================================================================== */
-.modal-overlay-fade {
-  animation: modalFadeIn 0.25s ease-out forwards;
-}
-
-.modal-card-scale {
-  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes modalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes modalScaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(12px);
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  * {
+    transition-duration: 0.05s !important;
+    animation-duration: 0.05s !important;
   }
 }
-
-
-/* ==========================================================================
-   1. Hero Section 3D Real Automotive Stage (<model-viewer> Segala Arah 360°)
-   Latar Polos Netral Studio, Bebas Efek Cahaya Biru AI
-   ========================================================================== */
-#hero-3d-car {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  background-color: #0B0C0E !important;
-  --poster-color: #0B0C0E;
-  outline: none;
-  border: none;
-  cursor: grab;
-  touch-action: pan-y;
-  user-select: none;
-}
-
-#hero-3d-car:active {
-  cursor: grabbing;
-}
-
-/* Allow mouse events to reach 3D canvas while keeping buttons clickable */
-#hero-frame {
-  pointer-events: none;
-}
-
-#hero-frame a,
-#hero-frame button,
-#hero-frame input,
-#hero-frame select,
-#hero-frame .editorial-tag,
-#hero-frame .feature-spec-item {
-  pointer-events: auto;
-}
-
-/* ==========================================================================
-   2. Fleet Cards: 1-Single Real Car 3D Perspective Stage
-   Satu Mobil Nyata Asli per Kartu, 100% Selaras, Latar Polos Netral Studio
-   ========================================================================== */
-.fleet-single-car-stage {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 200px;
-  background: #0D0E12; /* Solid Plain Neutral Dark Studio */
-  overflow: hidden;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: pan-y;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fleet-single-car-stage.is-dragging {
-  cursor: grabbing;
-}
-
-.fleet-single-car-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-/* 1 Single Authentic Showroom Car Photograph */
-.fleet-car-single-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: none;
-  will-change: transform;
-  transform-style: preserve-3d;
-  transition: filter 0.3s ease;
-}
-
-/* Realistic Ground Contact Shadow (Neutral Black, ZERO Blue) */
-.fleet-car-ground-shadow {
-  position: absolute;
-  bottom: 6%;
-  left: 8%;
-  right: 8%;
-  height: 16%;
-  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 75%);
-  border-radius: 50%;
-  pointer-events: none;
-  transform-origin: center center;
-  will-change: transform;
-  filter: blur(8px);
-}
-
-/* Natural Softbox Studio Sheen (ZERO Blue, Authentic Showroom Reflection) */
-.fleet-car-studio-sheen {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 32%,
-    rgba(255, 255, 255, 0.08) 48%,
-    rgba(255, 255, 255, 0.14) 50%,
-    rgba(255, 255, 255, 0.08) 52%,
-    transparent 68%
-  );
-  background-size: 250% 100%;
-  mix-blend-mode: overlay;
-  opacity: 0.5;
-  will-change: background-position;
-}
-
-

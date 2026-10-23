@@ -1,49 +1,38 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth" data-theme="dark">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>Peluang Kemitraan REKEN – Titip Mobil, Lowongan Driver &amp; Kerjasama Rental Travel Jogja</title>
-  <meta name="description" content="Bergabung dengan ekosistem REKEN Yogyakarta. Peluang passive income titip mobil menganggur, lowongan driver/sopir wisata Jogja, adopsi sistem bagi pengusaha rental lokal, dan kerjasama agen pariwisata DIY.">
-  <meta name="keywords" content="kemitraan rental mobil jogja, titip mobil sewa yogyakarta, lowongan driver jogja, lowongan sopir rental jogja, kerjasama travel jogja, sistem rental mobil reken">
-  <meta name="author" content="REKEN Mobility Ecosystem Yogyakarta">
+  <title>Kemitraan B2B &amp; Adopsi Ekosistem REKEN – Solusi Modernisasi Bisnis Rental</title>
+  <meta name="description" content="Bergabung dengan ekosistem B2B REKEN: adopsi software operasional modern, jaringan subleasing antar-rental (oper order), dan modul titip mobil investor dengan proteksi GPS.">
+  <meta name="keywords" content="kemitraan rental mobil, adopsi software rental, kerjasama travel b2b, subleasing rental mobil, ekosistem rental reken">
+  <meta name="author" content="REKEN Technologies">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://reken.id/mitra.html">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://reken.id/mitra.html">
-  <meta property="og:title" content="Peluang Kemitraan REKEN – Titip Mobil, Lowongan Driver &amp; B2B Travel Jogja">
-  <meta property="og:description" content="Punya mobil menganggur? Bisa menyetir? Punya usaha rental tanpa sistem? Bergabunglah dengan ekosistem kemitraan REKEN Yogyakarta untuk hasil maksimal.">
-  <meta property="og:image" content="src/images/dashboard-preview.svg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="src/images/logo.svg">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Pro Icons CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
             brand: {
-              black: '#030712',
-              midnight: '#060D1E',
-              navy: '#0A142F',
-              surface: '#0E1A3D',
-              blue: '#1D4ED8',
-              electric: '#2563EB',
-              sky: '#38BDF8',
-              cyan: '#22D3EE'
+              blue: '#2563EB',
+              cyan: '#0EA5E9',
+              teal: '#06B6D4',
+              dark: '#0F172A',
+              slate: '#1E293B'
             }
           },
           fontFamily: {
@@ -55,90 +44,58 @@
     }
   </script>
 
-  <!-- Theme Guard: Enforce Luxury Dark Theme -->
-  <script>
-    try { localStorage.removeItem('reken-theme'); } catch (e) {}
-    document.documentElement.classList.remove('light-theme');
-    document.documentElement.setAttribute('data-theme', 'dark');
-  </script>
-
-  <!-- Custom Styles: Blue-Black Glassmorphism -->
+  <!-- Custom Styles: Light Modern SaaS -->
   <link rel="stylesheet" href="src/style.css">
-
-  <!-- JSON-LD Structured Data: JobPosting / Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "REKEN Mobility Ecosystem Yogyakarta",
-    "url": "https://reken.id/mitra.html",
-    "logo": "https://reken.id/src/images/logo.svg",
-    "description": "Ekosistem kemitraan rental mobil, titip kendaraan, lowongan pengemudi pariwisata, dan solusi software travel di Daerah Istimewa Yogyakarta."
-  }
-  </script>
 </head>
-<body class="bg-[#030712] text-slate-100 antialiased selection:bg-sky-500 selection:text-white relative overflow-x-hidden min-h-screen">
+<body class="bg-white text-slate-800 antialiased selection:bg-sky-500 selection:text-white relative overflow-x-hidden min-h-screen">
 
   <!-- Top Animated Page Progress Bar -->
   <div id="page-progress-bar" class="page-progress-line" aria-hidden="true"></div>
 
-  <!-- Ambient Glow Mesh Background -->
-  <div class="ambient-glow-mesh pointer-events-none select-none" aria-hidden="true">
-    <div class="ambient-orb-1"></div>
-    <div class="ambient-orb-2"></div>
-    <div class="ambient-orb-3"></div>
-  </div>
-
-  <!-- ========================================================================
-       FLOATING ISLAND NAVBAR (Simple & Clean Multi-Page Navigation)
-       ======================================================================== -->
+  <!-- Header Navigation -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6">
-    <div id="header-island-container" class="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-all duration-300 header-island">
+    <div id="header-island-container" class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all duration-300 header-island">
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2.5 group" id="brand-logo-link">
-        <div class="relative w-8 h-8 rounded-full overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 brand-logo-icon">
-          <img src="src/images/logo.svg" alt="Reken Logo" class="w-full h-full object-contain">
+        <div class="relative w-8 h-8 rounded-full overflow-hidden bg-blue-50 border border-blue-200 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105">
+          <img src="src/images/logo.svg" alt="REKEN Logo" class="w-full h-full object-contain">
         </div>
-        <span class="text-base sm:text-lg font-bold tracking-tight text-white font-alt brand-logo-text">
-          REKEN<span class="text-sky-400 font-extrabold">.ID</span>
+        <span class="text-lg font-bold tracking-tight text-slate-900 font-alt">
+          REKEN<span class="text-blue-600 font-extrabold">.ID</span>
         </span>
       </a>
 
-      <!-- Desktop Nav Menu (Simple & Essential: Beranda, Tentang, Fitur, Mitra, Kontak) -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2" id="desktop-navigation">
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5" id="desktop-navigation">
         <a href="index.html" class="nav-link-item">
-          <span class="nav-link-text">Beranda</span>
-        </a>
-        <a href="tentang.html" class="nav-link-item">
-          <span class="nav-link-text">Tentang</span>
+          <span>Beranda</span>
         </a>
         <a href="fitur.html" class="nav-link-item">
-          <span class="nav-link-text">Fitur Sistem</span>
+          <span>Fitur Sistem</span>
         </a>
         <a href="mitra.html" class="nav-link-item active">
-          <span class="nav-link-text">Kemitraan</span>
+          <span>Kemitraan B2B</span>
+        </a>
+        <a href="tentang.html" class="nav-link-item">
+          <span>Tentang</span>
         </a>
         <a href="kontak.html" class="nav-link-item">
-          <span class="nav-link-text">Kontak</span>
+          <span>Kontak</span>
         </a>
       </nav>
 
       <!-- Right Action CTA -->
-      <div class="hidden sm:flex items-center gap-2.5">
-        <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20tertarik%20bergabung%20menjadi%20Mitra" target="_blank" rel="noopener noreferrer" class="btn-nav-simple" id="nav-cta-wa">
-          <span>Daftar Mitra</span>
-          <i class="fa-solid fa-arrow-right text-xs text-sky-400"></i>
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="kontak.html" class="btn-nav-cta">
+          <span>Coba Demo Gratis</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
         </a>
       </div>
 
-      <!-- Mobile Controls (Chat + Hamburger) -->
-      <div class="flex lg:hidden items-center gap-1.5 sm:gap-2">
-        <a href="https://wa.me/6281234567890?text=Halo%20Reken" target="_blank" rel="noopener noreferrer" class="sm:hidden px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/25 text-sky-300 text-xs font-semibold flex items-center gap-1.5">
-          <i class="fa-brands fa-whatsapp text-emerald-400 text-xs"></i>
-          <span>Chat</span>
-        </a>
-        <button id="mobile-menu-toggle" type="button" class="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none" aria-label="Toggle menu">
+      <!-- Mobile Button -->
+      <div class="flex lg:hidden items-center gap-2">
+        <button id="mobile-menu-toggle" type="button" class="p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
           <i class="fa-solid fa-bars text-lg"></i>
         </button>
       </div>
@@ -146,373 +103,189 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden transition-all">
-    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-[#070F26] border-l border-white/10 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden transition-all">
+    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
       <div>
-        <div class="flex items-center justify-between pb-5 border-b border-white/10">
+        <div class="flex items-center justify-between pb-5 border-b border-slate-200">
           <div class="flex items-center gap-2.5">
-            <img src="src/images/logo.svg" alt="Reken Logo" class="w-8 h-8 rounded-lg object-contain">
-            <span class="font-bold text-lg text-white font-alt">REKEN<span class="text-sky-400">.ID</span></span>
+            <img src="src/images/logo.svg" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain">
+            <span class="font-bold text-lg text-slate-900 font-alt">REKEN<span class="text-blue-600">.ID</span></span>
           </div>
-          <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-white" aria-label="Tutup Menu">
+          <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-slate-700" aria-label="Tutup Menu">
             <i class="fa-solid fa-xmark text-lg"></i>
           </button>
         </div>
-
-        <nav class="mt-6 flex flex-col gap-1.5 text-sm font-medium text-slate-300">
-          <a href="index.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span class="mobile-nav-text">Beranda</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+        <nav class="mt-6 flex flex-col gap-1.5 text-sm font-medium text-slate-700">
+          <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-between">
+            <span>Beranda</span>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
           </a>
-          <a href="tentang.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span class="mobile-nav-text">Tentang REKEN</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+          <a href="fitur.html" class="px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-between">
+            <span>Fitur Sistem</span>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
           </a>
-          <a href="fitur.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span class="mobile-nav-text">Fitur Sistem</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+          <a href="mitra.html" class="px-4 py-3 rounded-xl bg-blue-50 text-blue-600 font-semibold border border-blue-100 flex items-center justify-between">
+            <span>Kemitraan B2B</span>
+            <i class="fa-solid fa-chevron-right text-xs text-blue-500"></i>
           </a>
-          <a href="mitra.html" class="mobile-nav-link active px-4 py-3 rounded-xl bg-sky-500/10 text-sky-300 border border-sky-400/20 flex items-center justify-between">
-            <span class="mobile-nav-text">Kemitraan (Titip Mobil &amp; Driver)</span>
-            <i class="fa-solid fa-chevron-right text-xs text-sky-400"></i>
+          <a href="tentang.html" class="px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-between">
+            <span>Tentang REKEN</span>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
           </a>
-          <a href="kontak.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-colors flex items-center justify-between">
-            <span class="mobile-nav-text">Kontak &amp; Lokasi Jogja</span>
-            <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+          <a href="kontak.html" class="px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-between">
+            <span>Kontak &amp; Demo</span>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
           </a>
         </nav>
       </div>
-
-      <div class="pt-6 border-t border-white/10">
-        <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20tertarik%20bergabung%20menjadi%20Mitra" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-full bg-gradient-to-r from-sky-400 to-blue-600 text-white font-bold text-xs text-center flex items-center justify-center gap-2 shadow-lg shadow-sky-500/25">
-          <i class="fa-brands fa-whatsapp text-sm"></i>
-          <span>Konsultasi Kemitraan Sekarang</span>
+      <div class="pt-6 border-t border-slate-200">
+        <a href="kontak.html" class="w-full py-3 rounded-full bg-blue-600 text-white font-bold text-xs text-center flex items-center justify-center gap-2 shadow-md shadow-slate-900/10">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Jadwalkan Live Demo</span>
         </a>
       </div>
     </div>
   </div>
 
-  <main class="pt-28 sm:pt-32 pb-20 relative z-10">
-
-    <!-- ========================================================================
-         PAGE HERO: Program Kemitraan & Peluang Kolaborasi
-         ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/25 text-emerald-400 text-xs font-semibold mb-5 font-alt tracking-wide page-anim-sub">
-        <i class="fa-solid fa-handshake text-emerald-400 text-xs"></i>
-        <span>PELUANG KERJASAMA &amp; LOWONGAN MOBILITAS JOGJA</span>
-      </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 font-alt leading-[1.15] page-anim-title">
-        Tumbuh Bersama Ekosistem <span class="bg-gradient-to-r from-emerald-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">REKEN</span>
+  <main class="relative z-10 pt-28 sm:pt-36 pb-20">
+    
+    <!-- Hero Header -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight font-alt">
+        Tumbuh Bersama Jaringan Ekosistem <span class="text-blue-600">Rental Terhubung se-Indonesia</span>
       </h1>
-      <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-light mb-10 page-anim-sub">
-        REKEN membuka pintu kemitraan terbuka seluas-luasnya untuk masyarakat Yogyakarta: punya mobil menganggur, punya keahlian menyetir, pemilik bisnis rental konvensional, hingga biro pariwisata.
+      <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        REKEN bukan sekadar software, melainkan ekosistem kolaborasi. Pelajari bagaimana ratusan pengusaha rental saling lempar order saat garasi penuh, mengelola mobil investor secara aman, dan mengotomasi operasional harian.
       </p>
-
-      <!-- 4 Quick Stats Badges -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-          <div class="text-2xl font-extrabold text-sky-400 font-alt mb-1">Rp 4 - 15 Juta</div>
-          <div class="text-xs text-slate-400">Estimasi Passive Income Titip Mobil / Bulan</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-          <div class="text-2xl font-extrabold text-emerald-400 font-alt mb-1">100% Proteksi</div>
-          <div class="text-xs text-slate-400">GPS IoT Tracking &amp; Perjanjian Notarial</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-          <div class="text-2xl font-extrabold text-blue-400 font-alt mb-1">Fleksibel</div>
-          <div class="text-xs text-slate-400">Jadwal Tugas Driver Wisata Jogja</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-          <div class="text-2xl font-extrabold text-amber-400 font-alt mb-1">AI Integrated</div>
-          <div class="text-xs text-slate-400">Software Operasional untuk Biro Rental</div>
-        </div>
-      </div>
     </section>
 
-    <!-- ========================================================================
-         4 PILAR KEMITRAAN UTAMA REKEN
-         ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4 font-alt tracking-tight">
-          Pilih Jalur Kemitraan Sesuai Potensi Anda
-        </h2>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-          Setiap orang memiliki peran dalam ekosistem mobilitas. Temukan skema kerjasama yang paling cocok untuk Anda:
-        </p>
+    <!-- 3 B2B Partnership Pillars -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mb-24 divide-y divide-slate-200">
+      
+      <!-- Pilar 1: Adopsi Sistem Rental -->
+      <div id="adopsi-sistem" class="py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center scroll-mt-28 reveal-on-scroll">
+        <div class="lg:col-span-7 space-y-4 text-left">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-alt">
+            Modernisasi Usaha Rental: Migrasi Kilat dari Excel &amp; Buku Nota
+          </h2>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Apakah usaha rental Anda saat ini masih mencatat ketersediaan armada di kertas atau spreadsheet manual? Tim technical specialist REKEN akan mendampingi proses setup awal, memindahkan data unit, serta melatih admin dan supir Anda hingga mahir.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 pt-2">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Migrasi data Excel gratis dipandu tim REKEN</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Setup WhatsApp AI Copilot &amp; Google Calendar</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Pelatihan staf operasional via Google Meet</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Garansi onboarding tuntas dalam 24 jam</div>
+          </div>
+          <div class="pt-4">
+            <a href="kontak.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-900/10">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Konsultasi Adopsi Sistem</span>
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-blue-50/60 border border-blue-100 text-left">
+          <div class="text-xs font-bold text-blue-800 uppercase tracking-wider font-mono mb-4">Hasil Nyata Setelah Adopsi</div>
+          <div class="space-y-4 text-xs text-slate-700">
+            <div class="pb-3 border-b border-blue-100">
+              <span class="font-bold text-slate-900 block text-sm mb-1">Waktu Admin Terpangkas 70%</span>
+              Respon ketersediaan unit ke calon penyewa otomatis tanpa perlu cek garasi fisik.
+            </div>
+            <div>
+              <span class="font-bold text-slate-900 block text-sm mb-1">0% Jadwal Double-Booking</span>
+              Timeline kalender mengunci otomatis begitu ada pemesanan terkonfirmasi.
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-8">
-
-        <!-- Pilar 1: Titip Mobil Menganggur (Car Host Partner) -->
-        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-sky-400/25 relative overflow-hidden bg-gradient-to-r from-sky-950/30 via-[#081530] to-transparent">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-sky-500/10 border border-sky-400/30 text-sky-400 text-xs font-semibold mb-3 font-mono">
-                <span>SKEMA 01 • PEMILIK KENDARAAN</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 font-alt">
-                Titip Mobil: Ubah Mobil Menganggur Menjadi Passive Income
-              </h3>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light">
-                Punya mobil di garasi yang jarang terpakai? Daripada menganggur dan mengalami depresiasi nilai, titipkan mobil Anda di REKEN untuk direntalkan kepada wisatawan dan pebisnis terverifikasi di Yogyakarta.
-              </p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-xs sm:text-sm text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-satellite-dish text-sky-400 mt-1"></i>
-                  <span><strong>GPS IoT Real-Time:</strong> Anda dapat memantau lokasi mobil Anda kapan saja lewat aplikasi.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-file-contract text-sky-400 mt-1"></i>
-                  <span><strong>Kontrak Notarial:</strong> Perjanjian legal jelas, transparan, dan melindungi hak pemilik.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-screwdriver-wrench text-sky-400 mt-1"></i>
-                  <span><strong>Perawatan Terjadwal:</strong> Tim teknis REKEN rutin mencuci dan servis oli armada Anda.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-shield-halved text-sky-400 mt-1"></i>
-                  <span><strong>Verifikasi Ketat:</strong> Penyewa wajib KTP, SIM, akun medsos, dan deposit keamanan.</span>
-                </div>
-              </div>
-
-              <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20punya%20mobil%20menganggur%20dan%20tertarik%20titip%20mobil" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-sky-500/25">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Daftarkan Mobil Saya Sekarang</span>
-              </a>
-            </div>
-
-            <div class="lg:col-span-4 p-6 rounded-2xl bg-black/40 border border-white/10 text-center">
-              <div class="text-xs text-slate-400 uppercase tracking-wider mb-2 font-mono">Estimasi Bagi Hasil Bulanan</div>
-              <div class="text-3xl sm:text-4xl font-extrabold text-sky-400 font-alt mb-2">Rp 4,5 - 14 Jt*</div>
-              <p class="text-[11px] text-slate-500 mb-4">*Tergantung tipe armada (Avanza, Innova Zenix, HiAce) &amp; tingkat utilisasi hari sewa.</p>
-              <div class="text-xs text-slate-300 py-2 px-3 rounded-lg bg-white/5 border border-white/5">
-                Armada paling dicari di Jogja: <strong>Avanza, Brio, Innova Zenix, HiAce</strong>.
-              </div>
-            </div>
+      <!-- Pilar 2: Subleasing & Jaringan Antar-Rental -->
+      <div id="subleasing-b2b" class="py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center scroll-mt-28 reveal-on-scroll">
+        <div class="lg:col-span-7 space-y-4 text-left">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-alt">
+            Garasi Penuh Saat Liburan? Jangan Tolak Tamu, Oper Order ke Rekanan!
+          </h2>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Saat peak season, garasi Anda sering kehabisan unit Innova Zenix atau HiAce. Lewat modul kemitraan B2B di dashboard REKEN, Anda dapat meminjam unit rekanan rental terverifikasi dengan skema bagi hasil transparan yang otomatis tercatat dalam sistem.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 pt-2">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Status unit bertanda 'Mitra B2B' di jadwal kalender</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Kalkulasi komisi oper order dihitung otomatis</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Rekanan rental terverifikasi dengan legalitas resmi</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Tambahan omset tanpa perlu beli unit mobil baru</div>
+          </div>
+          <div class="pt-4">
+            <a href="https://wa.me/6281234567890?text=Halo%20Tim%20REKEN,%20saya%20tertarik%20bergabung%20Jaringan%20Kemitraan%20B2B" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-900/10">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Gabung Jaringan B2B</span>
+            </a>
           </div>
         </div>
-
-        <!-- Pilar 2: Lowongan Jasa Menyetir / Driver Wisata -->
-        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-blue-400/25 relative overflow-hidden bg-gradient-to-r from-blue-950/30 via-[#071129] to-transparent">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-500/10 border border-blue-400/30 text-blue-400 text-xs font-semibold mb-3 font-mono">
-                <span>SKEMA 02 • LOWONGAN JASA MENYETIR</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 font-alt">
-                Mitra Driver: Lowongan Pengemudi Pariwisata &amp; Rental Jogja
-              </h3>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light">
-                Punya keahlian menyetir mobil, hafal rute wisata Yogyakarta, dan ramah? Bergabunglah sebagai Driver Mitra REKEN. Kami sering membutuhkan sopir tambahan saat musim liburan, pesanan corporate, dan carter luar kota.
-              </p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-xs sm:text-sm text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-clock-rotate-left text-blue-400 mt-1"></i>
-                  <span><strong>Jadwal Fleksibel:</strong> Terima penugasan sesuai ketersediaan waktu luang Anda.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-wallet text-blue-400 mt-1"></i>
-                  <span><strong>Komisi &amp; Tips Adil:</strong> Pembayaran komisi harian transparan ditambah tips dari tamu.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-certificate text-blue-400 mt-1"></i>
-                  <span><strong>Pelatihan Hospitality:</strong> Panduan melayani turis domestik &amp; mancanegara standar DIY.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-umbrella text-blue-400 mt-1"></i>
-                  <span><strong>Jaminan Kerja:</strong> Pelindungan operasional dan asuransi selama bertugas.</span>
-                </div>
-              </div>
-
-              <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20punya%20SIM%20dan%20tertarik%20melamar%20menjadi%20Mitra%20Driver" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-blue-500/25">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Daftar Lowongan Driver Jogja</span>
-              </a>
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-emerald-50/60 border border-emerald-100 text-left">
+          <div class="text-xs font-bold text-emerald-800 uppercase tracking-wider font-mono mb-4">Simulasi Oper Order</div>
+          <div class="text-xs text-slate-700 space-y-2.5">
+            <div class="flex justify-between py-1 border-b border-emerald-100">
+              <span>Tarif Sewa Tamu:</span>
+              <span class="font-bold text-slate-900">Rp 850.000 / hari</span>
             </div>
-
-            <div class="lg:col-span-4 p-6 rounded-2xl bg-black/40 border border-white/10 text-center">
-              <div class="text-xs text-slate-400 uppercase tracking-wider mb-2 font-mono">Persyaratan Utama Driver</div>
-              <div class="text-left space-y-2 text-xs text-slate-300 my-4">
-                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Memiliki SIM A / B aktif</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Hafal destinasi wisata &amp; kuliner Jogja</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Sikap sopan, jujur, &amp; tepat waktu</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Bebas catatan kriminal &amp; narkoba</div>
-              </div>
-              <div class="text-[11px] text-slate-500">Pendaftaran gratis tanpa dipungut biaya apapun.</div>
+            <div class="flex justify-between py-1 border-b border-emerald-100">
+              <span>Biaya Rekanan B2B:</span>
+              <span class="text-slate-600">Rp 700.000 / hari</span>
             </div>
+            <div class="pt-2 flex justify-between font-bold text-emerald-700 text-sm">
+              <span>Profit Bersih Anda:</span>
+              <span>Rp 150.000 / hari</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2">Tanpa keluar biaya bensin, tanpa depresiasi armada Anda sendiri.</p>
           </div>
         </div>
-
-        <!-- Pilar 3: Pengusaha Rental & Biro Travel (Adopsi Sistem REKEN) -->
-        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-emerald-400/25 relative overflow-hidden bg-gradient-to-r from-emerald-950/30 via-[#061523] to-transparent">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 text-xs font-semibold mb-3 font-mono">
-                <span>SKEMA 03 • BISNIS RENTAL &amp; TRAVEL LOKAL</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 font-alt">
-                Mitra Travel: Adopsi Software REKEN untuk Kelola Usaha Anda
-              </h3>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light">
-                Sudah memiliki armada atau usaha travel di Yogyakarta tetapi manajemen jadwal masih pakai buku catatan dan WhatsApp sering terlewat? Adopsi aplikasi REKEN! Dapatkan dashboard operasional modern lengkap dengan integrasi AI WhatsApp Copilot.
-              </p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-xs sm:text-sm text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-robot text-emerald-400 mt-1"></i>
-                  <span><strong>AI WhatsApp Balas Otomatis:</strong> Balas pertanyaan sewa calon tamu dalam hitungan detik.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-network-wired text-emerald-400 mt-1"></i>
-                  <span><strong>Supply Sharing:</strong> Saat rental Anda kekurangan mobil, bisa pinjam armada REKEN rekanan.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-file-invoice-dollar text-emerald-400 mt-1"></i>
-                  <span><strong>Invoice &amp; Kwitansi Instan:</strong> Cetak invoice resmi dengan logo bisnis Anda sendiri.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-chart-pie text-emerald-400 mt-1"></i>
-                  <span><strong>Laporan Laba Rugi:</strong> Rekap otomatis pendapatan sewa, komisi driver, dan bensin.</span>
-                </div>
-              </div>
-
-              <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20pemilik%20rental%20mobil%20Jogja%20dan%20ingin%20pakai%20software%20REKEN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/25">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Konsultasi Adopsi Sistem Rental</span>
-              </a>
-            </div>
-
-            <div class="lg:col-span-4 p-6 rounded-2xl bg-black/40 border border-white/10 text-center">
-              <div class="text-xs text-slate-400 uppercase tracking-wider mb-2 font-mono">Solusi Masalah Usaha Anda</div>
-              <div class="text-left space-y-2.5 text-xs text-slate-300 my-4">
-                <div class="p-2.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-300">
-                  ❌ Chat malam hari tidak terbalas, tamu lari ke rental lain.
-                </div>
-                <div class="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
-                  ✅ AI Copilot REKEN merespon dan buat draf sewa 24/7.
-                </div>
-              </div>
-              <div class="text-[11px] text-slate-400">Tingkatkan efisiensi kerja staf hingga 80%.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pilar 4: Mitra Agen & Biro Wisata (Reseller Partner) -->
-        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-amber-400/25 relative overflow-hidden bg-gradient-to-r from-amber-950/30 via-[#181105] to-transparent">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-400/30 text-amber-400 text-xs font-semibold mb-3 font-mono">
-                <span>SKEMA 04 • AGEN &amp; BIRO PERJALANAN</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 font-alt">
-                Mitra Agen: Kolaborasi Paket Wisata &amp; Suplai Unit Armada
-              </h3>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light">
-                Apakah Anda seorang agen pariwisata, tour leader, atau hotel concierge di Yogyakarta? Bermitralah dengan REKEN untuk mendapatkan komisi menarik setiap kali merekomendasikan sewa mobil atau paket tur kepada tamu Anda.
-              </p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-xs sm:text-sm text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-hand-holding-dollar text-amber-400 mt-1"></i>
-                  <span><strong>Komisi Transparan:</strong> Komisi langsung cair untuk setiap penyelesaian sewa.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-car text-amber-400 mt-1"></i>
-                  <span><strong>Garansi Suplai Unit:</strong> Kepastian armada bersih dan wangi untuk tamu VIP Anda.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-tag text-amber-400 mt-1"></i>
-                  <span><strong>Harga Khusus Agen:</strong> Tarif nett spesial untuk paket bundling liburan Jogja.</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-headset text-amber-400 mt-1"></i>
-                  <span><strong>Dedicated Dispatcher:</strong> Jalur prioritas pemesanan tanpa antri.</span>
-                </div>
-              </div>
-
-              <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20agen%20wisata%20dan%20tertarik%20kerjasama%20suplai%20armada" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-amber-500/25">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Hubungi Kerjasama Agen Wisata</span>
-              </a>
-            </div>
-
-            <div class="lg:col-span-4 p-6 rounded-2xl bg-black/40 border border-white/10 text-center">
-              <div class="text-xs text-slate-400 uppercase tracking-wider mb-2 font-mono">Cocok Untuk</div>
-              <ul class="text-left space-y-2 text-xs text-slate-300 my-4">
-                <li>• Tour Leader &amp; Pemandu Wisata DIY</li>
-                <li>• Front Office &amp; Concierge Hotel di Jogja</li>
-                <li>• Travel Content Creator &amp; Blogger</li>
-                <li>• Event Organizer (EO) &amp; Wedding Planner</li>
-              </ul>
-              <div class="text-[11px] text-amber-400">Dapatkan kode referral &amp; dashboard komisi.</div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Pilar 3: Modul Titip Mobil Investor -->
+      <div id="titip-mobil" class="py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center scroll-mt-28 reveal-on-scroll">
+        <div class="lg:col-span-7 space-y-4 text-left">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-alt">
+            Kelola Armada Titipan Investor dengan Transparansi Penuh
+          </h2>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Ingin memperbesar garasi tanpa beban kredit bank? Terima unit titipan dari pemilik mobil pribadi atau investor. Dashboard REKEN menyediakan modul pembagian hasil otomatis dan pelaporan utilisasi bulanan yang transparan.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 pt-2">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-purple-600"></i> Rekap hari sewa dan kilometer per unit mobil titipan</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-purple-600"></i> Laporan bagi hasil otomatis per investor setiap akhir bulan</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-purple-600"></i> Terintegrasi proteksi GPS IoT &amp; histori perjalanan rute</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-purple-600"></i> Meningkatkan kepercayaan investor terhadap bisnis rental Anda</div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-purple-50/60 border border-purple-100 text-left">
+          <div class="text-xs font-bold text-purple-800 uppercase tracking-wider font-mono mb-3">Keunggulan Modul Investor</div>
+          <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+            Investor dapat diberikan laporan PDF transparan mengenai tanggal pemakaian, biaya perawatan, dan persentase komisi tanpa membongkar data rahasia sewa lainnya.
+          </p>
+          <span class="text-xs font-bold text-purple-800 bg-white px-3.5 py-2 rounded-lg border border-purple-200 inline-block shadow-sm">
+            Ekspor Laporan Investor 1-Klik
+          </span>
+        </div>
+      </div>
+
     </section>
 
-    <!-- ========================================================================
-         ALUR BERGABUNG KEMITRAAN (3 LANGKAH MUDAH)
-         ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-alt">
-          Bagaimana Cara Bergabung Menjadi Mitra REKEN?
+    <!-- Final CTA -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
+      <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl">
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-alt mb-3">
+          Siap Bergabung dengan Ekosistem REKEN?
         </h2>
-        <p class="text-slate-300 text-sm font-light">Proses seleksi dan pendaftaran dirancang cepat, aman, dan tanpa birokrasi berbelit:</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 relative">
-          <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center mb-4 font-mono">1</div>
-          <h3 class="text-base font-bold text-white mb-2 font-alt">Kirim Data &amp; Dokumen</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Hubungi tim kemitraan kami lewat WhatsApp dan kirimkan data kendaraan (STNK/foto mobil) untuk titip mobil, atau foto SIM untuk pendaftaran driver.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 relative">
-          <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center mb-4 font-mono">2</div>
-          <h3 class="text-base font-bold text-white mb-2 font-alt">Inspeksi &amp; Kontrak Perjanjian</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Tim REKEN melakukan cek fisik unit kendaraan, pemasangan unit GPS IoT (gratis), dan penandatanganan perjanjian kerjasama legal.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 relative">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center mb-4 font-mono">3</div>
-          <h3 class="text-base font-bold text-white mb-2 font-alt">Mulai Hasilkan Pendapatan</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Mobil Anda langsung masuk katalog sewa atau driver mulai menerima jadwal penugasan. Laporan pendapatan dan transfer komisi dibayar tepat waktu.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         CTA BANNER: KONSULTASI PENDAFTARAN MITRA
-         ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="glass-panel p-8 sm:p-14 rounded-3xl border border-emerald-400/30 relative overflow-hidden bg-gradient-to-r from-emerald-950/70 via-[#061829]/80 to-blue-950/70">
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4 font-alt">
-          Jangan Biarkan Potensi Anda &amp; Mobil Menganggur Begitu Saja
-        </h2>
-        <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base mb-8 font-light leading-relaxed">
-          Diskusikan dengan staf kemitraan REKEN Yogyakarta untuk mendapatkan simulasi penghasilan dan jadwal temu di kantor kami.
+        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
+          Diskusikan kebutuhan operasional armada dan peluang kolaborasi B2B Anda bersama product manager kami.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/6281234567890?text=Halo%20Reken,%20saya%20ingin%20konsultasi%20langsung%20program%20kemitraan" target="_blank" rel="noopener noreferrer" class="btn-download-glow px-8 py-3.5 rounded-full text-white text-sm font-bold flex items-center gap-2 shadow-xl shadow-emerald-500/20">
-            <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
-            <span>Chat WhatsApp Tim Kemitraan REKEN</span>
+          <a href="kontak.html" class="px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-950/40">
+            Jadwalkan Konsultasi B2B
           </a>
-          <a href="fitur.html" class="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all">
-            <span>Lihat Fitur Aplikasi Kami</span>
+          <a href="https://wa.me/6281234567890?text=Halo%20Tim%20REKEN,%20saya%20ingin%20konsultasi%20kemitraan%20B2B" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs border border-white/20 transition-all">
+            WhatsApp Hotline
           </a>
         </div>
       </div>
@@ -520,71 +293,24 @@
 
   </main>
 
-  <!-- ========================================================================
-       FOOTER (Consistent Dark Velvet Indigo Anchor)
-       ======================================================================== -->
-  <footer class="border-t border-white/10 bg-[#060D1E] relative z-10 pt-16 pb-12 text-slate-400 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-        
-        <div class="lg:col-span-2">
-          <div class="flex items-center gap-2.5 mb-4">
-            <img src="src/images/logo.svg" alt="Reken Logo" class="w-8 h-8 rounded-lg object-contain">
-            <span class="text-xl font-bold text-white font-alt">REKEN<span class="text-sky-400">.ID</span></span>
-          </div>
-          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 font-light max-w-sm">
-            Platform ekosistem mobilitas cerdas, kemitraan inklusif, dan software manajemen rental mobil bertenaga WhatsApp AI Copilot di Daerah Istimewa Yogyakarta.
-          </p>
-          <div class="text-xs text-slate-500 font-mono">
-            Yogyakarta • Sleman • Bantul • Kulon Progo • Gunungkidul
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-4 font-alt text-sm uppercase tracking-wider">Halaman Utama</h4>
-          <ul class="space-y-2.5 text-xs">
-            <li><a href="index.html" class="hover:text-sky-400 transition-colors">Beranda</a></li>
-            <li><a href="tentang.html" class="hover:text-sky-400 transition-colors">Tentang REKEN</a></li>
-            <li><a href="fitur.html" class="hover:text-sky-400 transition-colors">Fitur Sistem &amp; AI</a></li>
-            <li><a href="mitra.html" class="text-sky-400 font-semibold">Peluang Kemitraan</a></li>
-            <li><a href="kontak.html" class="hover:text-sky-400 transition-colors">Kontak &amp; Lokasi</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-4 font-alt text-sm uppercase tracking-wider">Jalur Mitra</h4>
-          <ul class="space-y-2.5 text-xs">
-            <li><a href="#mitra-titip-mobil" class="hover:text-sky-400 transition-colors">Titip Mobil Menganggur</a></li>
-            <li><a href="#mitra-driver" class="hover:text-sky-400 transition-colors">Lowongan Driver Wisata</a></li>
-            <li><a href="#mitra-rental" class="hover:text-sky-400 transition-colors">Adopsi Sistem Rental Lokal</a></li>
-            <li><a href="#mitra-agen" class="hover:text-sky-400 transition-colors">Kerjasama Agen Wisata</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-bold mb-4 font-alt text-sm uppercase tracking-wider">Kantor Kemitraan</h4>
-          <p class="text-xs text-slate-400 mb-2 font-light">Jl. Malioboro - Prawirotaman, Kota Yogyakarta, D.I. Yogyakarta</p>
-          <p class="text-xs text-slate-400 mb-4 font-light">Email: mitra@reken.id</p>
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 font-semibold">
-            <i class="fa-brands fa-whatsapp text-sm"></i>
-            <span>+62 812-3456-7890</span>
-          </a>
-        </div>
-
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 pt-12 pb-10 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <img src="src/images/logo.svg" alt="REKEN Logo" class="w-7 h-7 rounded-lg object-contain bg-white/5 p-1">
+        <span class="font-bold text-base text-white font-alt">REKEN<span class="text-blue-500">.ID</span></span>
       </div>
-
-      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <div>&copy; 2026 REKEN.ID – Smart Mobility Ecosystem Yogyakarta. Hak Cipta Dilindungi.</div>
-        <div class="flex gap-4">
-          <a href="kontak.html" class="hover:text-slate-400">Bantuan</a>
-          <a href="mitra.html" class="hover:text-slate-400">Pendaftaran Mitra</a>
-          <a href="tentang.html" class="hover:text-slate-400">Kebijakan Privasi</a>
-        </div>
+      <div class="text-slate-500 text-[11px]">
+        &copy; 2026 REKEN Technologies. Sistem Informasi &amp; Operating System Bisnis Rental Kendaraan.
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 text-xs">
+        <a href="index.html" class="hover:text-white">Beranda</a>
+        <a href="fitur.html" class="hover:text-white">Fitur</a>
+        <a href="kontak.html" class="hover:text-white">Kontak</a>
       </div>
     </div>
   </footer>
 
-  <!-- Core JavaScript -->
   <script src="src/script.js"></script>
 </body>
 </html>

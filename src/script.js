@@ -1,704 +1,591 @@
 /**
- * REKEN - Luxury Mobility & Travel Yogyakarta
- * Interactive Logic: Blue-Black Glassmorphism Edition
+ * REKEN - B2B Rental Operating System & Dashboard SaaS
+ * Client-Side Interactive Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPageTransitions();
   initNavbar();
-  initHeroParallax();
-  initGlobalClickRipples();
-  initDownloadModal();
-  initStepSwitcher();
+  initDashboardShowcaseTabs();
+  initDemoWizard();
   initFaqAccordion();
-  initBookingMockup();
-  initTestimonialSlider();
-  initFleetFilter();
+  initWorkflowStepSwitcher();
+  initPageProgress();
+  initMobileMenu();
+  initPerformanceStatsCountUp();
+  initScrollReveal();
+  initLiveSimulator();
 });
 
 /* ==========================================================================
-   0. Ultra-Smooth Page Transitions & Dynamic Navigation Movement
+   1. Page Progress Bar
    ========================================================================== */
-function initPageTransitions() {
-  // Ensure top progress bar exists
-  let progressBar = document.getElementById('page-progress-bar');
-  if (!progressBar) {
-    progressBar = document.createElement('div');
-    progressBar.id = 'page-progress-bar';
-    progressBar.className = 'page-progress-line';
-    progressBar.setAttribute('aria-hidden', 'true');
-    document.body.prepend(progressBar);
+function initPageProgress() {
+  const progressBar = document.getElementById('page-progress-bar');
+  if (!progressBar) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (docHeight > 0) {
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      progressBar.style.width = scrollPercent + '%';
+      progressBar.style.opacity = scrollTop > 20 ? '1' : '0';
+    }
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   2. Floating Island Navbar Scroll Observer
+   ========================================================================== */
+function initNavbar() {
+  const headerIsland = document.getElementById('header-island-container');
+  if (!headerIsland) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      headerIsland.classList.add('scrolled');
+    } else {
+      headerIsland.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   3. Mobile Menu Drawer
+   ========================================================================== */
+function initMobileMenu() {
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const drawer = document.getElementById('mobile-menu-drawer');
+
+  if (!toggleBtn || !drawer) return;
+
+  function openDrawer() {
+    drawer.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
   }
 
-  // Handle bfcache (Back/Forward Cache) page restoration
-  window.addEventListener('pageshow', () => {
-    document.body.classList.remove('page-exiting');
-    if (progressBar) {
-      progressBar.classList.remove('active');
-      progressBar.style.opacity = '0';
-      progressBar.style.width = '0%';
-    }
-  });
+  function closeDrawer() {
+    drawer.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
 
-  // Dynamic Magnetic Movement for Desktop Nav Items
-  const navItems = document.querySelectorAll('.nav-link-item');
-  navItems.forEach((item) => {
-    item.addEventListener('mousemove', (e) => {
-      const rect = item.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const text = item.querySelector('.nav-link-text');
-      if (text) {
-        text.style.transform = `translate(${x * 0.16}px, ${y * 0.16 - 1.5}px)`;
-      }
-    });
+  toggleBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
 
-    item.addEventListener('mouseleave', () => {
-      const text = item.querySelector('.nav-link-text');
-      if (text) {
-        text.style.transform = '';
-      }
-    });
-  });
-
-  // Initialize Smooth Sliding Indicator Pill on Desktop Nav
-  initNavSlidingPill();
-
-  // Intercept internal page navigation for animated transitions
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (!href) return;
-
-    // Skip hash links, external links, protocols
-    if (
-      href.startsWith('#') ||
-      href.startsWith('http://') ||
-      href.startsWith('https://') ||
-      href.startsWith('mailto:') ||
-      href.startsWith('tel:') ||
-      href.startsWith('javascript:') ||
-      link.target === '_blank'
-    ) {
-      return;
-    }
-
-    // Check if link points to an HTML page
-    const isInternalPage = href.endsWith('.html') || href === '/' || href.includes('.html#');
-    if (!isInternalPage) return;
-
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const targetPath = href.split('#')[0] || 'index.html';
-
-    // If clicking the current page without hash, smooth scroll to top with bounce
-    if (targetPath === currentPath && !href.includes('#')) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      link.classList.add('nav-link-clicked');
-      setTimeout(() => link.classList.remove('nav-link-clicked'), 350);
-      return;
-    }
-
-    // When navigating to a DIFFERENT page:
-    e.preventDefault();
-
-    // Trigger visual click response on link
-    link.classList.add('nav-link-clicked');
-    const textEl = link.querySelector('.nav-link-text, .mobile-nav-text');
-    if (textEl) {
-      textEl.style.transform = 'translateY(-3px) scale(1.08)';
-      textEl.style.color = '#38BDF8';
-    }
-
-    // Start top glowing progress line
-    if (progressBar) {
-      progressBar.style.opacity = '1';
-      progressBar.classList.add('active');
-    }
-
-    // Trigger smooth horizontal slide exit animation on main
-    document.body.classList.add('page-exiting');
-
-    // Smooth navigation delay
-    setTimeout(() => {
-      window.location.href = href;
-    }, 240);
+  drawer.addEventListener('click', (e) => {
+    if (e.target === drawer) closeDrawer();
   });
 }
 
 /* ==========================================================================
-   Smooth Sliding Indicator Pill across Navigation Menu (Efek Geser & Timbul)
+   4. Dashboard Interactive Showcase Tabs (Crossfade & Micro-Scale Motion)
    ========================================================================== */
-function initNavSlidingPill() {
-  const navContainer = document.getElementById('desktop-navigation');
-  if (!navContainer) return;
+function initDashboardShowcaseTabs() {
+  const tabBtns = document.querySelectorAll('.dashboard-tab-btn');
+  const displayImg = document.getElementById('showcase-dashboard-img');
+  const displayTitle = document.getElementById('showcase-caption-title');
+  const displayDesc = document.getElementById('showcase-caption-desc');
+  const displayUrl = document.getElementById('showcase-mockup-url');
 
-  // Create sliding pill element if not present
-  let pill = document.getElementById('nav-sliding-pill');
-  if (!pill) {
-    pill = document.createElement('div');
-    pill.id = 'nav-sliding-pill';
-    pill.className = 'nav-sliding-pill';
-    navContainer.prepend(pill);
-  }
+  if (!tabBtns.length || !displayImg) return;
 
-  const items = Array.from(navContainer.querySelectorAll('.nav-link-item'));
-  const activeItem = navContainer.querySelector('.nav-link-item.active') || items[0];
+  displayImg.classList.add('dashboard-showcase-img');
 
-  function movePillTo(targetEl) {
-    if (!targetEl || !pill) return;
-    const containerRect = navContainer.getBoundingClientRect();
-    const targetRect = targetEl.getBoundingClientRect();
+  const tabData = {
+    fleet: {
+      img: 'src/images/dashboard-fleet.jpg',
+      url: 'app.reken.id/manajemen-armada',
+      title: 'Manajemen Armada & Inventaris Multi-Kategori',
+      desc: '10 Unit Aktif: 6 Siap Sewa, 1 Sedang Berjalan, 1 Dalam Servis Bengkel, 1 Kerjasama Mitra B2B. Utilitas armada terpantau 30% (+12% vs bln lalu).'
+    },
+    calendar: {
+      img: 'src/images/dashboard-calendar.jpg',
+      url: 'app.reken.id/jadwal-kalender',
+      title: 'Jadwal & Kalender Gantt Bebas Bentrok',
+      desc: 'Infinite visual timeline harian & jam. Dukungan auto-stacking atas-bawah, tukar mobil drag-and-drop, dan sinkronisasi instan Google Calendar tim.'
+    },
+    invoice: {
+      img: 'src/images/dashboard-booking-modal.jpg',
+      url: 'app.reken.id/reservasi/kalkulasi-kas',
+      title: 'Kalkulator Invoice Kas & Uang Jaminan (Deposit)',
+      desc: 'Kustomisasi dinamis tanpa batas: item sewa, jasa supir, overtime, potongan diskon, skema DP/lunas, dan cetak invoice PDF/WhatsApp otomatis.'
+    },
+    vehicle: {
+      img: 'src/images/dashboard-vehicle-detail.jpg',
+      url: 'app.reken.id/armada/toyota-zenix-hybrid',
+      title: 'Detail Legalitas, STNK & Buku Servis Unit',
+      desc: 'Kartu spesifikasi lengkap, odometer, riwayat servis berkala, pengingat STNK H-14, dan status proteksi asuransi All-Risk setiap kendaraan.'
+    }
+  };
 
-    pill.style.left = `${targetRect.left - containerRect.left}px`;
-    pill.style.width = `${targetRect.width}px`;
-    pill.style.opacity = '1';
-  }
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tabKey = btn.getAttribute('data-tab');
+      const data = tabData[tabKey];
+      if (!data) return;
 
-  // Initial positioning on active item after staggered entrance animations settle
-  if (activeItem) {
-    setTimeout(() => movePillTo(activeItem), 120);
-    setTimeout(() => movePillTo(activeItem), 450);
-  }
+      // Update active state
+      tabBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
 
-  items.forEach((item, index) => {
-    // Hover: smoothly slide pill & cascade wave to neighbor words
-    item.addEventListener('mouseenter', () => {
-      movePillTo(item);
+      // Motion Crossfade Out
+      displayImg.classList.add('switching');
 
-      // Ripple wave to left neighbor word
-      if (items[index - 1]) {
-        items[index - 1].classList.add('nav-wave-neighbor');
-        setTimeout(() => items[index - 1]?.classList.remove('nav-wave-neighbor'), 280);
-      }
-      // Ripple wave to right neighbor word
-      if (items[index + 1]) {
-        items[index + 1].classList.add('nav-wave-neighbor');
-        setTimeout(() => items[index + 1]?.classList.remove('nav-wave-neighbor'), 280);
-      }
-    });
-
-    // Click: spring bounce on pill
-    item.addEventListener('click', () => {
-      movePillTo(item);
-      pill.style.transform = 'scale(1.08)';
       setTimeout(() => {
-        if (pill) pill.style.transform = 'scale(1)';
+        displayImg.src = data.img;
+        if (displayTitle) displayTitle.textContent = data.title;
+        if (displayDesc) displayDesc.textContent = data.desc;
+        if (displayUrl) displayUrl.textContent = data.url;
+
+        // Image loaded or fast fallback
+        const removeSwitching = () => {
+          displayImg.classList.remove('switching');
+          displayImg.removeEventListener('load', removeSwitching);
+        };
+
+        if (displayImg.complete) {
+          requestAnimationFrame(removeSwitching);
+        } else {
+          displayImg.addEventListener('load', removeSwitching);
+        }
+      }, 120);
+    });
+  });
+}
+
+/* ==========================================================================
+   5. Interactive 3-Step Qualification Wizard (Halaman Kontak)
+   ========================================================================== */
+function initDemoWizard() {
+  const wizardContainer = document.getElementById('demo-wizard-container');
+  if (!wizardContainer) return;
+
+  let wizardState = {
+    fleetSize: '',
+    mainChallenge: '',
+    name: '',
+    whatsapp: '',
+    timePreference: 'Pagi (09.00 - 12.00 WIB)'
+  };
+
+  // Step Containers
+  const step1 = document.getElementById('wizard-step-1');
+  const step2 = document.getElementById('wizard-step-2');
+  const step3 = document.getElementById('wizard-step-3');
+
+  // Step Indicator Bubbles
+  const bubble1 = document.getElementById('wizard-bubble-1');
+  const bubble2 = document.getElementById('wizard-bubble-2');
+  const bubble3 = document.getElementById('wizard-bubble-3');
+
+  // Step 1: Fleet Size Options (Click to select & auto advance)
+  const fleetCards = document.querySelectorAll('.wizard-fleet-option');
+  fleetCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      fleetCards.forEach((c) => c.classList.remove('selected'));
+      card.classList.add('selected');
+      wizardState.fleetSize = card.getAttribute('data-value') || card.innerText.trim();
+
+      // Update summary tags
+      const summaryFleet = document.getElementById('wizard-summary-fleet');
+      if (summaryFleet) summaryFleet.textContent = wizardState.fleetSize;
+
+      // Advance to Step 2
+      setTimeout(() => {
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        if (bubble1) { bubble1.classList.remove('active'); bubble1.classList.add('completed'); bubble1.innerHTML = '<i class="fa-solid fa-check text-xs"></i>'; }
+        if (bubble2) { bubble2.classList.add('active'); }
       }, 200);
     });
   });
 
-  // When mouse leaves nav, smoothly glide pill back to active item
-  navContainer.addEventListener('mouseleave', () => {
-    const currentActive = navContainer.querySelector('.nav-link-item.active') || items[0];
-    if (currentActive) {
-      movePillTo(currentActive);
-    }
-  });
+  // Step 2: Challenge Options (Click to select & auto advance)
+  const challengeCards = document.querySelectorAll('.wizard-challenge-option');
+  challengeCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      challengeCards.forEach((c) => c.classList.remove('selected'));
+      card.classList.add('selected');
+      wizardState.mainChallenge = card.getAttribute('data-value') || card.innerText.trim();
 
-  window.addEventListener('resize', () => {
-    const currentActive = navContainer.querySelector('.nav-link-item.active') || items[0];
-    if (currentActive) movePillTo(currentActive);
-  });
-}
+      // Update summary tags
+      const summaryChallenge = document.getElementById('wizard-summary-challenge');
+      if (summaryChallenge) summaryChallenge.textContent = wizardState.mainChallenge;
 
-
-
-/* ==========================================================================
-   1. Ultra-Modern Navbar, Active Scroll Spy & Mobile Drawer
-   ========================================================================== */
-function initNavbar() {
-  const header = document.getElementById('main-header');
-  const headerIsland = document.getElementById('header-island-container');
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
-  const mobileDrawer = document.getElementById('mobile-menu-drawer');
-  const closeMobile = document.getElementById('mobile-menu-close');
-
-  // Sticky header compression & island glass enhancement
-  function handleScroll() {
-    if (window.scrollY > 20) {
-      header?.classList.add('py-2', 'sm:py-2.5');
-      header?.classList.remove('py-3', 'sm:py-4');
-      headerIsland?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('py-2', 'sm:py-2.5');
-      header?.classList.add('py-3', 'sm:py-4');
-      headerIsland?.classList.remove('scrolled');
-    }
-    updateNavSpy();
-  }
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-
-  // Viewport-Based Scroll Spy
-  function updateNavSpy() {
-    const sections = ['beranda', 'armada', 'cara-sewa', 'keunggulan', 'wisata', 'testimoni', 'faq', 'kontak'];
-    let currentActive = '';
-
-    for (let i = 0; i < sections.length; i++) {
-      const sec = document.getElementById(sections[i]);
-      if (sec) {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top <= 260 && rect.bottom >= 120) {
-          currentActive = sections[i];
-          break;
-        }
-      }
-    }
-
-    if (currentActive) {
-      document.querySelectorAll('.nav-link-item').forEach((link) => {
-        if (link.getAttribute('data-target') === currentActive) {
-          link.classList.add('active', 'text-white');
-          link.classList.remove('text-slate-400');
-        } else if (link.getAttribute('data-target')) {
-          link.classList.remove('active', 'text-white');
-          link.classList.add('text-slate-400');
-        }
-      });
-    }
-  }
-
-  // Smooth scroll with clearance for floating island navbar
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href === '#' || href === '#!') return;
-      const targetId = href.substring(1);
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        const islandHeight = headerIsland ? headerIsland.offsetHeight + 35 : 100;
-        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - islandHeight;
-        window.scrollTo({
-          top: targetPos,
-          behavior: 'smooth'
-        });
-        if (history.pushState) {
-          history.pushState(null, null, `#${targetId}`);
-        }
-      }
+      // Advance to Step 3
+      setTimeout(() => {
+        step2.classList.add('hidden');
+        step3.classList.remove('hidden');
+        if (bubble2) { bubble2.classList.remove('active'); bubble2.classList.add('completed'); bubble2.innerHTML = '<i class="fa-solid fa-check text-xs"></i>'; }
+        if (bubble3) { bubble3.classList.add('active'); }
+      }, 200);
     });
   });
 
-  // Mobile menu toggle
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('hidden');
-      document.body.classList.toggle('overflow-hidden');
+  // Back to Step 1 from Step 2
+  const backToStep1Btn = document.getElementById('wizard-back-to-1');
+  if (backToStep1Btn) {
+    backToStep1Btn.addEventListener('click', () => {
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+      if (bubble1) { bubble1.classList.remove('completed'); bubble1.classList.add('active'); bubble1.textContent = '1'; }
+      if (bubble2) { bubble2.classList.remove('active'); }
     });
   }
 
-  if (closeMobile && mobileDrawer) {
-    closeMobile.addEventListener('click', () => {
-      mobileDrawer.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
+  // Back to Step 2 from Step 3
+  const backToStep2Btn = document.getElementById('wizard-back-to-2');
+  if (backToStep2Btn) {
+    backToStep2Btn.addEventListener('click', () => {
+      step3.classList.add('hidden');
+      step2.classList.remove('hidden');
+      if (bubble2) { bubble2.classList.remove('completed'); bubble2.classList.add('active'); bubble2.textContent = '2'; }
+      if (bubble3) { bubble3.classList.remove('active'); }
     });
   }
 
-  mobileDrawer?.addEventListener('click', (e) => {
-    if (e.target === mobileDrawer) {
-      mobileDrawer.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    }
-  });
+  // Step 3: Final Form Submission
+  const finalForm = document.getElementById('wizard-final-form');
+  if (finalForm) {
+    finalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('wizard-input-name');
+      const waInput = document.getElementById('wizard-input-wa');
+      const timeInput = document.getElementById('wizard-input-time');
 
-  const mobileLinks = mobileDrawer?.querySelectorAll('a');
-  mobileLinks?.forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileDrawer.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
+      wizardState.name = nameInput?.value || 'Pengusaha Rental';
+      wizardState.whatsapp = waInput?.value || '';
+      wizardState.timePreference = timeInput?.value || 'Pagi / Siang';
+
+      const waMessage = 
+`Halo Tim REKEN, saya ingin jadwalkan Live Demo Dashboard Rental SaaS:
+- Nama / Rental: ${wizardState.name}
+- Jumlah Armada: ${wizardState.fleetSize || 'Belum diisi'}
+- Kendala Utama: ${wizardState.mainChallenge || 'Belum diisi'}
+- Waktu Pilihan Demo: ${wizardState.timePreference}
+- WhatsApp: ${wizardState.whatsapp}
+
+Mohon info jadwal ketersediaan sesi demo. Terima kasih!`;
+
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, '_blank');
     });
-  });
+  }
 }
 
 /* ==========================================================================
-   2. 4-Step Interactive Switcher (Cara Sewa & Alur Reservasi)
-   ========================================================================== */
-const stepsData = [
-  {
-    stepNumber: 'Step 01',
-    highlightTitle: 'Pilih Armada & Tanggal Perjalanan',
-    description:
-      'Pilih unit kendaraan yang sesuai dengan kebutuhan Anda (lepas kunci atau all-in supir). Tentukan durasi sewa, tanggal mulai, dan titik penjemputan baik di Bandara YIA, Stasiun Tugu, hotel, maupun kantor.',
-    previewRoute: 'Bandara YIA ➔ Hotel Tentrem Yogyakarta',
-    previewFleet: 'Innova Zenix Hybrid (Matic / Siap Jalan)',
-    indicatorIdx: 0,
-  },
-  {
-    stepNumber: 'Step 02',
-    highlightTitle: 'Verifikasi Digital & Booking Instan via WhatsApp',
-    description:
-      'Konfirmasi ketersediaan unit diproses secara real-time. Verifikasi dokumen (KTP & SIM A) dilakukan secara digital, aman, dan tanpa prosedur yang berbelit-belit.',
-    previewRoute: 'Verifikasi Digital Tanpa DP Rumit',
-    previewFleet: 'Konfirmasi Terkirim via WhatsApp CS',
-    indicatorIdx: 1,
-  },
-  {
-    stepNumber: 'Step 03',
-    highlightTitle: 'Serah Terima Unit Bersih & Full BBM',
-    description:
-      'Tim penyerahan unit Reken mengantarkan armada dalam kondisi steril, wangi, ber-AC dingin, dan BBM terisi penuh. Check list kondisi kendaraan dilakukan transparan bersama Anda.',
-    previewRoute: 'Tepat Waktu di Titik Penjemputan Anda',
-    previewFleet: 'Unit Bersih, Steril & Siap Menjelajah Jogja',
-    indicatorIdx: 2,
-  },
-  {
-    stepNumber: 'Step 04',
-    highlightTitle: 'Jelajahi Jogja dengan Nyaman & Dukungan 24/7',
-    description:
-      'Nikmati liburan atau urusan bisnis di Yogyakarta dengan rasa tenang berkat dukungan 24/7 Roadside Assistance serta proteksi perjalanan menyeluruh.',
-    previewRoute: 'Merapi, Borobudur, Malioboro, Gunungkidul',
-    previewFleet: 'Perjalanan Berkesan & Layanan Berbintang',
-    indicatorIdx: 3,
-  },
-];
-
-function initStepSwitcher() {
-  let currentStep = 0;
-  const stepNumberEl = document.getElementById('step-number');
-  const stepTitleEl = document.getElementById('step-title');
-  const stepDescEl = document.getElementById('step-desc');
-  const stepRouteEl = document.getElementById('step-preview-route');
-  const stepFleetEl = document.getElementById('step-preview-fleet');
-  const prevBtn = document.getElementById('step-prev-btn');
-  const nextBtn = document.getElementById('step-next-btn');
-  const dotsContainer = document.getElementById('step-dots-indicator');
-
-  if (!stepTitleEl || !prevBtn || !nextBtn) return;
-
-  function updateStepUI() {
-    const data = stepsData[currentStep];
-
-    stepTitleEl.style.opacity = '0';
-    stepDescEl.style.opacity = '0';
-
-    setTimeout(() => {
-      if (stepNumberEl) stepNumberEl.textContent = data.stepNumber;
-      stepTitleEl.innerHTML = formatStepTitle(data.highlightTitle);
-      if (stepDescEl) stepDescEl.textContent = data.description;
-      if (stepRouteEl) stepRouteEl.textContent = data.previewRoute;
-      if (stepFleetEl) stepFleetEl.textContent = data.previewFleet;
-
-      stepTitleEl.style.opacity = '1';
-      stepDescEl.style.opacity = '1';
-    }, 150);
-
-    // Update Dots / Pills in Dark Glass Theme
-    if (dotsContainer) {
-      const dots = dotsContainer.querySelectorAll('.step-dot');
-      dots.forEach((dot, index) => {
-        if (index === currentStep) {
-          dot.className = 'step-dot h-2 w-8 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 shadow-sm shadow-sky-400/50 transition-all duration-300';
-        } else {
-          dot.className = 'step-dot h-2 w-2 rounded-full bg-slate-700 hover:bg-slate-600 transition-all duration-300';
-        }
-      });
-    }
-
-    prevBtn.classList.toggle('opacity-40', currentStep === 0);
-    prevBtn.classList.toggle('cursor-not-allowed', currentStep === 0);
-    nextBtn.classList.toggle('opacity-40', currentStep === stepsData.length - 1);
-    nextBtn.classList.toggle('cursor-not-allowed', currentStep === stepsData.length - 1);
-  }
-
-  function formatStepTitle(rawTitle) {
-    const parts = rawTitle.split('&');
-    if (parts.length > 1) {
-      return `${parts[0]} <span class="text-sky-400 font-bold">& ${parts[1]}</span>`;
-    }
-    return rawTitle;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    if (currentStep > 0) {
-      currentStep--;
-      updateStepUI();
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentStep < stepsData.length - 1) {
-      currentStep++;
-      updateStepUI();
-    }
-  });
-
-  updateStepUI();
-}
-
-/* ==========================================================================
-   3. Accordion FAQ
+   6. FAQ Accordion (Smooth CSS Grid Transition & Accessibility)
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
 
   faqItems.forEach((item) => {
     const trigger = item.querySelector('.faq-trigger');
-    const content = item.querySelector('.faq-content');
-    const icon = item.querySelector('.faq-icon');
+    const contentGrid = item.querySelector('.faq-content-grid') || item.querySelector('.faq-content');
+    const chevron = item.querySelector('.faq-chevron') || item.querySelector('.faq-icon');
 
-    if (!trigger || !content) return;
+    if (!trigger || !contentGrid) return;
 
     trigger.addEventListener('click', () => {
-      const isOpen = !content.classList.contains('hidden');
+      const isGrid = contentGrid.classList.contains('faq-content-grid');
+      const isOpen = isGrid 
+        ? contentGrid.classList.contains('open') 
+        : !contentGrid.classList.contains('hidden');
 
+      // Close all other items
       faqItems.forEach((other) => {
-        const otherContent = other.querySelector('.faq-content');
-        const otherIcon = other.querySelector('.faq-icon');
-        otherContent?.classList.add('hidden');
-        otherIcon?.classList.remove('rotate-180');
+        const otherGrid = other.querySelector('.faq-content-grid') || other.querySelector('.faq-content');
+        const otherChevron = other.querySelector('.faq-chevron') || other.querySelector('.faq-icon');
+        const otherTrigger = other.querySelector('.faq-trigger');
+
+        if (otherGrid) {
+          if (otherGrid.classList.contains('faq-content-grid')) {
+            otherGrid.classList.remove('open');
+          } else {
+            otherGrid.classList.add('hidden');
+          }
+        }
+        if (otherChevron) otherChevron.classList.remove('rotate-180');
+        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
       });
 
+      // Toggle current
       if (!isOpen) {
-        content.classList.remove('hidden');
-        icon?.classList.add('rotate-180');
+        if (isGrid) {
+          contentGrid.classList.add('open');
+        } else {
+          contentGrid.classList.remove('hidden');
+        }
+        if (chevron) chevron.classList.add('rotate-180');
+        trigger.setAttribute('aria-expanded', 'true');
+      } else {
+        trigger.setAttribute('aria-expanded', 'false');
       }
     });
   });
 }
 
 /* ==========================================================================
-   4. Mockup Pencarian Armada & Booking Cepat
+   7. Workflow Step Switcher (Index)
    ========================================================================== */
-function initBookingMockup() {
-  const searchForm = document.getElementById('hero-booking-form');
+function initWorkflowStepSwitcher() {
+  const prevBtn = document.getElementById('step-prev-btn');
+  const nextBtn = document.getElementById('step-next-btn');
+  const stepDots = document.querySelectorAll('.step-dot');
+  const titleEl = document.getElementById('step-title');
+  const descEl = document.getElementById('step-desc');
+  const numEl = document.getElementById('step-number');
+  const previewRoute = document.getElementById('step-preview-route');
+  const previewFleet = document.getElementById('step-preview-fleet');
 
-  if (searchForm) {
-    searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const origin = document.getElementById('mockup-origin')?.value || 'YIA Kulon Progo';
-      const dest = document.getElementById('mockup-dest')?.value || 'Malioboro Jogja';
+  if (!prevBtn || !nextBtn || !titleEl) return;
 
-      showToast(`Mencari armada terbaik dari ${origin} ke ${dest}...`);
-      setTimeout(() => {
-        showToast(`Tersedia 8 Unit Siap Jalan! Diskon reservasi awal 10%.`);
-      }, 1600);
+  const steps = [
+    {
+      num: 'STEP 01',
+      title: 'Daftarkan Inventaris Armada & Tarif Sewa',
+      desc: 'Input data mobil, motor, minivan tour, dan kendaraan listrik. Atur nomor plat, kategori transmisi, garasi pool, serta tarif lepas kunci maupun dengan supir.',
+      route: 'Setup Multi-Armada & Manajemen Garasi Pool',
+      fleet: '10 Unit Siap Jalan (Mobil, Motor, HiAce, EV)'
+    },
+    {
+      num: 'STEP 02',
+      title: 'Hubungkan Nomor WhatsApp ke AI CS Copilot',
+      desc: 'Cukup scan QR Code WhatsApp resmi rental Anda. AI Copilot aktif 24/7 membalas ketersediaan unit sewa detik itu juga dan menyiapkan draf booking tanpa membuat admin begadang.',
+      route: 'Sinkronisasi WhatsApp Instances & Auto-Draft AI',
+      fleet: 'Respon Cepat 0.8 Detik 24 Jam Nonstop'
+    },
+    {
+      num: 'STEP 03',
+      title: 'Sinkronkan Kalender ke Google Calendar Tim',
+      desc: 'Setiap reservasi baru otomatis mengunci jadwal di Google Calendar driver dan staf operasional. Hindari insiden fatal mobil dobel sewa (0 double-booking).',
+      route: 'Integrasi Google Calendar 2-Way Sync',
+      fleet: '100% Bebas Jadwal Tabrakan'
+    },
+    {
+      num: 'STEP 04',
+      title: 'Terbitkan Invoice & Pantau Utilitas Armada',
+      desc: 'Kalkulasi otomatis biaya sewa, DP, uang jaminan (deposit), hingga overtime. Pantau tingkat okupansi bisnis real-time dan ekspor laporan keuangan dalam 1 klik CSV.',
+      route: 'Manajemen Keuangan Kas & Analitik Utilisasi',
+      fleet: 'Efisiensi Operasional Meningkat 70%'
+    }
+  ];
+
+  let currentStep = 0;
+
+  function renderStep(index) {
+    const data = steps[index];
+    if (!data) return;
+
+    if (numEl) numEl.textContent = data.num;
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.desc;
+    if (previewRoute) previewRoute.textContent = data.route;
+    if (previewFleet) previewFleet.textContent = data.fleet;
+
+    stepDots.forEach((dot, dIndex) => {
+      dot.className = dIndex === index ? 'step-dot active' : 'step-dot';
     });
   }
-}
-
-function showToast(message) {
-  let toast = document.getElementById('app-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'app-toast';
-    toast.className =
-      'fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#0A142F]/90 backdrop-blur-xl text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-sky-400/30 text-sm font-medium transition-all duration-300 transform translate-y-12 opacity-0 pointer-events-none';
-    document.body.appendChild(toast);
-  }
-
-  toast.innerHTML = `
-    <i class="fa-solid fa-circle-check text-sky-400 text-base"></i>
-    <span>${message}</span>
-  `;
-
-  toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-  toast.classList.add('translate-y-0', 'opacity-100');
-
-  setTimeout(() => {
-    toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
-    toast.classList.remove('translate-y-0', 'opacity-100');
-  }, 4000);
-}
-
-/* ==========================================================================
-   5. Testimonial Slider / Nav
-   ========================================================================== */
-function initTestimonialSlider() {
-  const container = document.getElementById('testimonial-scroll-container');
-  const prevBtn = document.getElementById('testi-prev-btn');
-  const nextBtn = document.getElementById('testi-next-btn');
-
-  if (!container || !prevBtn || !nextBtn) return;
 
   prevBtn.addEventListener('click', () => {
-    container.scrollBy({ left: -360, behavior: 'smooth' });
+    currentStep = (currentStep - 1 + steps.length) % steps.length;
+    renderStep(currentStep);
   });
 
   nextBtn.addEventListener('click', () => {
-    container.scrollBy({ left: 360, behavior: 'smooth' });
+    currentStep = (currentStep + 1) % steps.length;
+    renderStep(currentStep);
   });
+
+  renderStep(0);
 }
 
 /* ==========================================================================
-   6. Fleet Filter Tabs
+   8. Performance Stats Dynamic Count-Up (60 FPS requestAnimationFrame)
    ========================================================================== */
-function initFleetFilter() {
-  const filterBtns = document.querySelectorAll('.fleet-filter-btn');
-  const fleetCards = document.querySelectorAll('.fleet-item-card');
+function initPerformanceStatsCountUp() {
+  const statElements = document.querySelectorAll('[data-stat-target]');
+  if (!statElements.length) return;
 
-  if (!filterBtns.length || !fleetCards.length) return;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const category = btn.getAttribute('data-filter');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-      filterBtns.forEach((b) => {
-        b.classList.remove('active', 'bg-sky-500/20', 'text-sky-300', 'border-sky-400/40');
-        b.classList.add('bg-white/5', 'text-slate-400', 'border-white/10');
-      });
+      const el = entry.target;
+      obs.unobserve(el);
 
-      btn.classList.add('active', 'bg-sky-500/20', 'text-sky-300', 'border-sky-400/40');
-      btn.classList.remove('bg-white/5', 'text-slate-400', 'border-white/10');
+      const rawTarget = el.getAttribute('data-stat-target') || '0';
+      const targetVal = parseFloat(rawTarget);
+      const prefix = el.getAttribute('data-stat-prefix') || '';
+      const suffix = el.getAttribute('data-stat-suffix') || '';
+      const decimals = parseInt(el.getAttribute('data-stat-decimals') || '0', 10);
+      const useThousandSeparator = el.getAttribute('data-stat-thousand') === 'true';
 
-      fleetCards.forEach((card) => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-          card.classList.add('animate-fadeIn');
+      if (prefersReducedMotion || isNaN(targetVal)) {
+        formatAndSetText(el, targetVal, prefix, suffix, decimals, useThousandSeparator);
+        return;
+      }
+
+      const duration = 1200; // ms
+      const startTime = performance.now();
+
+      function updateCounter(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic: 1 - pow(1 - progress, 3)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = targetVal * easeOut;
+
+        formatAndSetText(el, currentVal, prefix, suffix, decimals, useThousandSeparator);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
         } else {
-          card.style.display = 'none';
+          formatAndSetText(el, targetVal, prefix, suffix, decimals, useThousandSeparator);
         }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }, { threshold: 0.3 });
+
+  statElements.forEach((el) => observer.observe(el));
+}
+
+function formatAndSetText(el, value, prefix, suffix, decimals, useThousandSeparator) {
+  let formattedNumber;
+  if (decimals > 0) {
+    formattedNumber = value.toFixed(decimals);
+  } else {
+    formattedNumber = Math.round(value).toString();
+  }
+
+  if (useThousandSeparator) {
+    formattedNumber = formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  el.textContent = `${prefix}${formattedNumber}${suffix}`;
+}
+
+/* ==========================================================================
+   9. Staggered Scroll-Reveal Engine
+   ========================================================================== */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if (!revealElements.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    revealElements.forEach((el) => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+      obs.unobserve(el);
+
+      // Stagger delay based on sibling index if inside a container
+      const parent = el.parentElement;
+      if (parent && parent.classList.contains('reveal-stagger-parent')) {
+        const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll'));
+        const index = siblings.indexOf(el);
+        const delay = Math.min(index * 60, 360);
+        el.style.transitionDelay = `${delay}ms`;
+      }
+
+      requestAnimationFrame(() => {
+        el.classList.add('is-revealed');
       });
     });
-  });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealElements.forEach((el) => observer.observe(el));
 }
 
 /* ==========================================================================
-   7. Interactive Download App Modal (Customer & Partner Apps)
+   10. Live AI Dispatch & WhatsApp Simulator Focal Animation
    ========================================================================== */
-function initDownloadModal() {
-  const modal = document.getElementById('download-modal');
-  const openBtns = document.querySelectorAll('.btn-open-download-modal');
-  const closeBtn = document.getElementById('download-modal-close');
-  const tabCustomer = document.getElementById('tab-download-customer');
-  const tabPartner = document.getElementById('tab-download-partner');
-  const contentCustomer = document.getElementById('download-customer-content');
-  const contentPartner = document.getElementById('download-partner-content');
+function initLiveSimulator() {
+  const container = document.getElementById('live-dispatch-simulator');
+  if (!container) return;
 
-  if (!modal) return;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function openModal() {
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.classList.add('overflow-hidden');
+  const bubbleUser = document.getElementById('sim-bubble-user');
+  const bubbleTyping = document.getElementById('sim-bubble-typing');
+  const bubbleAi = document.getElementById('sim-bubble-ai');
+  const badgeGcal = document.getElementById('sim-badge-gcal');
+  const badgeInvoice = document.getElementById('sim-badge-invoice');
+  const unitStatus = document.getElementById('sim-unit-status');
+
+  if (prefersReducedMotion) {
+    if (bubbleUser) bubbleUser.classList.remove('sim-hidden');
+    if (bubbleTyping) bubbleTyping.classList.add('hidden');
+    if (bubbleAi) bubbleAi.classList.remove('sim-hidden');
+    return;
   }
 
-  function closeModal() {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.classList.remove('overflow-hidden');
-  }
+  let isHovered = false;
+  let timerId = null;
 
-  openBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
-    });
-  });
+  container.addEventListener('mouseenter', () => { isHovered = true; });
+  container.addEventListener('mouseleave', () => { isHovered = false; });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal || e.target.classList.contains('modal-backdrop-trigger')) {
-      closeModal();
+  function runSimulationLoop() {
+    if (isHovered) {
+      timerId = setTimeout(runSimulationLoop, 2000);
+      return;
     }
-  });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal();
+    // Step 0: Initial state - reset
+    if (bubbleTyping) bubbleTyping.classList.add('hidden');
+    if (bubbleAi) bubbleAi.classList.add('sim-hidden');
+    if (badgeGcal) badgeGcal.className = 'p-2 rounded-xl bg-slate-800/80 flex items-center gap-2 sim-badge-live text-slate-400';
+    if (badgeInvoice) badgeInvoice.className = 'p-2 rounded-xl bg-slate-800/80 flex items-center gap-2 sim-badge-live text-slate-400';
+    if (unitStatus) {
+      unitStatus.textContent = 'Ready';
+      unitStatus.className = 'text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full';
     }
-  });
 
-  // Switch tabs in download modal
-  if (tabCustomer && tabPartner && contentCustomer && contentPartner) {
-    tabCustomer.addEventListener('click', () => {
-      tabCustomer.className = 'flex-1 py-2.5 rounded-full text-xs font-bold transition-all bg-sky-500/20 text-sky-300 border border-sky-400/30';
-      tabPartner.className = 'flex-1 py-2.5 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white border border-transparent';
-      contentCustomer.classList.remove('hidden');
-      contentPartner.classList.add('hidden');
-    });
-
-    tabPartner.addEventListener('click', () => {
-      tabPartner.className = 'flex-1 py-2.5 rounded-full text-xs font-bold transition-all bg-sky-500/20 text-sky-300 border border-sky-400/30';
-      tabCustomer.className = 'flex-1 py-2.5 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white border border-transparent';
-      contentPartner.classList.remove('hidden');
-      contentCustomer.classList.add('hidden');
-    });
-  }
-}
-
-/* ==========================================================================
-   Hero Subtle Modern Motion (Micro-Parallax & Interactive Settling)
-   ========================================================================== */
-function initHeroParallax() {
-  const heroSection = document.getElementById('beranda') || document.getElementById('hero-frame');
-  const heroImages = document.querySelectorAll('.hero-bg-photo');
-  if (!heroSection || !heroImages.length) return;
-
-  // Respect reduced motion accessibility
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  // Only run micro-mouse parallax on non-touch devices
-  if (window.matchMedia('(hover: none)').matches) return;
-
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-
-  heroSection.addEventListener('mousemove', (e) => {
-    const rect = heroSection.getBoundingClientRect();
-    const normX = (e.clientX - rect.left) / rect.width - 0.5;
-    const normY = (e.clientY - rect.top) / rect.height - 0.5;
-    // Gentle luxury shift (max 8px X, 5px Y)
-    targetX = normX * -8;
-    targetY = normY * -5;
-  });
-
-  heroSection.addEventListener('mouseleave', () => {
-    targetX = 0;
-    targetY = 0;
-  });
-
-  function update() {
-    currentX += (targetX - currentX) * 0.05;
-    currentY += (targetY - currentY) * 0.05;
-    heroImages.forEach((img) => {
-      img.style.transform = `scale(1.02) translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
-    });
-    requestAnimationFrame(update);
-  }
-
-  // Start smooth tracking after initial entrance settling
-  setTimeout(() => {
-    requestAnimationFrame(update);
-  }, 2000);
-}
-
-
-
-/* ==========================================================================
-   Real Tactile Click Ripples (Alive & Magnetic Feel)
-   ========================================================================== */
-function initGlobalClickRipples() {
-  document.addEventListener('click', (e) => {
-    const target = e.target.closest('button, a, .glass-card, .hero-car-interactive-deck');
-    if (!target) return;
-
-    const rect = target.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const ripple = document.createElement('span');
-    ripple.className = 'click-ripple-bubble';
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-    const prevPos = window.getComputedStyle(target).position;
-    if (prevPos === 'static') {
-      target.style.position = 'relative';
-    }
-    target.appendChild(ripple);
-
+    // T = 1.0s: Incoming user message appears
     setTimeout(() => {
-      ripple.remove();
-    }, 600);
-  });
+      if (bubbleUser) bubbleUser.classList.remove('sim-hidden');
+    }, 200);
+
+    // T = 2.0s: Typing indicator shows up
+    setTimeout(() => {
+      if (bubbleTyping) bubbleTyping.classList.remove('hidden');
+    }, 1800);
+
+    // T = 3.2s: AI Response pops in
+    setTimeout(() => {
+      if (bubbleTyping) bubbleTyping.classList.add('hidden');
+      if (bubbleAi) bubbleAi.classList.remove('sim-hidden');
+    }, 3200);
+
+    // T = 4.4s: G-Cal lock & Invoice ready highlights
+    setTimeout(() => {
+      if (badgeGcal) badgeGcal.className = 'p-2 rounded-xl bg-blue-900/60 text-blue-300 flex items-center gap-2 sim-badge-live border border-blue-500/30';
+      if (badgeInvoice) badgeInvoice.className = 'p-2 rounded-xl bg-emerald-900/60 text-emerald-300 flex items-center gap-2 sim-badge-live border border-emerald-500/30';
+      if (unitStatus) {
+        unitStatus.textContent = 'Locked in G-Cal';
+        unitStatus.className = 'text-[10px] font-semibold bg-blue-500/30 text-blue-200 px-2 py-0.5 rounded-full';
+      }
+    }, 4400);
+
+    // T = 8.0s: Restart next cycle
+    timerId = setTimeout(runSimulationLoop, 8000);
+  }
+
+  // Start initial sequence
+  setTimeout(runSimulationLoop, 600);
 }
 

@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initNavbar();
   initDashboardShowcaseTabs();
   initDemoWizard();
@@ -13,8 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initPerformanceStatsCountUp();
   initScrollReveal();
+  initLaptopZoomLoop();
   initLiveSimulator();
+  initNewsletterForm();
+  initBentoCardsGlow();
 });
+
+/* ==========================================================================
+   0. Light / Dark Theme Toggle (class-based, persisted)
+   ========================================================================== */
+function initThemeToggle() {
+  // Apply stored preference before first paint decisions elsewhere depend on it
+  if (localStorage.getItem('reken-theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('reken-theme', isDark ? 'dark' : 'light');
+  });
+}
 
 /* ==========================================================================
    1. Page Progress Bar
@@ -275,16 +295,18 @@ Mohon info jadwal ketersediaan sesi demo. Terima kasih!`;
 }
 
 /* ==========================================================================
-   6. FAQ Accordion (Smooth CSS Grid Transition & Accessibility)
+   6. FAQ Accordion (QuotaRing Style: Plus/Minus Toggle, Smooth Grid & Filtering)
    ========================================================================== */
 function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  if (!faqItems.length) return;
+  const faqCards = document.querySelectorAll('.faq-card, .faq-item');
+  if (!faqCards.length) return;
 
-  faqItems.forEach((item) => {
-    const trigger = item.querySelector('.faq-trigger');
-    const contentGrid = item.querySelector('.faq-content-grid') || item.querySelector('.faq-content');
-    const chevron = item.querySelector('.faq-chevron') || item.querySelector('.faq-icon');
+  faqCards.forEach((card) => {
+    const trigger = card.querySelector('.faq-trigger');
+    const contentGrid = card.querySelector('.faq-content-grid') || card.querySelector('.faq-content');
+    const iconPlus = card.querySelector('.faq-icon-plus');
+    const iconMinus = card.querySelector('.faq-icon-minus');
+    const chevron = card.querySelector('.faq-chevron') || card.querySelector('.faq-icon');
 
     if (!trigger || !contentGrid) return;
 
@@ -295,19 +317,24 @@ function initFaqAccordion() {
         : !contentGrid.classList.contains('hidden');
 
       // Close all other items
-      faqItems.forEach((other) => {
+      faqCards.forEach((other) => {
         const otherGrid = other.querySelector('.faq-content-grid') || other.querySelector('.faq-content');
         const otherChevron = other.querySelector('.faq-chevron') || other.querySelector('.faq-icon');
+        const otherPlus = other.querySelector('.faq-icon-plus');
+        const otherMinus = other.querySelector('.faq-icon-minus');
         const otherTrigger = other.querySelector('.faq-trigger');
 
-        if (otherGrid) {
+        if (otherGrid && otherGrid !== contentGrid) {
           if (otherGrid.classList.contains('faq-content-grid')) {
             otherGrid.classList.remove('open');
           } else {
             otherGrid.classList.add('hidden');
           }
+          other.classList.remove('faq-card-active');
         }
         if (otherChevron) otherChevron.classList.remove('rotate-180');
+        if (otherPlus) otherPlus.classList.remove('hidden');
+        if (otherMinus) otherMinus.classList.add('hidden');
         if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
       });
 
@@ -318,13 +345,51 @@ function initFaqAccordion() {
         } else {
           contentGrid.classList.remove('hidden');
         }
+        card.classList.add('faq-card-active');
         if (chevron) chevron.classList.add('rotate-180');
+        if (iconPlus) iconPlus.classList.add('hidden');
+        if (iconMinus) iconMinus.classList.remove('hidden');
         trigger.setAttribute('aria-expanded', 'true');
       } else {
+        if (isGrid) {
+          contentGrid.classList.remove('open');
+        } else {
+          contentGrid.classList.add('hidden');
+        }
+        card.classList.remove('faq-card-active');
+        if (chevron) chevron.classList.remove('rotate-180');
+        if (iconPlus) iconPlus.classList.remove('hidden');
+        if (iconMinus) iconMinus.classList.add('hidden');
         trigger.setAttribute('aria-expanded', 'false');
       }
     });
   });
+
+  // Category filter tabs
+  const filterBtns = document.querySelectorAll('.faq-filter-btn');
+  if (filterBtns.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove('active', 'bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'shadow-sm');
+          b.classList.add('bg-slate-100', 'text-slate-600', 'dark:bg-slate-800', 'dark:text-slate-300');
+        });
+        btn.classList.add('active', 'bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'shadow-sm');
+        btn.classList.remove('bg-slate-100', 'text-slate-600', 'dark:bg-slate-800', 'dark:text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+        faqCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = '';
+            card.classList.remove('hidden');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 }
 
 /* ==========================================================================
@@ -473,41 +538,133 @@ function formatAndSetText(el, value, prefix, suffix, decimals, useThousandSepara
 }
 
 /* ==========================================================================
-   9. Staggered Scroll-Reveal Engine
+   9. Staggered Scroll-Reveal Engine & Section Opacity Animation
    ========================================================================== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
-  if (!revealElements.length) return;
+  const sectionElements = document.querySelectorAll('.section-reveal');
+  // .laptop-reveal is driven by initLaptopZoomLoop (repeats on every re-entry)
+  const revealElements = document.querySelectorAll('.reveal-on-scroll:not(.laptop-reveal)');
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
+    sectionElements.forEach((el) => el.classList.add('is-visible'));
     revealElements.forEach((el) => el.classList.add('is-revealed'));
     return;
   }
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+  // Helper: check if element is already inside viewport at page load
+  const isAlreadyInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.95;
+  };
 
-      const el = entry.target;
-      obs.unobserve(el);
-
-      // Stagger delay based on sibling index if inside a container
-      const parent = el.parentElement;
-      if (parent && parent.classList.contains('reveal-stagger-parent')) {
-        const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll'));
-        const index = siblings.indexOf(el);
-        const delay = Math.min(index * 60, 360);
-        el.style.transitionDelay = `${delay}ms`;
-      }
-
-      requestAnimationFrame(() => {
-        el.classList.add('is-revealed');
+  // 1. Full Page Section Reveal (Smooth Opacity & Subtle Translate)
+  if (sectionElements.length) {
+    const sectionObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        obs.unobserve(el);
+        requestAnimationFrame(() => {
+          el.classList.add('is-visible');
+        });
       });
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
-  revealElements.forEach((el) => observer.observe(el));
+    sectionElements.forEach((el) => {
+      if (isAlreadyInViewport(el)) {
+        el.classList.add('is-visible');
+      } else {
+        sectionObserver.observe(el);
+      }
+    });
+  }
+
+  // 2. Component-level Staggered Reveal
+  if (revealElements.length) {
+    const elementObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        obs.unobserve(el);
+
+        // Stagger delay based on sibling index if inside a container
+        const parent = el.parentElement;
+        if (parent && parent.classList.contains('reveal-stagger-parent')) {
+          const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll'));
+          const index = siblings.indexOf(el);
+          const delay = Math.min(index * 60, 360);
+          el.style.transitionDelay = `${delay}ms`;
+        }
+
+        requestAnimationFrame(() => {
+          el.classList.add('is-revealed');
+        });
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach((el) => {
+      if (isAlreadyInViewport(el)) {
+        el.classList.add('is-revealed');
+      } else {
+        elementObserver.observe(el);
+      }
+    });
+  }
+
+  // 3. QuotaRing Scroll Opacity on FAQ Cards
+  initFaqScrollOpacity();
+}
+
+/* ==========================================================================
+   9b. Laptop Zoom-Out Loop — replays on every scroll re-entry
+   ========================================================================== */
+function initLaptopZoomLoop() {
+  const laptop = document.querySelector('#beranda .laptop-reveal');
+  if (!laptop) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    laptop.classList.add('is-revealed');
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) laptop.classList.add('is-revealed');
+      else laptop.classList.remove('is-revealed');
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(laptop);
+}
+
+/**
+ * Subtle QuotaRing Scroll Opacity:
+ * Cards towards the lower edge of the viewport fade softly until scrolled closer.
+ */
+function initFaqScrollOpacity() {
+  const faqItems = document.querySelectorAll('.faq-scroll-item');
+  if (!faqItems.length) return;
+
+  const updateCardOpacities = () => {
+    const windowHeight = window.innerHeight;
+    faqItems.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      // If card is in viewport
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        // Calculate closeness to the bottom of the screen
+        const distanceFromBottom = windowHeight - rect.top;
+        if (distanceFromBottom < 180) {
+          const opacity = Math.max(0.35, Math.min(1, distanceFromBottom / 180));
+          card.style.opacity = opacity.toFixed(2);
+        } else {
+          card.style.opacity = '1';
+        }
+      }
+    });
+  };
+
+  window.addEventListener('scroll', updateCardOpacities, { passive: true });
+  updateCardOpacities();
 }
 
 /* ==========================================================================
@@ -587,5 +744,76 @@ function initLiveSimulator() {
 
   // Start initial sequence
   setTimeout(runSimulationLoop, 600);
+}
+
+/* ==========================================================================
+   11. Newsletter Subscription Handler
+   ========================================================================== */
+function initNewsletterForm() {
+  const form = document.getElementById('newsletter-form');
+  const statusEl = document.getElementById('newsletter-status');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('newsletter-email');
+    if (!emailInput || !emailInput.value) return;
+
+    const email = emailInput.value.trim();
+    if (!email.includes('@') || !email.includes('.')) {
+      if (statusEl) {
+        statusEl.textContent = 'Silakan masukkan alamat email bisnis yang valid.';
+        statusEl.className = 'text-[11px] text-amber-400 mt-2 block';
+      }
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.innerHTML : 'Subscribe';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+    }
+
+    setTimeout(() => {
+      emailInput.value = '';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Terdaftar';
+        submitBtn.classList.add('bg-emerald-600');
+        submitBtn.classList.remove('bg-blue-600', 'hover:bg-blue-500');
+      }
+      if (statusEl) {
+        statusEl.textContent = 'Terima kasih! Anda telah terdaftar dalam buletin wawasan bisnis rental REKEN.';
+        statusEl.className = 'text-[11px] text-emerald-400 mt-2 block font-medium';
+      }
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.innerHTML = originalText;
+          submitBtn.classList.remove('bg-emerald-600');
+          submitBtn.classList.add('bg-blue-600', 'hover:bg-blue-500');
+        }
+      }, 4000);
+    }, 600);
+  });
+}
+
+/* ==========================================================================
+   14. Bento Cards Interactive Glow & Mouse Spotlight
+   ========================================================================== */
+function initBentoCardsGlow() {
+  const cards = document.querySelectorAll('.bento-testimonial-card');
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
 }
 

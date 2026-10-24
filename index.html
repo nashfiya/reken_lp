@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REKEN – Sistem Informasi &amp; Dashboard Operating System Bisnis Rental Kendaraan</title>
-  
+
   <!-- SEO & Social Meta Tags -->
   <meta name="description" content="Software all-in-one manajemen operasional rental kendaraan: monitoring armada real-time, WhatsApp AI CS Copilot 24/7, kalender booking bebas bentrok (Google Calendar Sync), invoice kas dinamis, dan GPS telematika.">
   <meta name="keywords" content="software rental mobil, aplikasi manajemen rental, software rental motor, sistem informasi rental, dashboard rental mobil, whatsapp ai copilot rental, g-cal sync rental, reken saas, software armada">
@@ -19,20 +19,21 @@
   <meta property="og:image" content="src/images/dashboard-fleet.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="src/images/logo.svg">
+  <link rel="icon" type="image/png" href="src/images/logo.png">
 
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <!-- Google Fonts: Plus Jakarta Sans (QuotaRing Typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -46,7 +47,7 @@
           },
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            alt: ['"Outfit"', 'sans-serif']
+            alt: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
           }
         }
       }
@@ -65,47 +66,45 @@
        FLOATING ISLAND NAVBAR (Light Frosted Modern SaaS)
        ======================================================================== -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6">
-    <div id="header-island-container" class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all duration-300 header-island">
-      
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 group" id="brand-logo-link">
-        <div class="relative w-8 h-8 rounded-full overflow-hidden bg-blue-50 border border-blue-200 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105">
-          <img src="src/images/logo.svg" alt="REKEN Logo" class="w-full h-full object-contain">
+      <!-- Compact Island (QuotaRing Style Width) -->
+      <div id="header-island-container" class="max-w-3xl lg:max-w-[780px] mx-auto px-3.5 sm:px-4 py-2 flex items-center justify-between transition-all duration-300 header-island header-island-animate">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-2 group shrink-0" id="brand-logo-link">
+          <div class="relative w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <img src="src/images/logo.png" alt="REKEN Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-base sm:text-lg font-bold tracking-tight text-slate-900 font-alt">
+            REKEN<span class="text-blue-600 font-extrabold">.ID</span>
+          </span>
+        </a>
+
+        <!-- Desktop Nav Menu (QuotaRing Clean Style: Beranda, Fitur, Mitra, Tentang, Kontak) -->
+        <nav class="hidden lg:flex items-center gap-0.5" id="desktop-navigation">
+          <a href="index.html" class="nav-link-item active">
+            <span>Beranda</span>
+          </a>
+          <a href="fitur.html" class="nav-link-item">
+            <span>Fitur</span>
+          </a>
+          <a href="mitra.html" class="nav-link-item">
+            <span>Mitra</span>
+          </a>
+          <a href="tentang.html" class="nav-link-item">
+            <span>Tentang</span>
+          </a>
+          <a href="kontak.html" class="nav-link-item">
+            <span>Kontak</span>
+          </a>
+        </nav>
+
+        <!-- Right Action CTA -->
+        <div class="hidden sm:flex items-center gap-2 shrink-0">
+          <a href="kontak.html" class="btn-nav-cta" id="nav-cta-demo">
+            Coba Demo
+          </a>
+          <button id="theme-toggle" type="button" aria-label="Ganti mode terang/gelap" class="theme-toggle-btn !w-8 !h-8"><i class="fa-solid fa-moon text-xs"></i><i class="fa-solid fa-sun text-xs"></i></button>
         </div>
-        <span class="text-lg font-bold tracking-tight text-slate-900 font-alt">
-          REKEN<span class="text-blue-600 font-extrabold">.ID</span>
-        </span>
-        <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[10px] font-mono font-bold text-blue-700 uppercase tracking-wider">
-          RENTAL SAAS
-        </span>
-      </a>
-
-      <!-- Desktop Nav Menu (Simple & Clean: Beranda, Fitur, Mitra, Tentang, Kontak) -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5" id="desktop-navigation">
-        <a href="index.html" class="nav-link-item active">
-          <span>Beranda</span>
-        </a>
-        <a href="fitur.html" class="nav-link-item">
-          <span>Fitur Sistem</span>
-        </a>
-        <a href="mitra.html" class="nav-link-item">
-          <span>Kemitraan B2B</span>
-        </a>
-        <a href="tentang.html" class="nav-link-item">
-          <span>Tentang</span>
-        </a>
-        <a href="kontak.html" class="nav-link-item">
-          <span>Kontak</span>
-        </a>
-      </nav>
-
-      <!-- Right Action CTA -->
-      <div class="hidden sm:flex items-center gap-3">
-        <a href="kontak.html" class="btn-nav-cta" id="nav-cta-demo">
-          <span>Coba Demo Gratis</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
-        </a>
-      </div>
 
       <!-- Mobile Controls (WhatsApp + Hamburger) -->
       <div class="flex lg:hidden items-center gap-2">
@@ -127,7 +126,7 @@
       <div>
         <div class="flex items-center justify-between pb-5 border-b border-slate-200">
           <div class="flex items-center gap-2.5">
-            <img src="src/images/logo.svg" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain">
+            <img src="src/images/logo.png" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain">
             <span class="font-bold text-lg text-slate-900 font-alt">REKEN<span class="text-blue-600">.ID</span></span>
           </div>
           <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-slate-700" aria-label="Tutup Menu">
@@ -162,7 +161,7 @@
       <div class="pt-6 border-t border-slate-200">
         <a href="kontak.html" class="w-full py-3 rounded-full bg-blue-600 text-white font-bold text-xs text-center flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
           <i class="fa-solid fa-calendar-check"></i>
-          <span>Jadwalkan Live Demo</span>
+          <span>Jadwalkan Demo</span>
         </a>
       </div>
     </div>
@@ -171,59 +170,72 @@
   <main class="relative z-10">
 
     <!-- ========================================================================
-         HERO SECTION: LIGHT ENTERPRISE SAAS WITH PUNCHY COPY & METRICS
+         HERO SECTION: CLEAN MODERN ENTERPRISE SAAS (Option 1)
          ======================================================================== -->
-    <section class="relative w-full pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 bg-gradient-to-b from-slate-50 via-white to-white overflow-hidden" id="beranda">
-      
-      <!-- Subtle Background Atmosphere -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-blue-100/60 via-sky-100/50 to-indigo-100/30 blur-[100px] rounded-full pointer-events-none -z-10" aria-hidden="true"></div>
+    <section class="relative w-full pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 bg-gradient-to-b from-slate-50/90 via-white to-slate-50/60 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden" id="beranda">
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Ambient Subtle Glow (Soft Blue / Indigo Mesh Backlight behind Headline & Laptop) -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[720px] sm:w-[920px] h-[460px] bg-gradient-to-tr from-blue-400/15 via-sky-300/18 to-indigo-300/10 rounded-full blur-3xl opacity-75"></div>
+        <div class="absolute top-[32rem] left-1/2 -translate-x-1/2 w-[600px] sm:w-[860px] h-[380px] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-3xl"></div>
+      </div>
 
-        <!-- Punchy Bold Headline -->
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] max-w-4xl mx-auto font-alt">
-          Satu Dashboard Terpadu.<br>
-          <span class="text-blue-600">
-            Automasi &amp; Skalakan Bisnis Rental Anda.
-          </span>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+
+        <!-- Punchy Bold Headline with Inward Motion Animation ("Dari Luar ke Dalam") -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12] max-w-4xl mx-auto font-alt overflow-hidden">
+          <span class="hero-animate-top">Satu Dashboard Terpadu.</span>
+          <span class="hero-animate-bottom mt-1 sm:mt-2 bg-gradient-to-r from-blue-600 via-blue-700 to-sky-600 dark:from-blue-400 dark:via-sky-300 dark:to-indigo-300 bg-clip-text text-transparent">Automasi &amp; Skalakan Bisnis Rental Anda.</span>
         </h1>
 
-        <!-- Subheadline Description -->
-        <p class="mt-5 sm:mt-6 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Sistem operasi cerdas untuk pemilik rental mobil, motor, dan biro tour pariwisata. Monitoring status ketersediaan armada real-time, otomatisasi customer service 24/7 dengan <strong class="text-slate-900 font-semibold">WhatsApp AI CS Copilot</strong>, sinkronisasi jadwal booking Google Calendar bebas bentrok, hingga kalkulasi invoice kas otomatis.
+        <!-- Subheadline Description with Inward Slide -->
+        <p class="hero-animate-desc mt-5 sm:mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Sistem operasi cerdas untuk pemilik rental mobil, motor, dan biro tour pariwisata. Monitoring status ketersediaan armada real-time, otomatisasi customer service 24/7 dengan <strong class="text-slate-900 dark:text-white font-semibold">WhatsApp AI CS Copilot</strong>, sinkronisasi jadwal booking Google Calendar bebas bentrok, hingga kalkulasi invoice kas otomatis.
         </p>
 
-        <!-- Dual CTA Buttons -->
-        <div class="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="kontak.html" class="btn-primary-hero group" id="hero-cta-demo">
-            <span>Coba Demo Gratis</span>
-            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        <!-- Dual CTA Buttons (Clean QuotaRing Style: No Icons, Max 2 Words) -->
+        <div class="hero-animate-cta mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3.5">
+          <a href="kontak.html" class="btn-primary-hero" id="hero-cta-demo">
+            Coba Demo
           </a>
-          <a href="#fitur-utama" class="btn-secondary-hero group" id="hero-cta-features">
-            <i class="fa-solid fa-sliders text-xs text-blue-600"></i>
-            <span>Jelajahi 9 Fitur Utama</span>
+          <a href="#fitur-utama" class="btn-secondary-hero" id="hero-cta-features">
+            Lihat Fitur
           </a>
         </div>
 
+        <!-- Micro Trust Row -->
+        <div class="hero-animate-trust mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">
+          <span class="inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-check text-[11px] text-blue-600"></i>
+            <span>Tanpa instalasi server</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-check text-[11px] text-blue-600"></i>
+            <span>Demo interaktif gratis</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-check text-[11px] text-blue-600"></i>
+            <span>Slot demo hari ini</span>
+          </span>
+        </div>
+
         <!-- Social Proof Metrics Bar with Count-Up Animation -->
-        <div class="mt-12 sm:mt-16 pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center tabular-nums">
+        <div class="mt-12 sm:mt-16 pt-8 border-t border-slate-200/80 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center tabular-nums">
           <div class="p-3">
-            <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-alt" data-stat-target="100" data-stat-suffix="+">100+</div>
-            <div class="text-xs text-slate-600 mt-1 font-medium">Rental Kendaraan Terhubung</div>
+            <div class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-alt" data-stat-target="100" data-stat-suffix="+">100+</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Rental Kendaraan Terhubung</div>
           </div>
           <div class="p-3">
-            <div class="text-2xl sm:text-3xl font-extrabold text-blue-600 font-alt" data-stat-target="12000" data-stat-suffix="+" data-stat-thousand="true">12.000+</div>
-            <div class="text-xs text-slate-600 mt-1 font-medium">Transaksi Sewa Diproses</div>
+            <div class="text-2xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400 font-alt" data-stat-target="12000" data-stat-suffix="+" data-stat-thousand="true">12.000+</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Transaksi Sewa Diproses</div>
           </div>
           <div class="p-3">
-            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-alt" data-stat-target="99.9" data-stat-suffix="%" data-stat-decimals="1">99.9%</div>
-            <div class="text-xs text-slate-600 mt-1 font-medium">Cloud Server Uptime SLA</div>
+            <div class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-alt" data-stat-target="99.9" data-stat-suffix="%" data-stat-decimals="1">99.9%</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Cloud Server Uptime SLA</div>
           </div>
           <div class="p-3">
-            <div class="text-2xl sm:text-3xl font-extrabold text-sky-600 font-alt" data-stat-target="0" data-stat-suffix="%">0%</div>
-            <div class="text-xs text-slate-600 mt-1 font-medium">Insiden Double-Booking</div>
+            <div class="text-2xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 font-alt" data-stat-target="0" data-stat-suffix="%">0%</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Insiden Double-Booking</div>
           </div>
         </div>
 
@@ -231,34 +243,38 @@
              INTERACTIVE DASHBOARD SHOWCASE WITH TAB SWITCHER
              ==================================================================== -->
         <div class="relative mt-14 sm:mt-18 max-w-5xl lg:max-w-6xl mx-auto text-left">
-          
+
           <h2 class="sr-only">Preview Interaktif Dashboard Operasional REKEN</h2>
 
           <!-- Tab Navigation Switcher Bar -->
-          <div class="flex items-center justify-center flex-wrap gap-2 mb-4 p-1.5 rounded-full bg-slate-900/90 text-white max-w-2xl mx-auto shadow-lg">
-            <button type="button" class="dashboard-tab-btn active" data-tab="fleet">
+          <div class="flex items-center justify-center flex-wrap gap-1 sm:gap-2 mb-5 p-1.5 rounded-full bg-slate-900 text-white max-w-2xl mx-auto shadow-xl border border-slate-800">
+            <button type="button" class="dashboard-tab-btn !px-3 !py-1.5 !text-[11px] sm:!text-xs active" data-tab="fleet">
               <i class="fa-solid fa-car-side text-xs"></i>
               <span>Manajemen Armada</span>
             </button>
-            <button type="button" class="dashboard-tab-btn" data-tab="calendar">
+            <button type="button" class="dashboard-tab-btn !px-3 !py-1.5 !text-[11px] sm:!text-xs" data-tab="calendar">
               <i class="fa-solid fa-calendar-days text-xs"></i>
               <span>Kalender &amp; G-Cal</span>
             </button>
-            <button type="button" class="dashboard-tab-btn" data-tab="invoice">
+            <button type="button" class="dashboard-tab-btn !px-3 !py-1.5 !text-[11px] sm:!text-xs" data-tab="invoice">
               <i class="fa-solid fa-file-invoice-dollar text-xs"></i>
               <span>Invoice Kas &amp; DP</span>
             </button>
-            <button type="button" class="dashboard-tab-btn" data-tab="vehicle">
+            <button type="button" class="dashboard-tab-btn !px-3 !py-1.5 !text-[11px] sm:!text-xs" data-tab="vehicle">
               <i class="fa-solid fa-shield-halved text-xs"></i>
               <span>Detail STNK &amp; Servis</span>
             </button>
           </div>
 
+          <!-- Laptop Shell: dashboard grows from 82% to 100% as it scrolls into view -->
+          <div class="reveal-on-scroll laptop-reveal">
+            <!-- Screen bezel -->
+            <div class="laptop-screen">
           <!-- Browser Shell Frame Container -->
-          <div class="dark-contrast-frame text-white bg-slate-950 p-2.5 sm:p-4 rounded-3xl relative overflow-hidden">
-            
+          <div class="dark-contrast-frame text-white bg-slate-950 p-2.5 sm:p-4 rounded-xl relative overflow-hidden">
+
             <!-- Window Topbar -->
-            <div class="w-full bg-[#0b1329] px-4 py-2.5 rounded-t-2xl border-b border-slate-800 flex items-center justify-between text-xs mb-1">
+            <div class="w-full bg-[#0b1329] px-4 py-2.5 rounded-t-lg border-b border-slate-800 flex items-center justify-between text-xs mb-1">
               <div class="flex items-center gap-1.5">
                 <span class="w-3 h-3 rounded-full bg-rose-500"></span>
                 <span class="w-3 h-3 rounded-full bg-amber-500"></span>
@@ -301,32 +317,10 @@
 
           </div>
 
-          <!-- Floating Badges -->
-          <div class="hidden md:flex absolute -top-5 -right-5 p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xl items-center gap-3 animate-float-badge z-20">
-            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg shrink-0">
-              <i class="fa-brands fa-whatsapp"></i>
             </div>
-            <div class="text-left text-xs">
-              <div class="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>WHATSAPP AI COPILOT</span>
-              </div>
-              <div class="text-slate-900 font-bold">Balas Tamu 24/7 Otomatis</div>
-              <div class="text-[11px] text-slate-600">Auto-cek ketersediaan unit sewa</div>
-            </div>
-          </div>
 
-          <div class="hidden md:flex absolute -bottom-5 -left-5 p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xl items-center gap-3 z-20">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg shrink-0">
-              <i class="fa-solid fa-calendar-check"></i>
-            </div>
-            <div class="text-left text-xs">
-              <div class="text-[10px] font-mono text-blue-700 font-bold uppercase tracking-wider">
-                GOOGLE CALENDAR SYNC
-              </div>
-              <div class="text-slate-900 font-bold">0% Jadwal Bentrok</div>
-              <div class="text-[11px] text-slate-600">Otomatis sinkron ke seluruh HP staf &amp; driver</div>
-            </div>
+            <!-- Laptop Base -->
+            <div class="laptop-base" aria-hidden="true"></div>
           </div>
 
         </div>
@@ -337,92 +331,319 @@
 
 
     <!-- ========================================================================
-         FLEET COMPATIBILITY: MULTI-KATEGORI KENDARAAN
+         CORE FEATURE HIGHLIGHTS: 4 PILAR KEUNGGULAN REKEN
          ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-alt">
-          Satu Sistem untuk Seluruh Kategori Kendaraan
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 section-reveal">
+      <!-- Subtle soft ambient light for delicate frosted glass refraction -->
+      <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        <div class="absolute -top-16 left-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-16 right-1/4 w-96 h-96 bg-sky-100/35 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-3xl reveal-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-200/60 text-blue-700 text-xs font-semibold mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+          <span>Keunggulan Fitur REKEN</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-alt leading-[1.08]">
+          Kendali Penuh Operasional dalam Satu Sistem
         </h2>
-        <p class="mt-3 text-slate-600 text-sm sm:text-base">
-          REKEN dirancang fleksibel untuk mengelola inventaris rental mobil keluarga, rental motor skuter turis, travel minibus rombongan, hingga armada mobil listrik (EV) dalam satu layar.
+        <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Dirancang menjawab kebutuhan harian pemilik rental: armada teratur rapi, jadwal booking bebas tabrakan, pencatatan kas presisi, dan pemeliharaan unit selalu terpantau.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger-parent">
-        
-        <!-- Cat 1: Mobil Penumpang -->
-        <div class="glass-card p-6 flex flex-col justify-between reveal-on-scroll">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-5">
-              <i class="fa-solid fa-car-side"></i>
-            </div>
-            <div class="text-[10px] font-mono text-blue-700 font-bold uppercase tracking-wider mb-1">KATEGORI 01</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2 font-alt">Mobil Penumpang</h3>
-            <p class="text-slate-600 text-xs leading-relaxed mb-4">
-              Kelola MPV, City Car, dan Luxury SUV (Innova Zenix, Avanza, Alphard, Brio). Dukungan tarif lepas kunci 24 jam dan all-in supir.
-            </p>
+      <!-- 4 Kotak Fitur: Card Kotak-Kotak (Grid 4 Kolom) dengan Glass Halus -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mt-10 sm:mt-14 reveal-stagger-parent">
+
+        <!-- Keunggulan: Anti-Bentrok & Terukur -->
+        <div class="feature-glass-box p-6 sm:p-7 reveal-on-scroll">
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5 font-alt">Anti-Bentrok &amp; Terukur</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Monitoring status ketersediaan unit real-time: siap sewa, sedang jalan, servis bengkel, atau mitra B2B. Utilitas dan riwayat unit terpantau transparan.
+          </p>
+        </div>
+
+        <!-- Keunggulan: Bebas Jadwal Tabrakan -->
+        <div class="feature-glass-box p-6 sm:p-7 reveal-on-scroll">
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5 font-alt">Bebas Jadwal Tabrakan</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Sinkronisasi jadwal sewa dua arah otomatis ke Google Calendar tim. Peringatan bentrok jadwal instan dan pengingat serah-terima unit tepat waktu.
+          </p>
+        </div>
+
+        <!-- Keunggulan: Arus Kas Akurat -->
+        <div class="feature-glass-box p-6 sm:p-7 reveal-on-scroll">
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5 font-alt">Arus Kas Akurat</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Kalkulasi tarif sewa lepas kunci dan all-in supir otomatis. Lacak uang muka (DP), deposit jaminan, dan rekap arus kas harian tanpa selisih.
+          </p>
+        </div>
+
+        <!-- Keunggulan: Alert Jatuh Tempo -->
+        <div class="feature-glass-box p-6 sm:p-7 reveal-on-scroll">
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5 font-alt">Alert Jatuh Tempo</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Pengingat otomatis jatuh tempo masa berlaku STNK, uji KIR, polis asuransi, dan jadwal servis berkala. Jaga performa aset armada selalu prima.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ========================================================================
+           MOBILE COMMAND: WIDGETS FOR HOME SCREEN & LOCK SCREEN (QuotaRing Style)
+           ======================================================================== -->
+      <div class="mt-20 sm:mt-28 reveal-on-scroll">
+        <!-- Section Heading -->
+        <div class="max-w-3xl mb-8 sm:mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-xs font-semibold mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            <span>Mobile &amp; Lock Screen Glance</span>
           </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <span>Lepas Kunci &amp; Driver</span>
-            <i class="fa-solid fa-check text-blue-600"></i>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-alt leading-[1.08]">
+            Widgets untuk Home Screen dan Lock Screen
+          </h2>
+          <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Cincin status hijau saat armada tersedia, berubah amber saat mendekati batas kapasitas booking, dan merah saat jadwal kritis. Seluruh data tersinkronisasi instan dengan dashboard REKEN, sehingga Anda tetap memegang kendali penuh di mana pun Anda berada.
+          </p>
+        </div>
+
+        <!-- Giant Scenic Curved Showcase Card -->
+        <div class="widget-sky-canvas rounded-[2.25rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-2xl border border-sky-200/50">
+
+          <!-- Cloud and Ambient Sky Reflections -->
+          <div class="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+            <div class="absolute -top-12 -left-12 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/4 right-0 w-[500px] h-[300px] bg-white/30 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-16 left-1/3 w-[600px] h-[350px] bg-sky-200/30 rounded-full blur-3xl"></div>
+            <!-- Delicate Floating Nature Elements ala QuotaRing -->
+            <div class="absolute top-1/2 left-[48%] -translate-y-1/2 text-2xl opacity-80 filter drop-shadow hidden lg:block">🦋</div>
+            <div class="absolute bottom-10 right-[35%] text-lg opacity-70 filter drop-shadow hidden lg:block">🦋</div>
+          </div>
+
+          <!-- Content Grid: Left Widgets + Right Lock Screen -->
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+            <!-- Left Side: Dark Mobile Widgets (Square & Rectangular) -->
+            <div class="lg:col-span-7 flex flex-col gap-5 sm:gap-6 items-start">
+
+              <!-- Square 2x2 Widget (Fleet Utilization Ring) -->
+              <div class="widget-dark-card rounded-3xl p-5 sm:p-6 w-56 sm:w-64 text-white">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-300 mb-4">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="tracking-wide">Armada Siap</span>
+                </div>
+
+                <!-- Circular Progress Ring (85%) -->
+                <div class="relative flex items-center justify-center my-1">
+                  <svg class="w-28 h-28 sm:w-32 sm:h-32" viewBox="0 0 100 100">
+                    <!-- Background Circle -->
+                    <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                    <!-- Progress Circle (85%) -->
+                    <circle class="progress-ring-circle" cx="50" cy="50" r="40" stroke="#10b981" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="251.3" stroke-dashoffset="37.7" />
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold font-alt tracking-tight">85%</span>
+                    <span class="text-[10px] text-slate-400 font-mono">12/14 Unit</span>
+                  </div>
+                </div>
+
+                <div class="mt-3 pt-3 border-t border-white/10 text-center">
+                  <span class="text-[11px] text-slate-300 font-medium">Sisa 2 unit siap jalan</span>
+                </div>
+              </div>
+
+              <!-- Rectangular 4x2 Widget (3 Category Status Rings) -->
+              <div class="widget-dark-card rounded-3xl p-5 sm:p-6 w-full max-w-lg text-white">
+                <div class="flex items-center justify-between text-xs text-slate-300 font-semibold mb-5 pb-3 border-b border-white/10">
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-sky-400"></i>
+                    <span class="tracking-wide font-alt font-bold">Status Kategori Sewa</span>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30">Live Sync</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 sm:gap-4 text-center">
+
+                  <!-- Ring 1: Mobil MPV (85% Green) -->
+                  <div class="flex flex-col items-center">
+                    <div class="relative w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center mb-2">
+                      <svg class="w-16 h-16" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                        <circle class="progress-ring-circle" cx="50" cy="50" r="40" stroke="#22c55e" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="251.3" stroke-dashoffset="37.7" />
+                      </svg>
+                      <span class="absolute text-sm font-bold font-alt">85%</span>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-200">Mobil MPV</span>
+                    <span class="text-[10px] text-slate-400 font-mono mt-0.5">Sisa 1 Unit</span>
+                  </div>
+
+                  <!-- Ring 2: Motor Skuter (60% Cyan) -->
+                  <div class="flex flex-col items-center">
+                    <div class="relative w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center mb-2">
+                      <svg class="w-16 h-16" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                        <circle class="progress-ring-circle" cx="50" cy="50" r="40" stroke="#06b6d4" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="251.3" stroke-dashoffset="100.5" />
+                      </svg>
+                      <span class="absolute text-sm font-bold font-alt">60%</span>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-200">Motor Wisata</span>
+                    <span class="text-[10px] text-slate-400 font-mono mt-0.5">Sisa 4 Unit</span>
+                  </div>
+
+                  <!-- Ring 3: Minibus Pariwisata (100% Amber) -->
+                  <div class="flex flex-col items-center">
+                    <div class="relative w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center mb-2">
+                      <svg class="w-16 h-16" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" />
+                        <circle class="progress-ring-circle" cx="50" cy="50" r="40" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="251.3" stroke-dashoffset="0" />
+                      </svg>
+                      <span class="absolute text-sm font-bold font-alt text-amber-400">100%</span>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-200">HiAce Tour</span>
+                    <span class="text-[10px] text-amber-400 font-mono mt-0.5">Penuh Tersewa</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Smartphone Lock Screen (Time 9:41, Glance Widgets, Push Alert) -->
+            <div class="lg:col-span-5 flex flex-col items-center lg:items-end justify-center text-center lg:text-right">
+
+              <!-- Lock Screen Header Clock 9:41 -->
+              <div class="text-7xl sm:text-8xl font-bold tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.25)] font-sans">
+                9:41
+              </div>
+              <div class="text-sm sm:text-base font-semibold text-white/95 drop-shadow mt-1 mb-5">
+                Senin, 24 Oktober
+              </div>
+
+              <!-- Lock Screen Compact Glance Widgets Row -->
+              <div class="flex flex-wrap items-center justify-center lg:justify-end gap-2.5 mb-5">
+
+                <!-- Mini Circular Lock Screen Widget -->
+                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/20 text-white shadow-xl">
+                  <div class="relative w-6 h-6 flex items-center justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.2)" stroke-width="12" fill="none" />
+                      <circle class="progress-ring-circle" cx="50" cy="50" r="40" stroke="#22c55e" stroke-width="12" stroke-linecap="round" fill="none" stroke-dasharray="251.3" stroke-dashoffset="37.7" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-bold font-alt">85%</span>
+                </div>
+
+                <!-- Pill Lock Screen Widget: Upcoming Dispatch -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/20 text-xs text-white shadow-xl">
+                  <i class="fa-solid fa-plane-departure text-sky-300 text-xs"></i>
+                  <span class="font-semibold">Innova Zenix &middot; Bandara 14:00</span>
+                </div>
+
+              </div>
+
+              <!-- Lock Screen Push Notification Card -->
+              <div class="widget-dark-card rounded-2xl p-4 text-left max-w-sm shadow-2xl border border-white/20">
+                <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
+                  <div class="flex items-center gap-1.5 font-bold text-white">
+                    <div class="w-4 h-4 rounded bg-blue-600 flex items-center justify-center p-0.5">
+                      <img src="src/images/logo.png" alt="" class="w-full h-full object-contain">
+                    </div>
+                    <span>REKEN RENTAL OS</span>
+                  </div>
+                  <span class="font-mono text-[10px]">Baru Saja</span>
+                </div>
+                <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                  <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                  <span>Booking Masuk via WhatsApp Copilot</span>
+                </div>
+                <div class="text-[11px] text-slate-300 leading-relaxed mt-1">
+                  Avanza Veloz (DK 1234 XY) 3 Hari. DP Rp 500.000 Lunas via QRIS. Jadwal otomatis terkunci di kalender.
+                </div>
+              </div>
+
+              <!-- Lock Screen Badge Button -->
+              <div class="mt-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-slate-900 font-semibold text-xs shadow-lg shadow-black/15 select-none">
+                <span>Lock Screen</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Strip Logo Mitra: marquee 2 baris berlawanan arah -->
+      <div class="mt-16 sm:mt-20 reveal-on-scroll" aria-label="Mitra dan ekosistem REKEN">
+        <p class="text-center text-xs font-mono uppercase tracking-wider text-slate-500 mb-6">
+          Dipercaya oleh mitra transportasi &amp; ekosistem rental
+        </p>
+
+        <!-- Baris 1 -->
+        <div class="marquee">
+          <div class="marquee-track">
+            <div class="partner-item">
+              <img src="src/images/partners/palawa-group.png" alt="Logo Palawa Group" class="h-5 w-auto object-contain grayscale opacity-75 shrink-0">
+              <span>Palawa Group</span>
+            </div>
+            <div class="partner-item">
+              <span class="partner-chip">N</span><span>Nusantara Wheels &amp; Tour Bali</span>
+            </div>
+            <div class="partner-item">
+              <span class="partner-chip">G</span><span>Garasi Utama Kuta</span>
+            </div>
+            <div class="partner-item">
+              <span class="partner-chip">P</span><span>Palawa Transport</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="src/images/partners/palawa-group.png" alt="" class="h-5 w-auto object-contain grayscale opacity-75 shrink-0">
+              <span>Palawa Group</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">N</span><span>Nusantara Wheels &amp; Tour Bali</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">G</span><span>Garasi Utama Kuta</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">P</span><span>Palawa Transport</span>
+            </div>
           </div>
         </div>
 
-        <!-- Cat 2: Motor & Skuter -->
-        <div class="glass-card p-6 flex flex-col justify-between reveal-on-scroll">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5">
-              <i class="fa-solid fa-motorcycle"></i>
+        <!-- Baris 2 (arah berlawanan) -->
+        <div class="marquee marquee-reverse mt-4">
+          <div class="marquee-track">
+            <div class="partner-item">
+              <img src="src/images/partners/sekeco.png" alt="Logo Sekeco" class="h-5 w-5 object-cover rounded grayscale opacity-75 shrink-0">
+              <span>Sekeco</span>
             </div>
-            <div class="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider mb-1">KATEGORI 02</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2 font-alt">Motor &amp; Skuter</h3>
-            <p class="text-slate-600 text-xs leading-relaxed mb-4">
-              Sangat ideal untuk rental motor wisata (Scoopy, NMAX, PCX, Vespa) dengan perputaran harian tinggi serta inventaris helm &amp; jas hujan.
-            </p>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <span>Perputaran Sewa Cepat</span>
-            <i class="fa-solid fa-check text-emerald-600"></i>
+            <div class="partner-item">
+              <span class="partner-chip">G</span><span>Garasi Canggu Hub</span>
+            </div>
+            <div class="partner-item">
+              <span class="partner-chip">T</span><span>Tirtaraju</span>
+            </div>
+            <div class="partner-item">
+              <span class="partner-chip">M</span><span>PT Mandiri Sejahtera</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="src/images/partners/sekeco.png" alt="" class="h-5 w-5 object-cover rounded grayscale opacity-75 shrink-0">
+              <span>Sekeco</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">G</span><span>Garasi Canggu Hub</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">T</span><span>Tirtaraju</span>
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <span class="partner-chip">M</span><span>PT Mandiri Sejahtera</span>
+            </div>
           </div>
         </div>
-
-        <!-- Cat 3: Minibus & Tour -->
-        <div class="glass-card p-6 flex flex-col justify-between reveal-on-scroll">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-5">
-              <i class="fa-solid fa-van-shuttle"></i>
-            </div>
-            <div class="text-[10px] font-mono text-amber-700 font-bold uppercase tracking-wider mb-1">KATEGORI 03</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2 font-alt">Minibus &amp; Pariwisata</h3>
-            <p class="text-slate-600 text-xs leading-relaxed mb-4">
-              Jadwalkan HiAce Premio, Elf Long, dan bus medium rombongan. Terintegrasi penugasan kru driver, rute wisata, dan biaya bensin/tol.
-            </p>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <span>Rombongan &amp; Tour</span>
-            <i class="fa-solid fa-check text-amber-600"></i>
-          </div>
-        </div>
-
-        <!-- Cat 4: Kendaraan Listrik (EV) -->
-        <div class="glass-card p-6 flex flex-col justify-between reveal-on-scroll">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-5">
-              <i class="fa-solid fa-bolt-lightning"></i>
-            </div>
-            <div class="text-[10px] font-mono text-indigo-700 font-bold uppercase tracking-wider mb-1">KATEGORI 04</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2 font-alt">Kendaraan Listrik (EV)</h3>
-            <p class="text-slate-600 text-xs leading-relaxed mb-4">
-              Siap untuk armada masa depan (Hyundai Ioniq 5, Wuling Air EV, Motor Listrik) dengan monitoring interval charging dan garasi pool.
-            </p>
-          </div>
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <span>Eco Fleet Ready</span>
-            <i class="fa-solid fa-check text-indigo-600"></i>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -430,7 +651,7 @@
     <!-- ========================================================================
          MASALAH VS SOLUSI: CARA TRADISIONAL VS CARA REKEN SAAS
          ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 section-reveal">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-alt">
           Mengapa Bisnis Rental Harus Beralih ke REKEN?
@@ -441,12 +662,11 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto reveal-stagger-parent">
-        
+
         <!-- Cara Manual Lama -->
         <div class="p-6 sm:p-8 rounded-2xl bg-rose-50/60 border border-rose-200 flex flex-col justify-between reveal-on-scroll">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold mb-6 font-mono">
-              <i class="fa-solid fa-triangle-exclamation"></i>
               <span>CARA MANUAL / EXCEL LAMA</span>
             </div>
             <ul class="space-y-4 text-xs sm:text-sm text-slate-700">
@@ -477,7 +697,6 @@
         <div class="p-6 sm:p-8 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex flex-col justify-between shadow-sm reveal-on-scroll">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-6 font-mono">
-              <i class="fa-solid fa-circle-check"></i>
               <span>SOLUSI TERPADU REKEN SAAS</span>
             </div>
             <ul class="space-y-4 text-xs sm:text-sm text-slate-800">
@@ -510,10 +729,411 @@
 
 
     <!-- ========================================================================
-         9 MODUL FITUR UTAMA DASHBOARD REKEN (BENTO GRID)
+         REKEN DI GENGGAMAN: TRIO PHONE MOCKUP (QuotaRing-for-iPhone style)
          ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 scroll-mt-28" id="fitur-utama">
-      
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 overflow-hidden section-reveal">
+      <!-- Ambient glow di bawah trio ponsel -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[720px] max-w-full h-72 bg-gradient-to-t from-teal-100/50 via-cyan-100/30 to-transparent blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative z-10">
+        <div class="text-center max-w-2xl mx-auto reveal-on-scroll">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-alt leading-[1.08]">
+            REKEN di Genggaman
+          </h2>
+          <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Buka dashboard lengkap lewat browser di HP Anda — pantau booking, armada, dan kas dari mana saja.
+            Tampilan responsif penuh, tanpa instalasi aplikasi tambahan.
+          </p>
+        </div>
+
+        <!-- Trio ponsel komponen + caption (tanpa foto) -->
+        <div class="mt-14 sm:mt-16 flex items-center justify-center reveal-on-scroll">
+
+          <!-- Kolom kiri: Kalender Booking -->
+          <div class="hidden sm:flex flex-col items-center z-0 -mr-8 md:-mr-14">
+            <div class="phone-frame w-44 sm:w-56 md:w-64 aspect-[9/18.5] origin-bottom -rotate-6 translate-y-6 md:translate-y-8 scale-90 md:scale-95">
+              <div class="phone-screen w-full h-full flex flex-col" aria-hidden="true">
+                <div class="flex items-center justify-between px-4 pt-3 text-[9px] font-bold text-slate-900">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1.5 text-slate-700">
+                    <i class="fa-solid fa-signal text-[7px]"></i>
+                    <i class="fa-solid fa-wifi text-[7px]"></i>
+                    <i class="fa-solid fa-battery-three-quarters text-[9px]"></i>
+                  </span>
+                </div>
+                <div class="px-3.5 mt-2.5 flex items-center justify-between">
+                  <span class="text-[11px] font-extrabold text-slate-900">Kalender Booking</span>
+                  <span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[7px] font-bold border border-blue-100">Hari Ini</span>
+                </div>
+                <div class="px-3.5 mt-2 flex items-center justify-between text-[9px] font-bold text-slate-700">
+                  <i class="fa-solid fa-chevron-left text-[7px] text-slate-400"></i>
+                  <span>November 2026</span>
+                  <i class="fa-solid fa-chevron-right text-[7px] text-slate-400"></i>
+                </div>
+                <div class="px-3 mt-2 grid grid-cols-7 gap-y-0.5 text-center">
+                  <span class="text-[6px] font-bold text-slate-400">Min</span><span class="text-[6px] font-bold text-slate-400">Sen</span><span class="text-[6px] font-bold text-slate-400">Sel</span><span class="text-[6px] font-bold text-slate-400">Rab</span><span class="text-[6px] font-bold text-slate-400">Kam</span><span class="text-[6px] font-bold text-slate-400">Jum</span><span class="text-[6px] font-bold text-slate-400">Sab</span>
+                  <span class="text-[7.5px] text-slate-600 py-0.5">1</span><span class="text-[7.5px] text-slate-600 py-0.5">2</span><span class="text-[7.5px] text-slate-600 py-0.5">3</span><span class="text-[7.5px] text-slate-600 py-0.5 relative">4<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-sky-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5 relative">5<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-sky-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5">6</span><span class="text-[7.5px] text-slate-600 py-0.5">7</span>
+                  <span class="text-[7.5px] text-slate-600 py-0.5">8</span><span class="text-[7.5px] text-slate-600 py-0.5">9</span><span class="text-[7.5px] text-slate-600 py-0.5">10</span><span class="text-[7.5px] text-slate-600 py-0.5">11</span><span class="text-[7.5px] text-slate-600 py-0.5">12</span><span class="text-[7.5px] text-slate-600 py-0.5">13</span><span class="text-[7.5px] text-slate-600 py-0.5">14</span>
+                  <span class="text-[7.5px] text-slate-600 py-0.5">15</span><span class="text-[7.5px] py-0.5 relative"><span class="absolute inset-0 m-auto w-4 h-4 rounded-full bg-blue-600"></span><span class="relative text-white font-bold">16</span></span><span class="text-[7.5px] text-slate-600 py-0.5 relative">17<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5 relative">18<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5 relative">19<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5">20</span><span class="text-[7.5px] text-slate-600 py-0.5">21</span>
+                  <span class="text-[7.5px] text-slate-600 py-0.5">22</span><span class="text-[7.5px] text-slate-600 py-0.5 relative">23<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5 relative">24<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5">25</span><span class="text-[7.5px] text-slate-600 py-0.5">26</span><span class="text-[7.5px] text-slate-600 py-0.5 relative">27<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-amber-500"></span></span><span class="text-[7.5px] text-slate-600 py-0.5">28</span>
+                  <span class="text-[7.5px] text-slate-600 py-0.5">29</span><span class="text-[7.5px] text-slate-600 py-0.5">30</span><span class="py-0.5"></span><span class="py-0.5"></span><span class="py-0.5"></span><span class="py-0.5"></span><span class="py-0.5"></span>
+                </div>
+                <div class="px-3.5 mt-2.5 space-y-1.5 flex-1 min-h-0 overflow-hidden">
+                  <div class="rounded-lg bg-sky-50 border border-sky-100 px-2 py-1.5 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
+                    <span class="text-[7.5px] font-semibold text-slate-700 truncate">Innova Zenix · B2B 9 hari</span>
+                  </div>
+                  <div class="rounded-lg bg-emerald-50 border border-emerald-100 px-2 py-1.5 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                    <span class="text-[7.5px] font-semibold text-slate-700 truncate">Scoopy · Lepas kunci 2 hari</span>
+                  </div>
+                  <div class="rounded-lg bg-amber-50 border border-amber-100 px-2 py-1.5 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+                    <span class="text-[7.5px] font-semibold text-slate-700 truncate">HiAce Premio · Servis berkala</span>
+                  </div>
+                </div>
+                <div class="mt-auto px-6 py-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+                  <i class="fa-solid fa-house text-blue-600"></i>
+                  <i class="fa-regular fa-calendar text-blue-600"></i>
+                  <i class="fa-solid fa-car text-slate-400"></i>
+                  <i class="fa-solid fa-wallet text-slate-400"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-5 text-[11px] sm:text-xs font-medium text-slate-500">Kalender Anti-Bentrok</p>
+          </div>
+
+          <!-- Kolom tengah: Dashboard Armada -->
+          <div class="flex flex-col items-center z-10">
+            <div class="phone-frame w-56 sm:w-72 md:w-80 aspect-[9/18.5]">
+              <div class="phone-screen w-full h-full flex flex-col" aria-hidden="true">
+                <div class="flex items-center justify-between px-4 pt-3 text-[9px] font-bold text-slate-900">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1.5 text-slate-700">
+                    <i class="fa-solid fa-signal text-[7px]"></i>
+                    <i class="fa-solid fa-wifi text-[7px]"></i>
+                    <i class="fa-solid fa-battery-three-quarters text-[9px]"></i>
+                  </span>
+                </div>
+                <div class="px-3.5 mt-2.5 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-[9px] font-extrabold shrink-0">R</span>
+                  <div class="flex-1 min-w-0 h-7 rounded-full bg-slate-100 flex items-center gap-1.5 px-3 text-[8px] text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-[7px]"></i>
+                    <span class="truncate">Cari unit, plat, atau pelanggan…</span>
+                  </div>
+                  <span class="relative shrink-0">
+                    <i class="fa-regular fa-bell text-slate-600 text-[11px]"></i>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white"></span>
+                  </span>
+                </div>
+                <div class="px-3.5 mt-3 grid grid-cols-2 gap-2">
+                  <div class="rounded-xl bg-emerald-50 border border-emerald-100 px-2.5 py-2">
+                    <div class="text-[7px] font-bold text-emerald-700 uppercase tracking-wider">Siap Sewa</div>
+                    <div class="text-[15px] font-extrabold text-slate-900 leading-tight">6 Unit</div>
+                    <div class="text-[7px] text-slate-500">Siap di garasi</div>
+                  </div>
+                  <div class="rounded-xl bg-sky-50 border border-sky-100 px-2.5 py-2">
+                    <div class="text-[7px] font-bold text-sky-700 uppercase tracking-wider">Sedang Jalan</div>
+                    <div class="text-[15px] font-extrabold text-slate-900 leading-tight">1 Unit</div>
+                    <div class="text-[7px] text-slate-500">Aktif di jalan</div>
+                  </div>
+                  <div class="rounded-xl bg-amber-50 border border-amber-100 px-2.5 py-2">
+                    <div class="text-[7px] font-bold text-amber-700 uppercase tracking-wider">Di Bengkel</div>
+                    <div class="text-[15px] font-extrabold text-slate-900 leading-tight">1 Unit</div>
+                    <div class="text-[7px] text-slate-500">Perawatan rutin</div>
+                  </div>
+                  <div class="rounded-xl bg-indigo-50 border border-indigo-100 px-2.5 py-2">
+                    <div class="text-[7px] font-bold text-indigo-700 uppercase tracking-wider">Mitra B2B</div>
+                    <div class="text-[15px] font-extrabold text-slate-900 leading-tight">1 Unit</div>
+                    <div class="text-[7px] text-slate-500">Kerjasama aktif</div>
+                  </div>
+                </div>
+                <div class="px-3.5 mt-3 flex gap-1.5">
+                  <span class="px-2 py-1 rounded-full bg-slate-900 text-white text-[7px] font-semibold">Mobil Penumpang</span>
+                  <span class="px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-[7px] font-semibold">Motor &amp; Skuter</span>
+                  <span class="px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-[7px] font-semibold">Minibus</span>
+                </div>
+                <div class="px-3.5 mt-3 space-y-2 flex-1 min-h-0 overflow-hidden">
+                  <div class="rounded-xl border border-slate-200 px-2.5 py-2 flex items-center gap-2">
+                    <span class="w-9 rounded-md bg-sky-900 text-white flex items-center justify-center py-1 text-[6px] font-bold leading-tight text-center shrink-0">DK<br>4231 FB</span>
+                    <span class="flex-1 min-w-0">
+                      <span class="block text-[9px] font-bold text-slate-900 truncate">Honda Scoopy Sporty</span>
+                      <span class="block text-[7px] text-slate-500 truncate">ARM-002 · Garasi Canggu Hub</span>
+                    </span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[6.5px] font-bold shrink-0">Tersedia</span>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 px-2.5 py-2 flex items-center gap-2">
+                    <span class="w-9 rounded-md bg-slate-800 text-white flex items-center justify-center py-1 text-[6px] font-bold leading-tight text-center shrink-0">DK<br>7099 UD</span>
+                    <span class="flex-1 min-w-0">
+                      <span class="block text-[9px] font-bold text-slate-900 truncate">Toyota Innova Zenix</span>
+                      <span class="block text-[7px] text-slate-500 truncate">ARM-001 · Garasi Utama Kuta</span>
+                    </span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-sky-100 text-sky-700 text-[6.5px] font-bold shrink-0">Di Jalan</span>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 px-2.5 py-2 flex items-center gap-2">
+                    <span class="w-9 rounded-md bg-amber-800 text-white flex items-center justify-center py-1 text-[6px] font-bold leading-tight text-center shrink-0">AB<br>1904 TD</span>
+                    <span class="flex-1 min-w-0">
+                      <span class="block text-[9px] font-bold text-slate-900 truncate">Toyota HiAce Premio</span>
+                      <span class="block text-[7px] text-slate-500 truncate">ARM-014 · Servis berkala 40rb</span>
+                    </span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[6.5px] font-bold shrink-0">Bengkel</span>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 px-2.5 py-2 flex items-center gap-2">
+                    <span class="w-9 rounded-md bg-indigo-900 text-white flex items-center justify-center py-1 text-[6px] font-bold leading-tight text-center shrink-0">DK<br>9021 EV</span>
+                    <span class="flex-1 min-w-0">
+                      <span class="block text-[9px] font-bold text-slate-900 truncate">Wuling Air EV</span>
+                      <span class="block text-[7px] text-slate-500 truncate">ARM-021 · Oper order Mitra B2B</span>
+                    </span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-[6.5px] font-bold shrink-0">B2B</span>
+                  </div>
+                </div>
+                <div class="mt-auto px-6 py-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+                  <i class="fa-solid fa-house text-blue-600"></i>
+                  <i class="fa-regular fa-calendar text-slate-400"></i>
+                  <i class="fa-solid fa-car text-slate-400"></i>
+                  <i class="fa-solid fa-wallet text-slate-400"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-5 text-[11px] sm:text-xs font-medium text-slate-500">Semua Modul</p>
+          </div>
+
+          <!-- Kolom kanan: Legalitas & Servis -->
+          <div class="hidden sm:flex flex-col items-center z-0 -ml-8 md:-ml-14">
+            <div class="phone-frame w-44 sm:w-56 md:w-64 aspect-[9/18.5] origin-bottom rotate-6 translate-y-6 md:translate-y-8 scale-90 md:scale-95">
+              <div class="phone-screen w-full h-full flex flex-col" aria-hidden="true">
+                <div class="flex items-center justify-between px-4 pt-3 text-[9px] font-bold text-slate-900">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1.5 text-slate-700">
+                    <i class="fa-solid fa-signal text-[7px]"></i>
+                    <i class="fa-solid fa-wifi text-[7px]"></i>
+                    <i class="fa-solid fa-battery-three-quarters text-[9px]"></i>
+                  </span>
+                </div>
+                <div class="px-3.5 mt-2.5 flex items-center justify-between">
+                  <span class="text-[11px] font-extrabold text-slate-900">Pengingat Legalitas</span>
+                  <i class="fa-regular fa-bell text-slate-500 text-[10px] relative">
+                    <span class="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  </i>
+                </div>
+                <div class="px-3.5 mt-3 space-y-2.5 flex-1 min-h-0 overflow-hidden">
+                  <div class="rounded-xl bg-amber-50 border border-amber-200/70 px-3 py-2.5">
+                    <div class="flex items-center gap-1.5">
+                      <i class="fa-solid fa-file-shield text-amber-600 text-[8px]"></i>
+                      <span class="text-[8px] font-bold text-amber-700">STNK · Pajak Tahunan</span>
+                    </div>
+                    <div class="text-[9px] font-extrabold text-slate-900 mt-1">Toyota Avanza</div>
+                    <div class="text-[7px] text-slate-500">Jatuh tempo 18 Feb 2027</div>
+                    <div class="mt-1.5 h-1 rounded-full bg-amber-100 overflow-hidden">
+                      <div class="h-full w-[72%] bg-amber-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl bg-sky-50 border border-sky-200/70 px-3 py-2.5">
+                    <div class="flex items-center gap-1.5">
+                      <i class="fa-solid fa-screwdriver-wrench text-sky-600 text-[8px]"></i>
+                      <span class="text-[8px] font-bold text-sky-700">Servis Berkala</span>
+                    </div>
+                    <div class="text-[9px] font-extrabold text-slate-900 mt-1">Honda Scoopy</div>
+                    <div class="text-[7px] text-slate-500">Oli &amp; tune-up · 12.500 km</div>
+                  </div>
+                  <div class="rounded-xl bg-emerald-50 border border-emerald-200/70 px-3 py-2.5">
+                    <div class="flex items-center gap-1.5">
+                      <i class="fa-solid fa-circle-check text-emerald-600 text-[8px]"></i>
+                      <span class="text-[8px] font-bold text-emerald-700">Asuransi Aktif</span>
+                    </div>
+                    <div class="text-[9px] font-extrabold text-slate-900 mt-1">Toyota Brio</div>
+                    <div class="text-[7px] text-slate-500">Polis berlaku s.d. 5 Mei 2027</div>
+                  </div>
+                  <div class="rounded-xl bg-slate-900 px-3 py-2 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-emerald-400 text-[9px]"></i>
+                    <span class="text-[7.5px] font-semibold text-white">Legalitas terpantau otomatis</span>
+                  </div>
+                </div>
+                <div class="mt-auto px-6 py-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+                  <i class="fa-solid fa-house text-blue-600"></i>
+                  <i class="fa-regular fa-calendar text-slate-400"></i>
+                  <i class="fa-solid fa-shield-halved text-blue-600"></i>
+                  <i class="fa-solid fa-wallet text-slate-400"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-5 text-[11px] sm:text-xs font-medium text-slate-500">Legalitas &amp; Servis</p>
+          </div>
+
+        </div>
+
+        <!-- Baris fitur 4 kolom: icon chip + judul + deskripsi -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mt-16 sm:mt-20 max-w-6xl mx-auto reveal-stagger-parent">
+          <div class="reveal-on-scroll">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-4">
+              <i class="fa-solid fa-mobile-screen text-sm"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-alt">Semua modul di HP</h3>
+            <p class="mt-1.5 text-slate-600 text-xs sm:text-sm leading-relaxed">Dasbor yang sama dengan versi laptop: booking, armada, kas, dan legalitas terbuka penuh lewat browser.</p>
+          </div>
+          <div class="reveal-on-scroll">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-4">
+              <i class="fa-solid fa-bolt text-sm"></i>
+            </div>            <h3 class="text-lg font-bold text-slate-900 font-alt">Alert real-time</h3>
+            <p class="mt-1.5 text-slate-600 text-xs sm:text-sm leading-relaxed">Booking baru, unit kembali, dan kas masuk muncul detik itu juga dengan peringatan anti-bentrok.</p>
+          </div>
+          <div class="reveal-on-scroll">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-4">
+              <i class="fa-solid fa-cloud text-sm"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-alt">Bebas instalasi</h3>
+            <p class="mt-1.5 text-slate-600 text-xs sm:text-sm leading-relaxed">Tidak perlu app store atau server. Tambahkan ke layar utama HP sebagai PWA dan langsung pakai.</p>
+          </div>
+          <div class="reveal-on-scroll">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-4">
+              <i class="fa-solid fa-file-lines text-sm"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 font-alt">Laporan dalam genggaman</h3>
+            <p class="mt-1.5 text-slate-600 text-xs sm:text-sm leading-relaxed">Rekap mingguan dan bulanan bisa dibuka dari HP, lalu diekspor PDF/CSV untuk pembukuan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================
+         LAPORAN MINGGUAN & REKAP BULANAN (dark report cards, QuotaRing style)
+         ======================================================================== -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 section-reveal">
+      <div class="text-center max-w-2xl mx-auto reveal-on-scroll">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-alt leading-[1.08]">
+          Laporan Mingguan &amp; Rekap Bulanan
+        </h2>
+        <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Ringkasan otomatis tiap Senin pagi: omzet, okupansi armada, dan unit terlaris minggu berjalan. Rekap bulanan siap diekspor PDF/CSV untuk pembukuan — dibuka dari laptop maupun HP.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-10 sm:mt-12 reveal-stagger-parent">
+
+        <!-- Kartu 1: Laporan Mingguan -->
+        <div class="relative overflow-hidden rounded-[1.75rem] bg-slate-950 text-white p-5 sm:p-7 ring-1 ring-white/10 shadow-2xl reveal-on-scroll">
+          <div class="absolute -top-24 -right-16 w-72 h-72 bg-emerald-500/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+          <div class="relative">
+
+            <div class="flex items-center justify-between text-xs">
+              <span class="flex items-center gap-2 font-bold">
+                <span class="w-4 h-4 rounded-full bg-emerald-400 flex items-center justify-center text-[7px] text-slate-950"><i class="fa-solid fa-bolt"></i></span>
+                REKEN.ID
+              </span>
+              <span class="text-slate-400">27 Okt – 2 Nov</span>
+            </div>
+
+            <div class="mt-5 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400/80 to-sky-500/80 flex items-center justify-center">
+                <i class="fa-solid fa-warehouse text-sm"></i>
+              </span>
+              <span>
+                <span class="block text-sm font-bold">Garasi Canggu Hub</span>
+                <span class="block text-[11px] text-slate-400">Laporan Mingguan</span>
+              </span>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-400">Omzet sewa minggu ini</p>
+            <div class="mt-1 flex items-end gap-2.5">
+              <span class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-none">Rp 42,8 jt</span>
+              <span class="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-emerald-300">
+                +12%
+              </span>
+            </div>
+            <p class="mt-2 text-xs"><span class="text-emerald-400 font-bold">Rp 12,4 jt</span> <span class="text-slate-400">sudah masuk kas dari 8 booking DP &amp; pelunasan</span></p>
+
+            <div class="mt-4 grid grid-cols-2 gap-2.5">
+              <div class="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                <div class="text-sm font-bold">6/7</div>
+                <div class="text-[10px] text-slate-400">hari aktif operasional</div>
+              </div>
+              <div class="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                <div class="text-sm font-bold">Jumat</div>
+                <div class="text-[10px] text-slate-400">tersibuk · 14 transaksi</div>
+              </div>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-400">Per hari</p>
+            <div class="mt-2 flex items-end gap-2">
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[38%] bg-emerald-500/40 rounded-lg"></div></div><span class="text-[9px] text-slate-500">Min</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[52%] bg-emerald-500/40 rounded-lg"></div></div><span class="text-[9px] text-slate-500">Sen</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[30%] bg-emerald-500/40 rounded-lg"></div></div><span class="text-[9px] text-slate-500">Sel</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[58%] bg-emerald-500/40 rounded-lg"></div></div><span class="text-[9px] text-slate-500">Rab</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[45%] bg-emerald-500/40 rounded-lg"></div></div><span class="text-[9px] text-slate-500">Kam</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5 flex items-end overflow-hidden"><div class="w-full h-[96%] bg-emerald-400 rounded-lg"></div></div><span class="text-[9px] text-slate-300 font-semibold">Jum</span></div>
+              <div class="flex-1 flex flex-col items-center gap-1.5"><div class="w-full h-24 sm:h-28 rounded-lg bg-white/5"></div><span class="text-[9px] text-slate-500">Sab</span></div>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-500">Unit terlaris: Honda Scoopy Sporty ( sewa harian · 92% okupansi )</p>
+          </div>
+        </div>
+
+        <!-- Kartu 2: Rekap Bulanan -->
+        <div class="relative overflow-hidden rounded-[1.75rem] bg-slate-950 text-white p-5 sm:p-7 ring-1 ring-white/10 shadow-2xl reveal-on-scroll">
+          <div class="absolute -top-24 -right-16 w-72 h-72 bg-emerald-500/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+          <div class="relative">
+
+            <div class="flex items-center justify-between text-xs">
+              <span class="flex items-center gap-2 font-bold">
+                <span class="w-4 h-4 rounded-full bg-emerald-400 flex items-center justify-center text-[7px] text-slate-950"><i class="fa-solid fa-bolt"></i></span>
+                REKEN.ID
+              </span>
+              <span class="text-slate-400">Oktober 2026</span>
+            </div>
+
+            <div class="mt-5 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400/80 to-sky-500/80 flex items-center justify-center">
+                <i class="fa-solid fa-chart-pie text-sm"></i>
+              </span>
+              <span>
+                <span class="block text-sm font-bold">Garasi Canggu Hub</span>
+                <span class="block text-[11px] text-slate-400">Rekap Bulanan</span>
+              </span>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-400">Okupansi armada bulan ini</p>
+            <div class="mt-1 flex items-end gap-2.5">
+              <span class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-none">82%</span>
+              <span class="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-emerald-300">
+                +8%
+              </span>
+            </div>
+            <p class="mt-2 text-xs"><span class="text-emerald-400 font-bold">Rp 186 jt</span> <span class="text-slate-400">estimasi omzet tertagih dari 128 booking</span></p>
+
+            <div class="mt-4 grid grid-cols-2 gap-2.5">
+              <div class="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                <div class="text-sm font-bold">22</div>
+                <div class="text-[10px] text-slate-400">hari operasional</div>
+              </div>
+              <div class="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                <div class="text-sm font-bold">9</div>
+                <div class="text-[10px] text-slate-400">hari okupansi penuh</div>
+              </div>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-400">Peta okupansi 30 hari terakhir</p>
+            <div class="mt-2 grid grid-cols-10 gap-1.5" aria-hidden="true">
+              <div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div>
+              <div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div>
+              <div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div>
+              <div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div>
+              <div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div>
+              <div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-white/5"></div><div class="aspect-square rounded-[4px] bg-emerald-800"></div><div class="aspect-square rounded-[4px] bg-emerald-600/70"></div><div class="aspect-square rounded-[4px] bg-emerald-400"></div><div class="aspect-square rounded-[4px] bg-white/5"></div>
+            </div>
+
+            <p class="mt-5 text-[11px] text-slate-500">25 unit sewa aktif · 3 unit bengkel · 4 unit mitra B2B</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MODUL FITUR UTAMA DASHBOARD REKEN (BENTO GRID)
+         ======================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 scroll-mt-28 section-reveal" id="fitur-utama">
+
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-alt">
           9 Modul Lengkap Dashboard REKEN
@@ -524,14 +1144,13 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal-stagger-parent">
-        
+
         <!-- Modul 1: Manajemen Rental -->
         <div class="glass-card p-6 sm:p-8 flex flex-col justify-between reveal-on-scroll">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-calendar-check"></i>
             </div>
-            <div class="text-[10px] font-mono text-blue-600 font-bold uppercase tracking-wider mb-1">MODUL 01</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Manajemen Rental &amp; Reservasi</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Visual timeline siklus sewa interaktif. Geser horizontal tanggal dan tukar kendaraan atas-bawah dengan proteksi anti-bentrok 100%.
@@ -549,7 +1168,6 @@
             <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-users-gear"></i>
             </div>
-            <div class="text-[10px] font-mono text-purple-600 font-bold uppercase tracking-wider mb-1">MODUL 02</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Manajemen Customer (CRM)</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Database penyewa terpusat dengan verifikasi identitas KTP/SIM, histori sewa, dan proteksi daftar hitam (blacklist) pelanggan berisiko tinggi.
@@ -567,7 +1185,6 @@
             <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-warehouse"></i>
             </div>
-            <div class="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider mb-1">MODUL 03</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Manajemen Fleet &amp; Armada</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Inventaris detail mobil, motor, dan bus. 5 Status live: Siap Disewa, Sedang Disewa, Booking, Di Bengkel, dan Mitra B2B serta reminder STNK.
@@ -585,7 +1202,6 @@
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-file-invoice-dollar"></i>
             </div>
-            <div class="text-[10px] font-mono text-emerald-600 font-bold uppercase tracking-wider mb-1">MODUL 04</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Manajemen Keuangan &amp; Kas</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Kalkulasi invoice dinamis, penerimaan kas, skema DP + sisa pelunasan, uang jaminan (deposit), serta rincian biaya overtime &amp; denda BBM.
@@ -603,7 +1219,6 @@
             <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-brands fa-whatsapp"></i>
             </div>
-            <div class="text-[10px] font-mono text-teal-600 font-bold uppercase tracking-wider mb-1">MODUL 05</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Chat WhatsApp Terintegrasi AI</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               WhatsApp AI CS Copilot 24/7 yang otomatis memeriksa ketersediaan armada langsung dari sistem dan menyusun draf penawaran dalam 0.8 detik.
@@ -621,7 +1236,6 @@
             <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-chart-pie"></i>
             </div>
-            <div class="text-[10px] font-mono text-indigo-600 font-bold uppercase tracking-wider mb-1">MODUL 06</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Dashboard AI &amp; Analytics</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Metrik kesehatan bisnis real-time: tingkat okupansi/utilitas armada (misal 30% (+12% MoM)), peramalan omset, dan deteksi unit idle di garasi.
@@ -639,7 +1253,6 @@
             <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-rotate"></i>
             </div>
-            <div class="text-[10px] font-mono text-blue-600 font-bold uppercase tracking-wider mb-1">MODUL 07</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Google Calendar 2-Way Sync</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Setiap pemesanan terkonfirmasi otomatis muncul di Google Calendar driver dan staf operasional, memastikan jadwal penjemputan tepat waktu.
@@ -657,7 +1270,6 @@
             <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-satellite-dish"></i>
             </div>
-            <div class="text-[10px] font-mono text-amber-600 font-bold uppercase tracking-wider mb-1">MODUL 08</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">GPS Tracking &amp; IoT Telematika</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Pantau posisi fisik seluruh unit di peta digital, histori pergerakan rute, peringatan batas geofence, dan proteksi anti-penggelapan kendaraan.
@@ -675,7 +1287,6 @@
             <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-5">
               <i class="fa-solid fa-file-csv"></i>
             </div>
-            <div class="text-[10px] font-mono text-cyan-600 font-bold uppercase tracking-wider mb-1">MODUL 09</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2 font-alt">Laporan Otomatis &amp; Ekspor CSV</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
               Generate laporan laba rugi bulanan, performa kerja supir, dan rekap utilisasi armada dalam format CSV/Excel siap kirim ke investor dalam 1 klik.
@@ -695,11 +1306,11 @@
     <!-- ========================================================================
          WORKFLOW ONBOARDING CEPAT: 4 LANGKAH ADOPSI SISTEM
          ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 section-reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal-stagger-parent">
+
         <!-- Left: Steps Description -->
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-7 reveal-on-scroll">
           <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-alt mb-4">
             Modernisasi Bisnis Rental Anda dalam 4 Langkah
           </h2>
@@ -750,7 +1361,7 @@
         </div>
 
         <!-- Right: Dispatch Simulator Card -->
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 reveal-on-scroll">
           <div id="live-dispatch-simulator" class="rounded-3xl p-6 bg-slate-900 text-white shadow-xl border border-slate-800">
             <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
               <div class="flex items-center gap-2 text-xs font-bold text-white font-alt uppercase tracking-wider">
@@ -771,7 +1382,7 @@
                     <span class="text-xs font-bold text-white">Toyota Innova Zenix</span>
                     <span class="text-[9px] font-mono bg-blue-500/30 text-blue-300 px-1.5 py-0.5 rounded">DK 1888 XY</span>
                   </div>
-                  <span class="text-[11px] text-slate-200">Garasi Utama · Matic Hybrid · 7 Kursi</span>
+                  <span class="text-[11px] text-slate-200">Garasi Utama &middot; Matic Hybrid &middot; 7 Kursi</span>
                 </div>
               </div>
               <span id="sim-unit-status" class="text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">
@@ -825,7 +1436,7 @@
 
             <!-- Action Demo Button -->
             <a href="kontak.html" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider text-center block shadow-md shadow-black/30 transition-all">
-              <i class="fa-solid fa-play mr-1.5"></i> Coba Demo Interaktif Sekarang
+              <i class="fa-solid fa-play mr-1.5"></i> Coba Demo
             </a>
 
           </div>
@@ -836,202 +1447,737 @@
 
 
     <!-- ========================================================================
-         FAQ SECTION: PERTANYAAN UMUM SEPUTAR REKEN SAAS
+         DEEP OBSIDIAN BOTTOM SECTION (Why REKEN, Real Stories & Testimonials)
          ======================================================================== -->
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-alt">
-          Pertanyaan yang Sering Diajukan
-        </h2>
-        <p class="mt-2 text-slate-600 text-sm">
-          Semua hal yang perlu Anda ketahui sebelum mengadopsi REKEN SaaS untuk bisnis rental Anda.
-        </p>
+    <div class="bg-[#070b14] text-white pt-24 pb-16 relative overflow-hidden border-t border-slate-800/80 section-reveal">
+
+      <!-- Subtle Ambient Glows -->
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- 1. WHY REKEN / Lebih dari Sekadar Software Rental Biasa -->
+        <div class="mb-24">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <!-- Left Header -->
+            <div class="lg:col-span-5 reveal-on-scroll">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 text-sky-400 text-xs font-mono font-semibold tracking-wider uppercase mb-4">
+                <span>Operating System Rental B2B</span>
+              </span>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-alt leading-tight">
+                Lebih dari Sekadar <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">Software Rental Biasa.</span>
+              </h2>
+              <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg">
+                REKEN bukan layanan persewaan mobil konsumen, melainkan platform B2B Software-as-a-Service (SaaS) cerdas yang dirancang khusus untuk mendigitalkan seluruh alur kerja bisnis rental kendaraan di Indonesia.
+              </p>
+            </div>
+
+            <!-- Right 3 Pillars -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 reveal-stagger-parent">
+
+              <!-- Pillar 1 -->
+              <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-sky-500/40 transition-all group reveal-on-scroll">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-2 font-alt">
+                  Kalender Gantt &amp; Anti-Bentrok
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Google Calendar 2-Way Sync &amp; visual timeline terintegrasi menjamin 100% bebas dari risiko double-booking antar armada.
+                </p>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-blue-500/40 transition-all group reveal-on-scroll">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-2 font-alt">
+                  Manajemen Kas &amp; Invoice Resmi
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Kalkulasi tarif dinamis, pencatatan uang jaminan deposit, DP, dan pelunasan tercatat transparan tanpa celah kebocoran kasir garasi.
+                </p>
+              </div>
+
+              <!-- Pillar 3 -->
+              <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-teal-500/40 transition-all group reveal-on-scroll">
+                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-2 font-alt">
+                  WhatsApp AI CS Copilot 24/7
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Bot AI cerdas terhubung nomor WA bisnis Anda untuk membalas prospek detik itu juga, cek ketersediaan armada, dan siapkan draf sewa.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- 2. REAL STORIES / Dipercaya Pengusaha Rental -->
+        <div class="mb-24">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/25 text-sky-400 text-xs font-mono font-semibold tracking-wider uppercase mb-3">
+                <span>Bukti Adopsi Mitra Rental</span>
+              </span>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-alt">
+                Dipercaya Ratusan Pemilik Rental di Indonesia
+              </h2>
+            </div>
+
+            <!-- Rating Badge -->
+            <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 shrink-0">
+              <div class="flex text-amber-400 text-xs gap-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="font-bold text-white font-mono text-xs">4.9/5</span>
+              <span class="text-slate-500">&middot;</span>
+              <span class="text-slate-400 font-mono text-[11px]">100+ Bisnis Rental Aktif</span>
+            </div>
+          </div>
+
+          <!-- 7 Testimonial Cards Bento Grid with Interactive Animations -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 mb-14 reveal-stagger-parent">
+
+            <!-- Card 1: Dewata Luxury Transport, Bali (Featured Story / 7 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-8 flex flex-col justify-between lg:col-span-7 md:col-span-2 col-span-1 reveal-on-scroll relative group">
+              <!-- Background Ambient Gradient for Hero Card -->
+              <div class="absolute -top-16 -right-16 w-60 h-60 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+              <div>
+                <!-- Top Meta Row -->
+                <div class="flex items-center justify-between mb-5 gap-3">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold tracking-wide">
+
+                      <span>Featured Story</span>
+                    </span>
+                    <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+
+                      <span>0 Double-Booking (8 Bulan)</span>
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1 text-amber-400 text-xs">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+
+                <!-- Quote Text -->
+                <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                  &ldquo;Sebelum pakai REKEN, admin kami kewalahan catat booking di buku nota dan grup WA. Saat high-season liburan di Bali, resiko bentrok jadwal mobil selalu bikin pusing. Sekarang seluruh armada 28 unit terpantau visual di Gantt chart cloud secara live, tersinkron langsung ke Google Calendar tim driver. Nol konflik jadwal selama 8 bulan berturut-turut!&rdquo;
+                </p>
+
+                <!-- Interactive Mini Timeline Strip -->
+                <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 mb-6 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-slate-400">DK 1822 AB &middot; Alphard:</span>
+                    <span class="text-sky-400 font-semibold">On-Trip (Ubud)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span class="text-slate-400">DK 9011 XY &middot; Zenix:</span>
+                    <span class="text-emerald-400 font-semibold">Ready Garasi Airport</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Author Info -->
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-blue-900/40">
+                    HK
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-white flex items-center gap-1.5">
+                      <span>Hendra Kusuma</span>
+                      <i class="fa-solid fa-certificate text-sky-400 text-[11px]" title="Verified Tenant"></i>
+                    </div>
+                    <div class="text-xs text-slate-400">Owner &middot; Dewata Luxury Transport, Bali</div>
+                  </div>
+                </div>
+                <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono shrink-0">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>28 Unit Mobil</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Jogja Auto Fleet, Yogyakarta (AI WhatsApp Copilot / 5 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-8 flex flex-col justify-between lg:col-span-5 md:col-span-1 col-span-1 reveal-on-scroll relative group">
+              <div>
+                <!-- Top Meta Row -->
+                <div class="flex items-center justify-between mb-5 gap-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold tracking-wide">
+
+                    <span>WhatsApp AI Copilot</span>
+                  </span>
+                  <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+
+                    <span>+35% Closing Rate</span>
+                  </span>
+                </div>
+
+                <!-- Quote Text -->
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 font-normal">
+                  &ldquo;WhatsApp AI CS Copilot REKEN adalah penyelamat omset bisnis kami. Pertanyaan sewa dari wisatawan masuk jam 1 malam saat admin tidur langsung terbalas otomatis. Bot mengecek ketersediaan unit, menghitung tarif sewa, dan menyiapkan draf booking. Konversi closing naik drastis!&rdquo;
+                </p>
+
+                <!-- Mini Chat Preview Bubble -->
+                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 mb-5 text-[11px] space-y-2">
+                  <div class="flex items-start gap-2">
+                    <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-mono">User</span>
+                    <p class="text-slate-400">"Malam min, Avanza tgl 26-28 ready?"</p>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">REKEN AI</span>
+                    <p class="text-emerald-300/90 font-medium">"Ready Kak! Estimasi Rp 850rb lepas kunci. Draf sudah kami siapkan..."</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Author Info -->
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-600 to-emerald-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-emerald-900/40">
+                    DP
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Dian Permatasari</div>
+                    <div class="text-[11px] text-slate-400">Founder &middot; Jogja Auto Fleet, DIY</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono shrink-0">
+                  <span class="relative flex h-1.5 w-1.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                  </span>
+                  <span>16 Unit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Surabaya Armada Raya (Keuangan & Kasir / 4 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-7 flex flex-col justify-between lg:col-span-4 md:col-span-1 col-span-1 reveal-on-scroll relative group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold">
+
+                    <span>Kas &amp; Invoice</span>
+                  </span>
+                  <div class="flex items-center gap-0.5 text-amber-400 text-[11px]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+
+                <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] mb-3">
+
+                  <span>100% Deposit Terlacak</span>
+                </span>
+
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                  &ldquo;Pencatatan deposit jaminan, DP, dan denda overtime rental dulunya rawan selisih saat pergantian shift kasir garasi. Di REKEN, semua kalkulasi otomatis dan kwitansi resmi ber-QR code langsung terkirim ke WhatsApp penyewa. Arus kas 100% transparan.&rdquo;
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-600 to-blue-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-indigo-900/40">
+                    BS
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Budi Santoso</div>
+                    <div class="text-[11px] text-slate-400">Fleet Mgr &middot; Surabaya Armada Raya</div>
+                  </div>
+                </div>
+                <div class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                  <i class="fa-solid fa-check-circle text-[9px]"></i>
+                  <span>42 Unit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Raja Rental Medan (GPS Telematika & Anti-Penggelapan / 4 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-7 flex flex-col justify-between lg:col-span-4 md:col-span-1 col-span-1 reveal-on-scroll relative group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold">
+
+                    <span>GPS Telematika</span>
+                  </span>
+                  <div class="flex items-center gap-0.5 text-amber-400 text-[11px]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+
+                <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] mb-3">
+
+                  <span>0 Kasus Unit Raib</span>
+                </span>
+
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                  &ldquo;Kami sangat mengandalkan modul Telematika GPS &amp; Geofencing REKEN. Begitu ada armada Innova atau Fortuner yang dibawa mendekati perbatasan tanpa izin keluar pulau, sistem langsung membunyikan sirene alert di dashboard dan kirim notif darurat. Rasanya tenang sekali!&rdquo;
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-red-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-rose-900/40">
+                    RS
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Rahmat Siregar</div>
+                    <div class="text-[11px] text-slate-400">Ops Lead &middot; Raja Rental Medan</div>
+                  </div>
+                </div>
+                <div class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                  <i class="fa-solid fa-check-circle text-[9px]"></i>
+                  <span>20 Unit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Bandung Tour & Transport (Driver Sync & Pariwisata / 4 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-7 flex flex-col justify-between lg:col-span-4 md:col-span-1 col-span-1 reveal-on-scroll relative group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold">
+
+                    <span>Tour &amp; Driver Sync</span>
+                  </span>
+                  <div class="flex items-center gap-0.5 text-amber-400 text-[11px]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+
+                <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] mb-3">
+
+                  <span>99.4% On-Time Penjemputan</span>
+                </span>
+
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                  &ldquo;Rental rombongan wisata HiAce butuh koordinasi jadwal supir yang ketat. Lewat Google Calendar 2-Way Sync REKEN, surat tugas dan lokasi penjemputan otomatis muncul di kalender smartphone supir. Tidak ada lagi supir salah jam jemput tamu di bandara atau stasiun.&rdquo;
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 to-orange-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-amber-900/40">
+                    YP
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Yudi Pratama</div>
+                    <div class="text-[11px] text-slate-400">Direktur &middot; Bandung Tour &amp; Travel</div>
+                  </div>
+                </div>
+                <div class="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                  <i class="fa-solid fa-check-circle text-[9px]"></i>
+                  <span>15 HiAce</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Komodo Island Wheels, Labuan Bajo (Digital Inspection / 5 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-7 flex flex-col justify-between lg:col-span-5 md:col-span-1 col-span-1 reveal-on-scroll relative group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold">
+
+                    <span>Digital Handover &amp; Foto</span>
+                  </span>
+                  <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+
+                    <span>Check-in Cuma 2 Menit</span>
+                  </span>
+                </div>
+
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                  &ldquo;Sewa motor ke turis asing butuh proses gesit. Form checklist digital REKEN lengkap foto bodi kendaraan saat serah-terima via HP menyelesaikan proses sewa hanya dalam 2 menit. Saat unit kembali lecet, bukti fotonya terekam jelas di cloud. Tidak ada lagi drama sengketa klaim deposit dengan turis!&rdquo;
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-600 to-blue-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-cyan-900/40">
+                    MF
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">Maria Fernandez</div>
+                    <div class="text-[11px] text-slate-400">Owner &middot; Komodo Island Wheels, NTT</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono shrink-0">
+                  <span class="relative flex h-1.5 w-1.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                  </span>
+                  <span>24 Motor</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7: Batavia Executive Fleet, Jakarta (Analytics & Laporan Ekspor / 7 Cols) -->
+            <div class="bento-testimonial-card p-6 sm:p-8 flex flex-col justify-between lg:col-span-7 md:col-span-2 col-span-1 reveal-on-scroll relative group">
+              <!-- Background Ambient Gradient for Hero Card -->
+              <div class="absolute -bottom-16 -left-16 w-60 h-60 bg-purple-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+              <div>
+                <div class="flex items-center justify-between mb-5 gap-3">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[11px] font-mono font-semibold tracking-wide">
+
+                      <span>Enterprise Analytics</span>
+                    </span>
+                    <span class="bento-metric-chip inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+
+                      <span>Hemat 20+ Jam Pembukuan/Bulan</span>
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1 text-amber-400 text-xs">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+
+                <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                  &ldquo;Sebagai rental segmen eksekutif korporat, kami wajib menyediakan laporan berkala untuk owner investor mobil titipan. REKEN otomatis mengkalkulasi utilisasi armada, biaya servis rutin bengkel, hingga laba bersih per kendaraan. Rekap keuangan bulanan yang dulu butuh 3 hari lembur, sekarang langsung diekspor ke Excel satu klik!&rdquo;
+                </p>
+
+                <!-- Interactive Mini Analytics Strip -->
+                <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 mb-6 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-gauge-high text-purple-400"></i>
+                    <span class="text-slate-400">Rata-rata Okupansi:</span>
+                    <span class="text-purple-300 font-semibold">88.5% (Q3 2026)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice text-emerald-400"></i>
+                    <span class="text-slate-400">Rekap Kasir &amp; Laba:</span>
+                    <span class="text-emerald-400 font-semibold">Auto Sync Excel/CSV</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Author Info -->
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-400 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-purple-900/40">
+                    KT
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-white flex items-center gap-1.5">
+                      <span>Kevin Tanuwidjaja</span>
+                      <i class="fa-solid fa-certificate text-purple-400 text-[11px]" title="Enterprise Partner"></i>
+                    </div>
+                    <div class="text-xs text-slate-400">Managing Partner &middot; Batavia Executive Fleet, Jakarta Selatan</div>
+                  </div>
+                </div>
+                <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono shrink-0">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>35 Unit Alphard &amp; Sedan</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Integration & Trust Logo Strip -->
+          <div class="pt-6 border-t border-slate-800/60">
+            <div class="text-center text-[11px] font-mono uppercase tracking-widest text-slate-500 mb-6">
+              Terintegrasi dengan Standar Teknologi Cloud &amp; Otomotif Nasional
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-slate-400 text-xs sm:text-sm">
+              <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <i class="fa-brands fa-google text-blue-400 text-base"></i>
+                <span class="font-semibold">Google Calendar 2-Way Sync</span>
+              </div>
+              <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                <span class="font-semibold">WhatsApp Cloud API</span>
+              </div>
+              <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <i class="fa-solid fa-satellite-dish text-sky-400 text-base"></i>
+                <span class="font-semibold">IoT GPS Telematics</span>
+              </div>
+              <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <i class="fa-solid fa-credit-card text-purple-400 text-base"></i>
+                <span class="font-semibold">Payment Gateway Invoicing</span>
+              </div>
+              <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <i class="fa-solid fa-file-excel text-emerald-400 text-base"></i>
+                <span class="font-semibold">Auto CSV/Excel Export</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="space-y-4">
-        
-        <div class="faq-item p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
-            <span>Apakah saya perlu instalasi server atau aplikasi berat di komputer?</span>
-            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 text-xs"></i>
-          </button>
-          <div class="faq-content-grid">
-            <div class="faq-content-grid-inner">
-              <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Tidak sama sekali. REKEN 100% berbasis cloud (Web SaaS). Anda cukup membukanya lewat browser laptop, tablet, atau smartphone Anda kapan saja dan di mana saja tanpa repot mengelola server sendiri.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
-            <span>Bagaimana cara kerja WhatsApp AI CS Copilot?</span>
-            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 text-xs"></i>
-          </button>
-          <div class="faq-content-grid">
-            <div class="faq-content-grid-inner">
-              <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                WhatsApp AI Copilot terhubung langsung dengan nomor resmi bisnis rental Anda. Ketika calon penyewa menanyakan ketersediaan mobil atau tarif, AI secara instan memeriksa database armada Anda dan menyiapkan draf balasan terformat rapi. Anda dapat mengaktifkan mode otomatis penuh atau mode persetujuan draf 1-klik oleh admin.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
-            <span>Apakah data armada dan histori pelanggan saya aman?</span>
-            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 text-xs"></i>
-          </button>
-          <div class="faq-content-grid">
-            <div class="faq-content-grid-inner">
-              <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Sangat aman. Setiap akun rental diisolasi dengan enkripsi tingkat enterprise (AES-256). Data pelanggan, KTP, nomor telepon, dan pembukuan kas Anda sepenuhnya milik Anda dan tidak pernah dibagikan kepada pihak ketiga.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
-            <span>Bagaimana jika saat ini data armada saya masih di file Excel?</span>
-            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 text-xs"></i>
-          </button>
-          <div class="faq-content-grid">
-            <div class="faq-content-grid-inner">
-              <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Tim technical onboarding REKEN siap membantu proses migrasi data armada, daftar harga, dan data pelanggan lama Anda dari format Excel atau CSV ke dalam sistem REKEN tanpa biaya tambahan.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
-            <span>Apakah ada sesi demo gratis sebelum saya berlangganan?</span>
-            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 text-xs"></i>
-          </button>
-          <div class="faq-content-grid">
-            <div class="faq-content-grid-inner">
-              <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Ya! Kami menyediakan sesi live demo interaktif 1-on-1 selama 15 menit bersama product specialist REKEN. Anda dapat menjadwalkannya langsung di halaman Kontak atau WhatsApp kami.
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+    </div>
 
     <!-- ========================================================================
-         FINAL CONTRAST CTA BANNER (DARK OBSIDIAN SLATE BREAK)
+         FAQ SECTION: PERTANYAAN UMUM SEPUTAR REKEN SAAS (QuotaRing Layout)
          ======================================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-      <div class="p-8 sm:p-14 lg:p-16 rounded-3xl bg-slate-950 text-white relative overflow-hidden text-center shadow-2xl border border-slate-800">
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+    <div class="w-full bg-slate-50/70 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800/80 section-reveal">
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28" id="faq">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-        <div class="relative z-10 max-w-3xl mx-auto">
-          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-alt leading-tight mb-6">
-            Siap Tinggalkan Cara Manual &amp; Kembangkan Bisnis Rental Anda?
-          </h2>
-
-          <p class="text-slate-200 text-base sm:text-lg font-light leading-relaxed mb-10 max-w-2xl mx-auto">
-            Bergabunglah dengan ratusan pemilik rental mobil dan motor modern di seluruh Indonesia. Jadwalkan sesi konsultasi dan live demo bersama tim ahli REKEN.
-          </p>
-
-          <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="kontak.html" class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm tracking-wide shadow-md shadow-black/40 transition-all flex items-center gap-2">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Jadwalkan Live Demo Gratis</span>
-            </a>
-            <a href="https://wa.me/6281234567890?text=Halo%20Tim%20REKEN,%20saya%20ingin%20konsultasi%20sistem%20dashboard%20rental%20SaaS" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full border border-white/25 hover:bg-white/10 text-white font-semibold text-sm transition-all flex items-center gap-2">
-              <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
-              <span>Konsultasi WhatsApp Langsung</span>
-            </a>
+        <!-- Kiri: judul sticky -->
+        <div class="lg:col-span-5">
+          <div class="lg:sticky lg:top-28 reveal-on-scroll">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-alt leading-[1.05]">
+              Pertanyaan yang Sering Diajukan
+            </h2>
+            <p class="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Semua hal yang perlu Anda ketahui sebelum mengadopsi REKEN SaaS untuk bisnis rental Anda.
+            </p>
+            <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Masih punya pertanyaan? <a href="kontak.html" class="font-semibold text-slate-900 underline underline-offset-4 hover:text-blue-700 transition-colors">Tulis ke tim kami</a> atau jadwalkan demo gratis.
+            </p>
           </div>
         </div>
+
+        <!-- Kanan: akordeon FAQ -->
+        <div class="lg:col-span-7 space-y-4 reveal-stagger-parent">
+
+          <div class="faq-card faq-scroll-item p-5 sm:p-6 reveal-on-scroll">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="true">
+              <span>Apakah saya perlu instalasi server atau aplikasi berat di komputer?</span>
+              <span class="relative shrink-0 w-4 h-4 text-slate-400">
+                <i class="faq-icon-plus fa-solid fa-plus absolute inset-0 hidden items-center justify-center text-xs"></i>
+                <i class="faq-icon-minus fa-solid fa-minus absolute inset-0 flex items-center justify-center text-xs"></i>
+              </span>
+            </button>
+            <div class="faq-content-grid open">
+              <div class="faq-content-grid-inner">
+                <p class="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Tidak sama sekali. REKEN 100% berbasis cloud (Web SaaS). Anda cukup membukanya lewat browser laptop, tablet, atau smartphone Anda kapan saja dan di mana saja tanpa repot mengelola server sendiri.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card faq-scroll-item p-5 sm:p-6 reveal-on-scroll">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
+              <span>Bagaimana cara kerja WhatsApp AI CS Copilot?</span>
+              <span class="relative shrink-0 w-4 h-4 text-slate-400">
+                <i class="faq-icon-plus fa-solid fa-plus absolute inset-0 flex items-center justify-center text-xs"></i>
+                <i class="faq-icon-minus fa-solid fa-minus absolute inset-0 hidden items-center justify-center text-xs"></i>
+              </span>
+            </button>
+            <div class="faq-content-grid">
+              <div class="faq-content-grid-inner">
+                <p class="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  WhatsApp AI Copilot terhubung langsung dengan nomor resmi bisnis rental Anda. Ketika calon penyewa menanyakan ketersediaan mobil atau tarif, AI secara instan memeriksa database armada Anda dan menyiapkan draf balasan terformat rapi. Anda dapat mengaktifkan mode otomatis penuh atau mode persetujuan draf 1-klik oleh admin.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card faq-scroll-item p-5 sm:p-6 reveal-on-scroll">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
+              <span>Apakah data armada dan histori pelanggan saya aman?</span>
+              <span class="relative shrink-0 w-4 h-4 text-slate-400">
+                <i class="faq-icon-plus fa-solid fa-plus absolute inset-0 flex items-center justify-center text-xs"></i>
+                <i class="faq-icon-minus fa-solid fa-minus absolute inset-0 hidden items-center justify-center text-xs"></i>
+              </span>
+            </button>
+            <div class="faq-content-grid">
+              <div class="faq-content-grid-inner">
+                <p class="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Sangat aman. Setiap akun rental diisolasi dengan enkripsi tingkat enterprise (AES-256). Data pelanggan, KTP, nomor telepon, dan pembukuan kas Anda sepenuhnya milik Anda dan tidak pernah dibagikan kepada pihak ketiga.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card faq-scroll-item p-5 sm:p-6 reveal-on-scroll">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
+              <span>Bagaimana jika saat ini data armada saya masih di file Excel?</span>
+              <span class="relative shrink-0 w-4 h-4 text-slate-400">
+                <i class="faq-icon-plus fa-solid fa-plus absolute inset-0 flex items-center justify-center text-xs"></i>
+                <i class="faq-icon-minus fa-solid fa-minus absolute inset-0 hidden items-center justify-center text-xs"></i>
+              </span>
+            </button>
+            <div class="faq-content-grid">
+              <div class="faq-content-grid-inner">
+                <p class="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Tim technical onboarding REKEN siap membantu proses migrasi data armada, daftar harga, dan data pelanggan lama Anda dari format Excel atau CSV ke dalam sistem REKEN tanpa biaya tambahan.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card faq-scroll-item p-5 sm:p-6 reveal-on-scroll">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left font-bold text-slate-900 text-sm sm:text-base" aria-expanded="false">
+              <span>Apakah ada sesi demo gratis sebelum saya berlangganan?</span>
+              <span class="relative shrink-0 w-4 h-4 text-slate-400">
+                <i class="faq-icon-plus fa-solid fa-plus absolute inset-0 flex items-center justify-center text-xs"></i>
+                <i class="faq-icon-minus fa-solid fa-minus absolute inset-0 hidden items-center justify-center text-xs"></i>
+              </span>
+            </button>
+            <div class="faq-content-grid">
+              <div class="faq-content-grid-inner">
+                <p class="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Ya! Kami menyediakan sesi live demo interaktif 1-on-1 selama 15 menit bersama product specialist REKEN. Anda dapat menjadwalkannya langsung di halaman Kontak atau WhatsApp kami.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </section>
+      </section>
+    </div>
 
   </main>
 
   <!-- ========================================================================
-       FOOTER (Clean B2B SaaS Architecture)
+       FOOTER (Atmospheric Floating Master Card - SaaS QuotaRing Aesthetic)
        ======================================================================== -->
-  <footer class="bg-slate-900 text-slate-400 pt-16 pb-12 border-t border-slate-800 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
-        
-        <!-- Brand Summary -->
-        <div class="lg:col-span-2">
-          <div class="flex items-center gap-2.5 mb-4">
-            <img src="src/images/logo.svg" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain bg-white/5 p-1">
-            <span class="font-bold text-lg text-white font-alt">REKEN<span class="text-blue-500">.ID</span></span>
+  <footer class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto section-reveal">
+
+    <!-- Floating Dark Twilight Card with Atmospheric Sky & Watermark Wordmark -->
+    <div class="footer-mega-card text-white select-none">
+
+      <!-- Ambient Golden Backlight Glow behind Headline -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[650px] h-[360px] bg-amber-500/15 blur-[130px] rounded-full pointer-events-none"></div>
+
+      <!-- 1. Top Centered SaaS Call To Action -->
+      <div class="pt-16 sm:pt-24 pb-12 sm:pb-16 px-6 sm:px-12 text-center relative z-10">
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-alt max-w-4xl mx-auto leading-[1.12]">
+          Satu Dashboard untuk Seluruh Operasional Rental
+        </h2>
+
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mt-4 sm:mt-5 leading-relaxed font-normal">
+          Tanpa instalasi rumit, 100% berbasis cloud. Eliminasi jadwal bentrok, percepat respon WhatsApp AI 24/7, dan otomatisasi pembukuan kas serta invoice armada.
+        </p>
+
+        <!-- Centered Action Buttons (White Pill + WhatsApp Ghost Pill) -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="kontak.html" class="px-8 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-2">
+            <span>Jadwalkan Demo</span>
+            <i class="fa-solid fa-arrow-right text-xs text-blue-600"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Subtle Horizontal Divider Line -->
+      <div class="max-w-6xl mx-auto px-6 sm:px-12 relative z-10">
+        <div class="border-t border-white/15"></div>
+      </div>
+
+      <!-- 3. 4-Column Directory Links -->
+      <div class="max-w-6xl mx-auto px-6 sm:px-12 pt-12 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 text-xs text-slate-300 relative z-10">
+
+        <!-- Column 1: Brand Info -->
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-600/30 border border-blue-400/40 p-1 flex items-center justify-center">
+              <img src="src/images/logo.png" alt="REKEN Logo" class="w-full h-full object-contain">
+            </div>
+            <span class="font-bold text-lg text-white font-alt tracking-tight">REKEN<span class="text-blue-400">.ID</span></span>
           </div>
-          <p class="text-slate-400 text-xs leading-relaxed max-w-sm mb-6">
-            Platform Software-as-a-Service (SaaS) dan operating system cerdas untuk digitalisasi operasional bisnis rental kendaraan di Indonesia.
+          <p class="text-white font-semibold text-xs mb-2">
+            Sistem Informasi &amp; Operating System Rental Kendaraan
           </p>
-          <div class="flex items-center gap-3 text-slate-400">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span>All Systems Operational</span>
-            </span>
+          <p class="text-slate-400 text-[11px] leading-relaxed mb-3 max-w-sm">
+            &copy; 2026 REKEN Technologies &middot; PT Reken Solusi Nusantara.<br>
+            Solusi cloud B2B SaaS terpadu untuk pengusaha rental mobil, motor, dan bus di seluruh Indonesia.
+          </p>
+          <div class="flex items-center gap-2 text-[11px] text-slate-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>All Systems Operational &middot; Uptime 99.98%</span>
           </div>
         </div>
 
-        <!-- Col 2: Fitur Sistem -->
-        <div>
-          <h4 class="font-bold text-white uppercase tracking-wider text-[11px] mb-4 font-mono">Fitur Sistem</h4>
-          <ul class="space-y-2.5 text-slate-400">
-            <li><a href="fitur.html#modul-rental" class="hover:text-white transition-colors">Manajemen Rental</a></li>
-            <li><a href="fitur.html#modul-crm" class="hover:text-white transition-colors">Manajemen Customer</a></li>
-            <li><a href="fitur.html#modul-fleet" class="hover:text-white transition-colors">Manajemen Fleet</a></li>
-            <li><a href="fitur.html#modul-keuangan" class="hover:text-white transition-colors">Manajemen Keuangan</a></li>
-            <li><a href="fitur.html#modul-wa" class="hover:text-white transition-colors">WhatsApp AI Copilot</a></li>
-            <li><a href="fitur.html#modul-gcal" class="hover:text-white transition-colors">Google Calendar Sync</a></li>
+        <!-- Column 2: Product -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="fitur.html#modul-rental" class="footer-nav-link">Kalender Booking Gantt</a></li>
+            <li><a href="fitur.html#modul-wa" class="footer-nav-link">WhatsApp AI CS Copilot</a></li>
+            <li><a href="fitur.html#modul-fleet" class="footer-nav-link">Manajemen Armada &amp; Servis</a></li>
+            <li><a href="fitur.html#modul-keuangan" class="footer-nav-link">Kas, Invoice &amp; Deposit</a></li>
+            <li><a href="fitur.html#modul-telematika" class="footer-nav-link">GPS Telematika IoT</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Ekosistem & Kemitraan -->
-        <div>
-          <h4 class="font-bold text-white uppercase tracking-wider text-[11px] mb-4 font-mono">Kemitraan B2B</h4>
-          <ul class="space-y-2.5 text-slate-400">
-            <li><a href="mitra.html#adopsi-sistem" class="hover:text-white transition-colors">Adopsi Sistem Rental</a></li>
-            <li><a href="mitra.html#subleasing-b2b" class="hover:text-white transition-colors">Jaringan Subleasing B2B</a></li>
-            <li><a href="mitra.html#titip-mobil" class="hover:text-white transition-colors">Modul Titip Mobil Investor</a></li>
-            <li><a href="mitra.html#agen-travel" class="hover:text-white transition-colors">Integrasi Agen Wisata</a></li>
+        <!-- Column 3: Resources -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Resources</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html#faq" class="footer-nav-link">Pertanyaan Umum (FAQ)</a></li>
+            <li><a href="fitur.html" class="footer-nav-link">Google Calendar 2-Way Sync</a></li>
+            <li><a href="fitur.html" class="footer-nav-link">Ekspor CSV / Excel</a></li>
+            <li><a href="kontak.html" class="footer-nav-link">Dokumentasi API &amp; Webhook</a></li>
+            <li><a href="kontak.html" class="footer-nav-link">Status Server Cloud</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Perusahaan & Kontak -->
-        <div>
-          <h4 class="font-bold text-white uppercase tracking-wider text-[11px] mb-4 font-mono">Perusahaan</h4>
-          <ul class="space-y-2.5 text-slate-400">
-            <li><a href="tentang.html" class="hover:text-white transition-colors">Tentang REKEN</a></li>
-            <li><a href="kontak.html" class="hover:text-white transition-colors">Jadwal Live Demo</a></li>
-            <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp Hotline</a></li>
-            <li><span class="text-slate-500">info@reken.id</span></li>
+        <!-- Column 4: Navigation -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="kontak.html" class="footer-nav-link">Jadwal Live Demo</a></li>
+            <li><a href="mitra.html" class="footer-nav-link">Ekosistem Kemitraan B2B</a></li>
+            <li><a href="tentang.html" class="footer-nav-link">Tentang REKEN</a></li>
+            <li><a href="privasi.html" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="ketentuan.html" class="footer-nav-link">Syarat &amp; Ketentuan</a></li>
           </ul>
         </div>
 
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-        <div>
-          &copy; 2026 REKEN Technologies. Seluruh hak cipta dilindungi undang-undang.
-        </div>
-        <div class="flex items-center gap-6">
-          <span>SaaS Operating System</span>
-          <span>•</span>
-          <span>B2B Cloud Platform</span>
-          <span>•</span>
-          <span>Made with Pride in Indonesia</span>
-        </div>
+      <!-- 4. Giant Brand Wordmark Bleeding Off Bottom Edge (QuotaRing Style) -->
+      <div class="w-full overflow-hidden select-none pointer-events-none text-center mt-2 sm:mt-6">
+        <span class="footer-wordmark">
+          REKEN
+        </span>
       </div>
 
     </div>
+
   </footer>
 
   <!-- Core Javascript -->

@@ -1,5 +1,11 @@
 # AGENTS.md - Workspace Rules for REKEN Landing Page
 
+## Interaction & Visual Rules (wajib)
+- **Animasi scroll**: SETIAP section/blok wajib punya animasi saat di-scroll (`reveal-on-scroll` / `reveal-stagger-parent`), hormati `prefers-reduced-motion`.
+- **Badge/pill**: DILARANG memakai ikon di dalam badge (dot kecil boleh).
+- **Palet**: Jangan terlalu warna-warni — dominan slate + maksimal 1–2 aksen (blue/teal); warna lain hanya untuk semantik (sukses/ bahaya).
+- **Tombol CTA**: Label maksimal 2 kata.
+
 ## Absolute Positioning Rule
 This project is exclusively for marketing the **REKEN Web Dashboard SaaS & Operating System** for vehicle rental and fleet businesses.
 - **NEVER** write content advertising consumer car rentals, tourist packages, airport shuttles, or daily self-drive car rental.

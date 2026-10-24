@@ -21,15 +21,16 @@
   - `text-muted`: `#94a3b8` (Slate 400 - captions & labels)
 
 ## Typography
-- **Primary Sans**: `Plus Jakarta Sans`, sans-serif (Weights: 400, 500, 600, 700, 800)
-- **Display Accents**: `Outfit`, sans-serif (for stat numbers & badges)
+- **Primary Sans**: `Inter`, sans-serif (Weights: 400, 500, 600, 700, 800) — QuotaRing-style grotesk sitewide per user decision, replacing Plus Jakarta Sans.
+- **Display Accents**: `Inter Tight`, sans-serif (headings & stat numbers; replaces Outfit)
 
 ## Key Interactive Components
 1. **Light Frosted Island Navbar**:
    - Fixed top capsule with backdrop-blur, subtle border, logo with cyan pulse dot, smooth nav links, and dual-accent "Coba Demo Gratis" button.
 2. **Dashboard Interactive Showcase**:
-   - Real dashboard screenshots presented in browser-frame shells with glow effects, interactive tab switchers (Kalender, Armada, Invoice Kas, AI Copilot).
-3. **9-Card Feature Bento Grid**:
+   - Real dashboard screenshots presented as an interactive browser window inside a dark laptop shell (screen bezel + base bar with hinge notch); the shell scales in from 82% to 100% when scrolled into view (mobility-aware, disabled for reduced motion). Tab switchers (Kalender, Armada, Invoice, AI Copilot) sit above the laptop.
+3. **Light / Dark Theme (prep)**: `html.dark` class via Tailwind `darkMode: 'class'`; tokens flipped in `src/style.css` (`:root` / `html.dark`), toggle button (`.theme-toggle-btn`, moon/sun) in the navbar island persisted to `localStorage` (`reken-theme`). Currently styled: global surfaces, nav island, hero.
+4. **9-Card Feature Bento Grid**:
    - Balanced cards with clean iconography, status badges, and concrete SaaS workflow benefits.
 4. **Interactive 3-Step Qualification Wizard (Kontak)**:
    - Step 1: Jumlah Armada (1-10 unit, 11-30 unit, 31-50 unit, 50+ unit).

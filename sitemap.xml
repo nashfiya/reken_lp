@@ -31,8 +31,22 @@
   <!-- Kontak & Jadwal Demo 3-Step Wizard -->
   <url>
     <loc>https://reken.id/kontak.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- Kebijakan Privasi & Perlindungan Data -->
+  <url>
+    <loc>https://reken.id/privasi.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Syarat & Ketentuan Layanan Cloud SaaS -->
+  <url>
+    <loc>https://reken.id/ketentuan.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

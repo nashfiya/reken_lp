@@ -10,7 +10,7 @@
   <meta name="robots" content="index, follow">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="src/images/logo.svg">
+  <link rel="icon" type="image/png" href="src/images/logo.png">
 
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,12 +18,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -36,8 +37,8 @@
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            alt: ['"Outfit"', 'sans-serif']
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            alt: ['"Inter Tight"', '"Inter"', 'sans-serif']
           }
         }
       }
@@ -54,28 +55,28 @@
 
   <!-- Header Navigation -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6">
-    <div id="header-island-container" class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between transition-all duration-300 header-island">
+    <div id="header-island-container" class="max-w-3xl lg:max-w-[780px] mx-auto px-3.5 sm:px-4 py-2 flex items-center justify-between transition-all duration-300 header-island">
       
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 group" id="brand-logo-link">
-        <div class="relative w-8 h-8 rounded-full overflow-hidden bg-blue-50 border border-blue-200 flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105">
-          <img src="src/images/logo.svg" alt="REKEN Logo" class="w-full h-full object-contain">
+      <a href="index.html" class="flex items-center gap-2 group shrink-0" id="brand-logo-link">
+        <div class="relative w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <img src="src/images/logo.png" alt="REKEN Logo" class="w-full h-full object-contain">
         </div>
-        <span class="text-lg font-bold tracking-tight text-slate-900 font-alt">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-slate-900 font-alt">
           REKEN<span class="text-blue-600 font-extrabold">.ID</span>
         </span>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5" id="desktop-navigation">
+      <nav class="hidden lg:flex items-center gap-0.5" id="desktop-navigation">
         <a href="index.html" class="nav-link-item">
           <span>Beranda</span>
         </a>
         <a href="fitur.html" class="nav-link-item">
-          <span>Fitur Sistem</span>
+          <span>Fitur</span>
         </a>
         <a href="mitra.html" class="nav-link-item">
-          <span>Kemitraan B2B</span>
+          <span>Mitra</span>
         </a>
         <a href="tentang.html" class="nav-link-item active">
           <span>Tentang</span>
@@ -86,11 +87,11 @@
       </nav>
 
       <!-- Right Action CTA -->
-      <div class="hidden sm:flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-2 shrink-0">
         <a href="kontak.html" class="btn-nav-cta">
-          <span>Coba Demo Gratis</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+          Coba Demo
         </a>
+        <button id="theme-toggle" type="button" aria-label="Ganti mode terang/gelap" class="theme-toggle-btn !w-8 !h-8"><i class="fa-solid fa-moon text-xs"></i><i class="fa-solid fa-sun text-xs"></i></button>
       </div>
 
       <!-- Mobile Button -->
@@ -109,7 +110,7 @@
       <div>
         <div class="flex items-center justify-between pb-5 border-b border-slate-200">
           <div class="flex items-center gap-2.5">
-            <img src="src/images/logo.svg" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain">
+            <img src="src/images/logo.png" alt="REKEN Logo" class="w-8 h-8 rounded-lg object-contain">
             <span class="font-bold text-lg text-slate-900 font-alt">REKEN<span class="text-blue-600">.ID</span></span>
           </div>
           <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-slate-700" aria-label="Tutup Menu">
@@ -142,7 +143,7 @@
       <div class="pt-6 border-t border-slate-200">
         <a href="kontak.html" class="w-full py-3 rounded-full bg-blue-600 text-white font-bold text-xs text-center flex items-center justify-center gap-2 shadow-md shadow-slate-900/10">
           <i class="fa-solid fa-play"></i>
-          <span>Coba Demo Gratis</span>
+          <span>Coba Demo</span>
         </a>
       </div>
     </div>
@@ -151,7 +152,7 @@
   <main class="relative z-10 pt-28 sm:pt-36 pb-20">
     
     <!-- Hero Header -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center reveal-on-scroll">
       <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight font-alt">
         Membangun Masa Depan Operasional <span class="text-blue-600">Bisnis Rental Kendaraan Indonesia</span>
       </h1>
@@ -270,45 +271,118 @@
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
-      <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl">
-        <h2 class="text-2xl sm:text-4xl font-extrabold font-alt mb-3">
-          Mulai Transformasi Bisnis Rental Anda Hari Ini
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (Atmospheric Floating Master Card - SaaS QuotaRing Aesthetic)
+       ======================================================================== -->
+  <footer class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    
+    <!-- Floating Dark Twilight Card with Atmospheric Sky & Watermark Wordmark -->
+    <div class="footer-mega-card text-white select-none">
+      
+      <!-- Ambient Golden Backlight Glow behind Headline -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[650px] h-[360px] bg-amber-500/15 blur-[130px] rounded-full pointer-events-none"></div>
+
+      <!-- 1. Top Centered SaaS Call To Action -->
+      <div class="pt-16 sm:pt-24 pb-12 sm:pb-16 px-6 sm:px-12 text-center relative z-10">
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-alt max-w-4xl mx-auto leading-[1.12]">
+          Satu Dashboard untuk Seluruh Operasional Rental
         </h2>
-        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
-          Jadwalkan sesi live demo gratis 15 menit dan lihat langsung bagaimana REKEN dapat mengotomasi garasi Anda.
+        
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mt-4 sm:mt-5 leading-relaxed font-normal">
+          Tanpa instalasi rumit, 100% berbasis cloud. Eliminasi jadwal bentrok, percepat respon WhatsApp AI 24/7, dan otomatisasi pembukuan kas serta invoice armada.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="kontak.html" class="px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-slate-950/40">
-            Jadwalkan Demo Gratis
+
+        <!-- Centered Action Buttons (White Pill + WhatsApp Ghost Pill) -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="kontak.html" class="px-8 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-2">
+            <span>Jadwalkan Demo</span>
+            <i class="fa-solid fa-arrow-right text-xs text-blue-600"></i>
           </a>
-          <a href="https://wa.me/6281234567890?text=Halo%20Tim%20REKEN,%20saya%20tertarik%20tanya%20sistem%20REKEN" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs border border-white/20 transition-all">
-            Hubungi WhatsApp
+          <a href="https://wa.me/6281234567890?text=Halo%20Tim%20REKEN,%20saya%20ingin%20konsultasi%20software%20dashboard%20rental%20SaaS" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm backdrop-blur-md transition-all inline-flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+            <span>Konsultasi WhatsApp</span>
           </a>
         </div>
       </div>
-    </section>
 
-  </main>
+      <!-- 2. Subtle Horizontal Divider Line -->
+      <div class="max-w-6xl mx-auto px-6 sm:px-12 relative z-10">
+        <div class="border-t border-white/15"></div>
+      </div>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 pt-12 pb-10 border-t border-slate-800 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <img src="src/images/logo.svg" alt="REKEN Logo" class="w-7 h-7 rounded-lg object-contain bg-white/5 p-1">
-        <span class="font-bold text-base text-white font-alt">REKEN<span class="text-blue-500">.ID</span></span>
+      <!-- 3. 4-Column Directory Links -->
+      <div class="max-w-6xl mx-auto px-6 sm:px-12 pt-12 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 text-xs text-slate-300 relative z-10">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-600/30 border border-blue-400/40 p-1 flex items-center justify-center">
+              <img src="src/images/logo.png" alt="REKEN Logo" class="w-full h-full object-contain">
+            </div>
+            <span class="font-bold text-lg text-white font-alt tracking-tight">REKEN<span class="text-blue-400">.ID</span></span>
+          </div>
+          <p class="text-white font-semibold text-xs mb-2">
+            Sistem Informasi &amp; Operating System Rental Kendaraan
+          </p>
+          <p class="text-slate-400 text-[11px] leading-relaxed mb-3 max-w-sm">
+            &copy; 2026 REKEN Technologies &middot; PT Reken Solusi Nusantara.<br>
+            Solusi cloud B2B SaaS terpadu untuk pengusaha rental mobil, motor, dan bus di seluruh Indonesia.
+          </p>
+          <div class="flex items-center gap-2 text-[11px] text-slate-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>All Systems Operational &middot; Uptime 99.98%</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Product -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Product</h4>
+          <ul class="space-y-2.5">
+            <li><a href="fitur.html#modul-rental" class="footer-nav-link">Kalender Booking Gantt</a></li>
+            <li><a href="fitur.html#modul-wa" class="footer-nav-link">WhatsApp AI CS Copilot</a></li>
+            <li><a href="fitur.html#modul-fleet" class="footer-nav-link">Manajemen Armada &amp; Servis</a></li>
+            <li><a href="fitur.html#modul-keuangan" class="footer-nav-link">Kas, Invoice &amp; Deposit</a></li>
+            <li><a href="fitur.html#modul-telematika" class="footer-nav-link">GPS Telematika IoT</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Resources -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Resources</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html#faq" class="footer-nav-link">Pertanyaan Umum (FAQ)</a></li>
+            <li><a href="fitur.html" class="footer-nav-link">Google Calendar 2-Way Sync</a></li>
+            <li><a href="fitur.html" class="footer-nav-link">Ekspor CSV / Excel</a></li>
+            <li><a href="kontak.html" class="footer-nav-link">Dokumentasi API &amp; Webhook</a></li>
+            <li><a href="kontak.html" class="footer-nav-link">Status Server Cloud</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Navigation -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-xs mb-4 tracking-wide font-mono uppercase">Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="kontak.html" class="footer-nav-link">Jadwal Live Demo</a></li>
+            <li><a href="mitra.html" class="footer-nav-link">Ekosistem Kemitraan B2B</a></li>
+            <li><a href="tentang.html" class="footer-nav-link">Tentang REKEN</a></li>
+            <li><a href="privasi.html" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="ketentuan.html" class="footer-nav-link">Syarat &amp; Ketentuan</a></li>
+          </ul>
+        </div>
+
       </div>
-      <div class="text-slate-500 text-[11px]">
-        &copy; 2026 REKEN Technologies. Sistem Informasi &amp; Operating System Bisnis Rental Kendaraan.
+
+      <!-- 4. Giant Brand Wordmark Bleeding Off Bottom Edge (QuotaRing Style) -->
+      <div class="w-full overflow-hidden select-none pointer-events-none text-center mt-2 sm:mt-6">
+        <span class="footer-wordmark">
+          REKEN
+        </span>
       </div>
-      <div class="flex items-center gap-4 text-slate-400 text-xs">
-        <a href="index.html" class="hover:text-white">Beranda</a>
-        <a href="fitur.html" class="hover:text-white">Fitur</a>
-        <a href="mitra.html" class="hover:text-white">Kemitraan</a>
-        <a href="kontak.html" class="hover:text-white">Kontak</a>
-      </div>
+
     </div>
+
   </footer>
 
   <script src="src/script.js"></script>

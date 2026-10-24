@@ -1,42 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
   <defs>
-    <!-- Background Glass Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.9" />
-      <stop offset="40%" stop-color="#0B1536" stop-opacity="0.95" />
-      <stop offset="100%" stop-color="#030712" stop-opacity="0.95" />
+    <!-- Background Glass Light Blue Gradient -->
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF" />
+      <stop offset="100%" stop-color="#DBEAFE" />
     </linearGradient>
 
-    <!-- Border Subtle Glow Gradient -->
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
-      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#94A3B8" stop-opacity="0.1" />
+    <!-- Glyph Blue Gradient matching Dashboard -->
+    <linearGradient id="logoGlyphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
     </linearGradient>
-
-    <!-- Glyph Luminous Gradient -->
-    <linearGradient id="glyphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="55%" stop-color="#E0F2FE" />
-      <stop offset="100%" stop-color="#38BDF8" />
-    </linearGradient>
-
-    <!-- Subtle Soft Inner Shadow / Glow -->
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.5" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
 
-  <!-- Glass Container -->
-  <rect x="2" y="2" width="96" height="96" rx="26" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="1.8" />
+  <!-- Container -->
+  <rect x="3" y="3" width="94" height="94" rx="28" fill="url(#logoBgGrad)" stroke="#BFDBFE" stroke-width="2.5" />
   
-  <!-- Subtle Top Light Reflection -->
-  <path d="M 12 12 Q 50 6 88 12 Q 50 20 12 12" fill="white" opacity="0.08" />
+  <!-- Reken Glyph: Vertical Rounded Capsule in Dashboard Blue -->
+  <rect x="25" y="25" width="22" height="50" rx="11" fill="url(#logoGlyphGrad)" />
 
-  <!-- Reken Glyph: Vertical Rounded Capsule -->
-  <rect x="26" y="25" width="22" height="50" rx="10" fill="url(#glyphGrad)" filter="url(#softGlow)" />
-
-  <!-- Reken Glyph: Circular Head -->
-  <circle cx="64.5" cy="37.5" r="12.5" fill="url(#glyphGrad)" filter="url(#softGlow)" />
+  <!-- Reken Glyph: Circular Head in Dashboard Blue -->
+  <circle cx="68" cy="36" r="11" fill="url(#logoGlyphGrad)" />
 </svg>

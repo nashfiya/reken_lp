@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initNavbar();
-  initDashboardShowcaseTabs();
+  initLaptopCarousel();
   initDemoWizard();
   initFaqAccordion();
   initWorkflowStepSwitcher();
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveSimulator();
   initNewsletterForm();
   initBentoCardsGlow();
+  initPilarKeunggulanAnimation();
+  initVaultGuaranteesTabs();
 });
 
 /* ==========================================================================
@@ -99,79 +101,104 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   4. Dashboard Interactive Showcase Tabs (Crossfade & Micro-Scale Motion)
+   4. Hero Laptop Screen Auto-Carousel (Image 4 QuotaRing Style)
    ========================================================================== */
-function initDashboardShowcaseTabs() {
-  const tabBtns = document.querySelectorAll('.dashboard-tab-btn');
-  const displayImg = document.getElementById('showcase-dashboard-img');
-  const displayTitle = document.getElementById('showcase-caption-title');
-  const displayDesc = document.getElementById('showcase-caption-desc');
-  const displayUrl = document.getElementById('showcase-mockup-url');
+function initLaptopCarousel() {
+  const container = document.getElementById('laptop-carousel');
+  if (!container) return;
 
-  if (!tabBtns.length || !displayImg) return;
+  const slides = container.querySelectorAll('.laptop-slide');
+  const dots = document.querySelectorAll('#laptop-carousel-dots .laptop-dot');
+  const urlDisplay = document.getElementById('laptop-carousel-url');
+  const prevBtn = document.getElementById('laptop-prev-btn');
+  const nextBtn = document.getElementById('laptop-next-btn');
 
-  displayImg.classList.add('dashboard-showcase-img');
+  if (!slides.length) return;
 
-  const tabData = {
-    fleet: {
-      img: 'src/images/dashboard-fleet.jpg',
-      url: 'app.reken.id/manajemen-armada',
-      title: 'Manajemen Armada & Inventaris Multi-Kategori',
-      desc: '10 Unit Aktif: 6 Siap Sewa, 1 Sedang Berjalan, 1 Dalam Servis Bengkel, 1 Kerjasama Mitra B2B. Utilitas armada terpantau 30% (+12% vs bln lalu).'
-    },
-    calendar: {
-      img: 'src/images/dashboard-calendar.jpg',
-      url: 'app.reken.id/jadwal-kalender',
-      title: 'Jadwal & Kalender Gantt Bebas Bentrok',
-      desc: 'Infinite visual timeline harian & jam. Dukungan auto-stacking atas-bawah, tukar mobil drag-and-drop, dan sinkronisasi instan Google Calendar tim.'
-    },
-    invoice: {
-      img: 'src/images/dashboard-booking-modal.jpg',
-      url: 'app.reken.id/reservasi/kalkulasi-kas',
-      title: 'Kalkulator Invoice Kas & Uang Jaminan (Deposit)',
-      desc: 'Kustomisasi dinamis tanpa batas: item sewa, jasa supir, overtime, potongan diskon, skema DP/lunas, dan cetak invoice PDF/WhatsApp otomatis.'
-    },
-    vehicle: {
-      img: 'src/images/dashboard-vehicle-detail.jpg',
-      url: 'app.reken.id/armada/toyota-zenix-hybrid',
-      title: 'Detail Legalitas, STNK & Buku Servis Unit',
-      desc: 'Kartu spesifikasi lengkap, odometer, riwayat servis berkala, pengingat STNK H-14, dan status proteksi asuransi All-Risk setiap kendaraan.'
-    }
-  };
+  let currentIndex = 0;
+  let timer = null;
+  const interval = 4200;
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const tabKey = btn.getAttribute('data-tab');
-      const data = tabData[tabKey];
-      if (!data) return;
+  function showSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
 
-      // Update active state
-      tabBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Motion Crossfade Out
-      displayImg.classList.add('switching');
-
-      setTimeout(() => {
-        displayImg.src = data.img;
-        if (displayTitle) displayTitle.textContent = data.title;
-        if (displayDesc) displayDesc.textContent = data.desc;
-        if (displayUrl) displayUrl.textContent = data.url;
-
-        // Image loaded or fast fallback
-        const removeSwitching = () => {
-          displayImg.classList.remove('switching');
-          displayImg.removeEventListener('load', removeSwitching);
-        };
-
-        if (displayImg.complete) {
-          requestAnimationFrame(removeSwitching);
-        } else {
-          displayImg.addEventListener('load', removeSwitching);
+    slides.forEach((slide, i) => {
+      if (i === currentIndex) {
+        slide.classList.add('active');
+        slide.classList.remove('opacity-0', 'pointer-events-none');
+        slide.classList.add('opacity-100');
+        if (urlDisplay && slide.dataset.url) {
+          urlDisplay.textContent = slide.dataset.url;
         }
-      }, 120);
+      } else {
+        slide.classList.remove('active', 'opacity-100');
+        slide.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.add('active');
+        dot.classList.remove('bg-slate-600');
+        dot.classList.add('bg-sky-400');
+      } else {
+        dot.classList.remove('active');
+        dot.classList.remove('bg-sky-400');
+        dot.classList.add('bg-slate-600');
+      }
+    });
+  }
+
+  function startTimer() {
+    stopTimer();
+    // Do not auto-cycle if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, interval);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetIndex = parseInt(dot.getAttribute('data-slide'), 10);
+      if (!isNaN(targetIndex)) {
+        showSlide(targetIndex);
+        startTimer();
+      }
     });
   });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentIndex - 1);
+      startTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentIndex + 1);
+      startTimer();
+    });
+  }
+
+  container.addEventListener('mouseenter', stopTimer);
+  container.addEventListener('mouseleave', startTimer);
+
+  showSlide(0);
+  startTimer();
 }
 
 /* ==========================================================================
@@ -279,7 +306,7 @@ function initDemoWizard() {
       wizardState.timePreference = timeInput?.value || 'Pagi / Siang';
 
       const waMessage = 
-`Halo Tim REKEN, saya ingin jadwalkan Live Demo Dashboard Rental SaaS:
+`Halo Tim REKEN, saya ingin jadwalkan Demo Sistem Rental:
 - Nama / Rental: ${wizardState.name}
 - Jumlah Armada: ${wizardState.fleetSize || 'Belum diisi'}
 - Kendala Utama: ${wizardState.mainChallenge || 'Belum diisi'}
@@ -417,23 +444,23 @@ function initWorkflowStepSwitcher() {
     },
     {
       num: 'STEP 02',
-      title: 'Hubungkan Nomor WhatsApp ke AI CS Copilot',
-      desc: 'Cukup scan QR Code WhatsApp resmi rental Anda. AI Copilot aktif 24/7 membalas ketersediaan unit sewa detik itu juga dan menyiapkan draf booking tanpa membuat admin begadang.',
-      route: 'Sinkronisasi WhatsApp Instances & Auto-Draft AI',
+      title: 'Hubungkan Nomor WhatsApp Rental',
+      desc: 'Cukup hubungkan nomor WhatsApp resmi rental Anda. Asisten otomatis aktif 24 jam membalas ketersediaan unit sewa detik itu juga dan menyiapkan pesanan tanpa membuat admin begadang.',
+      route: 'Otomatisasi Balas Chat WhatsApp',
       fleet: 'Respon Cepat 0.8 Detik 24 Jam Nonstop'
     },
     {
       num: 'STEP 03',
-      title: 'Sinkronkan Kalender ke Google Calendar Tim',
-      desc: 'Setiap reservasi baru otomatis mengunci jadwal di Google Calendar driver dan staf operasional. Hindari insiden fatal mobil dobel sewa (0 double-booking).',
-      route: 'Integrasi Google Calendar 2-Way Sync',
+      title: 'Hubungkan Kalender Jadwal Tim',
+      desc: 'Setiap pesanan baru otomatis mengunci jadwal tim dan supir. Bebas risiko mobil dobel sewa dan jadwal bentrok.',
+      route: 'Kalender Tim Terhubung Otomatis',
       fleet: '100% Bebas Jadwal Tabrakan'
     },
     {
       num: 'STEP 04',
-      title: 'Terbitkan Invoice & Pantau Utilitas Armada',
-      desc: 'Kalkulasi otomatis biaya sewa, DP, uang jaminan (deposit), hingga overtime. Pantau tingkat okupansi bisnis real-time dan ekspor laporan keuangan dalam 1 klik CSV.',
-      route: 'Manajemen Keuangan Kas & Analitik Utilisasi',
+      title: 'Terbitkan Invoice & Rekap Laporan',
+      desc: 'Hitung otomatis biaya sewa, DP, jaminan, hingga overtime. Pantau performa rental dan unduh laporan rapi dalam 1 klik.',
+      route: 'Laporan Kas & Pemakaian Unit',
       fleet: 'Efisiensi Operasional Meningkat 70%'
     }
   ];
@@ -542,8 +569,8 @@ function formatAndSetText(el, value, prefix, suffix, decimals, useThousandSepara
    ========================================================================== */
 function initScrollReveal() {
   const sectionElements = document.querySelectorAll('.section-reveal');
-  // .laptop-reveal is driven by initLaptopZoomLoop (repeats on every re-entry)
-  const revealElements = document.querySelectorAll('.reveal-on-scroll:not(.laptop-reveal)');
+  // .laptop-reveal and outward expand elements are driven by dedicated re-entry observers
+  const revealElements = document.querySelectorAll('.reveal-on-scroll:not(.laptop-reveal):not(.desc-outward-expand):not(.headline-outward-expand)');
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
@@ -627,14 +654,55 @@ function initLaptopZoomLoop() {
     return;
   }
 
+  // Immediately reveal if any part is visible in initial hero viewport
+  laptop.classList.add('is-revealed');
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) laptop.classList.add('is-revealed');
-      else laptop.classList.remove('is-revealed');
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.05, rootMargin: '50px 0px 50px 0px' });
 
   observer.observe(laptop);
+}
+
+/* ==========================================================================
+   9c. Pilar Keunggulan Outward Kinetic Reveal Loop ("Dari Dalam ke Luar")
+   ========================================================================== */
+function initPilarKeunggulanAnimation() {
+  const section = document.getElementById('pilar-keunggulan');
+  if (!section) return;
+
+  const targets = section.querySelectorAll('.headline-outward-expand, .desc-outward-expand');
+  if (!targets.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    targets.forEach((el) => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        targets.forEach((el, idx) => {
+          el.style.transitionDelay = `${idx * 110}ms`;
+          requestAnimationFrame(() => {
+            el.classList.add('is-revealed');
+          });
+        });
+      } else {
+        // Re-arm when scrolled well away from section so it replays upon scrolling back
+        const rect = entry.boundingClientRect;
+        if (rect.top > window.innerHeight * 0.95 || rect.bottom < 0) {
+          targets.forEach((el) => {
+            el.classList.remove('is-revealed');
+          });
+        }
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  observer.observe(section);
 }
 
 /**
@@ -708,7 +776,7 @@ function initLiveSimulator() {
     if (badgeGcal) badgeGcal.className = 'p-2 rounded-xl bg-slate-800/80 flex items-center gap-2 sim-badge-live text-slate-400';
     if (badgeInvoice) badgeInvoice.className = 'p-2 rounded-xl bg-slate-800/80 flex items-center gap-2 sim-badge-live text-slate-400';
     if (unitStatus) {
-      unitStatus.textContent = 'Ready';
+      unitStatus.textContent = 'Tersedia';
       unitStatus.className = 'text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full';
     }
 
@@ -733,7 +801,7 @@ function initLiveSimulator() {
       if (badgeGcal) badgeGcal.className = 'p-2 rounded-xl bg-blue-900/60 text-blue-300 flex items-center gap-2 sim-badge-live border border-blue-500/30';
       if (badgeInvoice) badgeInvoice.className = 'p-2 rounded-xl bg-emerald-900/60 text-emerald-300 flex items-center gap-2 sim-badge-live border border-emerald-500/30';
       if (unitStatus) {
-        unitStatus.textContent = 'Locked in G-Cal';
+        unitStatus.textContent = 'Jadwal Terkunci';
         unitStatus.className = 'text-[10px] font-semibold bg-blue-500/30 text-blue-200 px-2 py-0.5 rounded-full';
       }
     }, 4400);
@@ -769,7 +837,7 @@ function initNewsletterForm() {
     }
 
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.innerHTML : 'Subscribe';
+    const originalText = submitBtn ? submitBtn.innerHTML : 'Daftar';
 
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -803,7 +871,7 @@ function initNewsletterForm() {
    14. Bento Cards Interactive Glow & Mouse Spotlight
    ========================================================================== */
 function initBentoCardsGlow() {
-  const cards = document.querySelectorAll('.bento-testimonial-card');
+  const cards = document.querySelectorAll('.bento-testimonial-card, .feature-glass-box, .review-marquee-card');
   if (!cards.length) return;
 
   cards.forEach((card) => {
@@ -817,3 +885,34 @@ function initBentoCardsGlow() {
   });
 }
 
+/* ==========================================================================
+   15. Enterprise Security Master Vault (7 Garansi) Tab Switcher
+   ========================================================================== */
+function initVaultGuaranteesTabs() {
+  const tabBtns = document.querySelectorAll('.vault-tab-btn');
+  const panels = document.querySelectorAll('.vault-panel');
+  if (!tabBtns.length || !panels.length) return;
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetKey = btn.getAttribute('data-vault-tab');
+      if (!targetKey) return;
+
+      tabBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach((p) => {
+        p.classList.remove('active');
+      });
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const targetPanel = document.getElementById(`panel-vault-${targetKey}`);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+}

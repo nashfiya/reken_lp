@@ -27,3 +27,15 @@ Every marketing page and documentation must consistently showcase and refer to t
 3. `mitra.html`: Program Kemitraan B2B & Modernisasi Ekosistem Rental (Adopsi Sistem untuk Pengusaha Rental, Agen Travel, & Pemilik Mobil Titipan).
 4. `tentang.html`: Cerita & Visi REKEN (Software house pionir digitalisasi operasional rental kendaraan di Indonesia).
 5. `kontak.html`: Request Demo Gratis dengan 3-Step Interactive Wizard Form, hotline WhatsApp resmi, dan konsultasi operasional.
+
+## 5. Piagam Perlindungan Bisnis & 7 Garansi Sistem
+Setiap materi copywriting, konten landing page, dan penjelasan teknis wajib selaras dengan piagam bisnis ([SKEMA_BISNIS.md](file:///c:/KAIRAV/reken_lp/SKEMA_BISNIS.md)):
+1. **Garansi 100% Anti-Bentrok Jadwal (Zero Double-Booking)**: Sistem otomatis menolak booking pada unit & slot jadwal yang sama.
+2. **Brankas Rahasia Antar-Rental (Isolasi Data Mutlak)**: Multi-tenant data isolation; data omzet & NIK pelanggan aman mutlak dari rental lain.
+3. **Disiplin Hak Akses Karyawan (RBAC)**: Owner (kuasa penuh), Admin Operasional (garasi & SPJ), CS (chat & draf booking), Supir (rute & bensin).
+4. **Perlindungan Uang Jaminan (Deposit) & Kejujuran Tagihan**: Pemisahan pos kas omzet vs deposit; rumus tagihan terkunci tanpa manipulasi.
+5. **Inspeksi Foto Digital Kendaraan**: Bukti digital baret bodi & bar BBM saat check-in/out dengan tanda tangan digital penyewa.
+6. **Transparansi SPJ & Kasbon Driver**: Pertanggungjawaban kasbon (bensin, tol, makan, cadangan) dengan upload nota asli; sisa kasbon wajib klop.
+7. **Bursa Kemitraan Subleasing B2B**: Pinjam unit rekanan dengan tarif grosir, margin keuntungan otomatis terhitung transparan.
+- **WhatsApp AI Guardrails**: Human-in-the-loop (CS menyetujui draf sebelum terkirim), kepatuhan mutlak pada tarif resmi, serta early-warning peringatan blacklist penyewa bermasalah.
+

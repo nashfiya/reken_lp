@@ -39,3 +39,6 @@ Pembaruan penuh untuk memasarkan **Sistem Informasi & Dashboard Operating System
 ## 🔒 Kebijakan & Aturan Sistem
 - [x] Aturan posisi B2B SaaS diabadikan di `.agents/rules/reken-saas.md` dan `AGENTS.md`.
 - [x] Seluruh referensi sewa mobil konsumen publik telah dieliminasi dari dokumentasi.
+- [x] Dokumentasi Skema Bisnis & Piagam Perlindungan Sistem dirangkum di [SKEMA_BISNIS.md](file:///c:/KAIRAV/reken_lp/SKEMA_BISNIS.md).
+- [x] Restrukturisasi alur narasi Beranda (`index.html`): Hero Hook -> Realita Masalah Lapangan (Pain Points) -> Solusi & 7 Garansi Sistem -> 9 Modul Fitur -> Workflow Interaktif -> Social Proof & Laporan Keuangan -> FAQ Stakeholder -> Closing CTA.
+- [ ] Penyelarasan narasi lanjutan pada halaman turunan (`fitur.html`, `mitra.html`, `tentang.html`).

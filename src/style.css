@@ -248,17 +248,16 @@ html.dark .partner-item span:last-child {
 
 /* Scale-in reveal driven by initLaptopZoomLoop, re-armed by scrolling away */
 .laptop-reveal.reveal-on-scroll {
-  opacity: 0.25;
-  transform: scale(0.7);
-  filter: blur(6px);
-  transform-origin: bottom center;
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 1.15s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease-out;
+  opacity: 0.95;
+  transform: scale(0.98);
+  filter: blur(0);
+  transform-origin: top center;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .laptop-reveal.reveal-on-scroll.is-revealed {
   opacity: 1;
   transform: scale(1);
-  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -590,20 +589,106 @@ html.dark .nav-link-item.active {
 
 /* Feature Square Box (Subtle Glass & Harmonious Theme Tint) */
 .feature-glass-box {
+  position: relative;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.68);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(226, 232, 240, 0.75);
   border-radius: 1.25rem;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+  will-change: transform, box-shadow;
+  cursor: pointer;
+}
+
+/* Mouse spotlight glow layer */
+.feature-glass-box .feature-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(37, 99, 235, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.feature-glass-box:hover .feature-spotlight {
+  opacity: 1;
+}
+
+/* Top accent illumination line */
+.feature-glass-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #2563eb, #06b6d4, transparent);
+  opacity: 0;
+  transform: scaleX(0.3);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+/* Diagonal glass light sheen sweep */
+.feature-glass-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(56, 189, 248, 0.28) 50%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 2;
 }
 
 .feature-glass-box:hover {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(59, 130, 246, 0.35);
-  box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 20px 38px -10px rgba(37, 99, 235, 0.18), 0 0 25px -4px rgba(14, 165, 233, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  transform: translateY(-8px) scale(1.025);
+}
+
+.feature-glass-box:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.feature-glass-box:hover::after {
+  transform: translateX(130%);
+}
+
+.feature-glass-box:active {
+  transform: translateY(-2px) scale(0.995);
+  transition-duration: 0.1s;
+}
+
+.feature-glass-box h3 {
+  transition: color 0.25s ease, transform 0.25s ease;
+  position: relative;
+  z-index: 3;
+}
+
+.feature-glass-box p {
+  position: relative;
+  z-index: 3;
+}
+
+.feature-glass-box:hover h3 {
+  color: #1d4ed8;
+  transform: translateX(3px);
 }
 
 html.dark .glass-card,
@@ -621,8 +706,28 @@ html.dark .glass-card:hover,
 html.dark .feature-glass-box:hover,
 body.dark-mode .glass-card:hover,
 body.dark-mode .feature-glass-box:hover {
-  background: rgba(15, 23, 42, 0.82);
-  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px -4px rgba(56, 189, 248, 0.28), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+html.dark .feature-glass-box:hover h3,
+body.dark-mode .feature-glass-box:hover h3 {
+  color: #60a5fa !important;
+}
+
+html.dark .feature-glass-box::after {
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(56, 189, 248, 0.2) 50%,
+    transparent 60%
+  );
+}
+
+html.dark .feature-glass-box .feature-spotlight {
+  background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.18), transparent 70%);
 }
 
 html.dark .feature-glass-box h3,
@@ -652,34 +757,7 @@ body.dark-mode .feature-glass-box p {
   box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.45);
 }
 
-/* ==========================================================================
-   Mobile Widgets Showcase (QuotaRing Style)
-   ========================================================================== */
-.widget-sky-canvas {
-  background: linear-gradient(145deg, #4b9ee0 0%, #76bbee 40%, #9ed2f6 75%, #bee1fb 100%);
-  position: relative;
-  overflow: hidden;
-}
 
-.widget-dark-card {
-  background: rgba(11, 18, 32, 0.92);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-}
-
-.widget-dark-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 28px 65px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-.progress-ring-circle {
-  transition: stroke-dashoffset 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
 
 /* Step Switcher Dots */
 .step-dot {
@@ -874,6 +952,26 @@ body.dark-mode .feature-glass-box p {
   animation: floatBadge 4s ease-in-out infinite;
 }
 
+@keyframes ambientGlowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 0.75;
+  }
+}
+
+.animate-ambient-pulse {
+  animation: ambientGlowPulse 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+html.dark .animate-ambient-pulse {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, rgba(14, 165, 233, 0.12) 40%, transparent 70%);
+}
+
 /* Dashboard Showcase Tab Image Crossfade & Micro-Scale */
 .dashboard-showcase-img {
   transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1038,6 +1136,62 @@ body.dark-mode .feature-glass-box p {
   filter: blur(0px);
 }
 
+.reveal-on-scroll.reveal-from-left {
+  transform: translateX(-48px);
+}
+
+.reveal-on-scroll.reveal-from-right {
+  transform: translateX(48px);
+}
+
+.reveal-on-scroll.reveal-from-left.is-revealed,
+.reveal-on-scroll.reveal-from-right.is-revealed {
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   Outward Kinetic Expansion ("Bergerak dari Dalam ke Luar")
+   ========================================================================== */
+.headline-outward-expand.reveal-on-scroll {
+  opacity: 0;
+  transform: scale(0.84);
+  filter: blur(14px);
+  letter-spacing: -0.04em;
+  transform-origin: center center;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter, letter-spacing;
+}
+
+.headline-outward-expand.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  letter-spacing: -0.025em;
+}
+
+.desc-outward-expand.reveal-on-scroll {
+  opacity: 0;
+  transform: scale(0.72);
+  filter: blur(16px);
+  letter-spacing: -0.045em;
+  transform-origin: center center;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter, letter-spacing;
+}
+
+.desc-outward-expand.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  letter-spacing: normal;
+}
+
 /* ==========================================================================
    QuotaRing-Style FAQ Accordion Card & Smooth Grid
    ========================================================================== */
@@ -1124,67 +1278,143 @@ html.dark .faq-card:hover .faq-icon-box {
 }
 
 /* ==========================================================================
-   Bento Testimonial Grid & Dynamic Micro-Animations
+   Testimonials Infinite Slow Marquee (Left-to-Right)
    ========================================================================== */
-.bento-testimonial-card {
+.testimonials-marquee-wrapper {
+  overflow: hidden;
   position: relative;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(51, 65, 85, 0.75);
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.testimonials-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-slow-ltr 70s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-marquee-wrapper:hover .testimonials-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slow-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.review-marquee-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(51, 65, 85, 0.7);
   border-radius: 1.25rem;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.3s ease,
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s ease;
+              background-color 0.3s ease,
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
-.bento-testimonial-card::before {
+.review-marquee-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 20%), rgba(56, 189, 248, 0.08), transparent 45%);
+  background: radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 20%), rgba(56, 189, 248, 0.08), transparent 50%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
-.bento-testimonial-card:hover {
+.review-marquee-card:hover {
   transform: translateY(-5px);
   border-color: rgba(56, 189, 248, 0.45);
-  background-color: rgba(15, 23, 42, 0.92);
-  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.2);
+  background-color: rgba(15, 23, 42, 0.94);
+  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.15);
 }
 
-.bento-testimonial-card:hover::before {
+.review-marquee-card:hover::before {
   opacity: 1;
 }
 
-.bento-testimonial-card .bento-quote-icon {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
+    animation: none !important;
+  }
+  .testimonials-marquee-wrapper {
+    overflow-x: auto;
+  }
 }
 
-.bento-testimonial-card:hover .bento-quote-icon {
-  transform: scale(1.15) rotate(-6deg);
-  color: rgba(56, 189, 248, 0.3);
+
+/* ==========================================================================
+   Piagam Keamanan & 7 Garansi Sistem (Enterprise Security Master Vault)
+   ========================================================================== */
+.vault-master-card {
+  background: #0b1329;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-.bento-metric-chip {
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+.dark .vault-master-card {
+  background: #070d1e;
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(59, 130, 246, 0.15);
 }
 
-.bento-testimonial-card:hover .bento-metric-chip {
-  transform: translateX(2px);
-  border-color: rgba(56, 189, 248, 0.35);
-  background-color: rgba(14, 165, 233, 0.15);
+.vault-tab-btn {
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vault-tab-btn:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vault-tab-btn.active {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: rgba(147, 197, 253, 0.4);
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+}
+
+.vault-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vault-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ==========================================================================
    Motion Accessibility Guard (prefers-reduced-motion)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .animate-float-badge {
+  .vault-panel {
+    transition: none !important;
+    transform: none !important;
+  }
+  .animate-float-badge,
+  .animate-ambient-pulse {
     animation: none !important;
   }
   .dashboard-showcase-img {
@@ -1201,6 +1431,23 @@ html.dark .faq-card:hover .faq-icon-box {
     transform: none !important;
     filter: none !important;
     transition: none !important;
+  }
+  .headline-outward-expand,
+  .desc-outward-expand {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    letter-spacing: normal !important;
+    transition: none !important;
+  }
+  .feature-glass-box {
+    transition: none !important;
+  }
+  .feature-glass-box:hover {
+    transform: none !important;
+  }
+  .feature-glass-box::after {
+    display: none !important;
   }
   .faq-content-grid {
     transition: none !important;
@@ -1219,3 +1466,30 @@ html.dark .faq-card:hover .faq-icon-box {
   }
 }
 
+
+/* ==========================================================================
+   Hero Laptop Screen Carousel Transitions
+   ========================================================================== */
+.laptop-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #020617;
+  pointer-events: none;
+  z-index: 1;
+}
+.laptop-slide.active {
+  opacity: 1 !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+.laptop-dot {
+  cursor: pointer;
+  outline: none;
+}
+.laptop-dot.active {
+  background-color: #38bdf8 !important; /* sky-400 */
+  width: 1.25rem !important; /* expands as pill */
+  border-radius: 9999px !important;
+}

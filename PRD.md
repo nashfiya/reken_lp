@@ -38,32 +38,52 @@ Proyek ini bertujuan menghadirkan **Website Pemasaran & Company Profile Publik M
    - Integrasi pelacakan posisi kendaraan real-time, histori pergerakan, dan geofencing untuk keamanan armada.
 9. **Laporan Otomatis & Ekspor Data**:
    - Pembuatan laporan laba-rugi operasional, pembukuan kas, serta ekspor file CSV/Excel sekali klik.
+   - Manajemen Surat Perintah Jalan (SPJ) digital driver dan pertanggungjawaban kasbon bensin/tol.
 
 ---
 
-## 4. Struktur Arsitektur Multi-Page
+## 4. Skema Bisnis & 7 Garansi Perlindungan Operasional
+*(Rujukan lengkap: [SKEMA_BISNIS.md](file:///c:/KAIRAV/reken_lp/SKEMA_BISNIS.md))*
+
+1. **Garansi 100% Anti-Bentrok Jadwal (Zero Double-Booking)**: Sistem otomatis menolak pemesanan ganda di tanggal/jam yang sama.
+2. **Brankas Rahasia Antar-Rental (Isolasi Data Mutlak)**: Arsitektur multi-tenant dengan proteksi dinding data permanen antar-organisasi rental.
+3. **Disiplin Hak Akses Karyawan (RBAC)**: Pemisahan tegas wewenang Owner (kuasa penuh), Admin Operasional (garasi & SPJ), CS (chat & draf booking), dan Supir (rute & odometer bensin).
+4. **Perlindungan Uang Jaminan (Deposit) & Kejujuran Tagihan**: Pemisahan kantong kas sewa vs deposit; rumus invoice dinamis otomatis tanpa celah manipulasi.
+5. **Inspeksi Foto Digital Kendaraan**: Dokumentasi visual baret bodi dan bar BBM saat check-in & check-out dengan tanda tangan digital penyewa.
+6. **Transparansi SPJ & Kasbon Driver**: Pencatatan uang jalan (bensin, tol, makan, cadangan), supir upload nota asli, dan sisa kasbon wajib klop.
+7. **Bursa Kemitraan Subleasing B2B**: Pinjam unit rekanan aman bertarif grosir kemitraan dengan perhitungan margin keuntungan bersih seketika.
+
+### Batasan Asisten WhatsApp AI (AI Guardrails)
+- **Human-in-the-Loop**: AI hanya membuat draf penawaran; pesan terkirim wajib disetujui staf CS.
+- **Kepatuhan Tarif Resmi**: AI dilarang keras mengarang tarif atau memberi diskon sepihak.
+- **Deteksi Dini Blacklist**: Alert otomatis jika calon penyewa terindikasi bermasalah atau masuk daftar hitam penggelapan rental.
+
+---
+
+## 5. Struktur Arsitektur Multi-Page
 - **`index.html` (Beranda)**:
   - Header Island dengan logo REKEN, navigasi menu, dan CTA Demo.
   - Hero Section dengan headline punchy, metrik sosial ("100+ Rental Terhubung"), tombol dual CTA, dan visual showcase dashboard interaktif.
-  - Section 9 Modul Fitur (Bento Grid Modern).
+  - Section 9 Modul Fitur (Bento Grid Modern) & 7 Garansi Sistem.
   - Section Interactive Workflow (Alur Otomatisasi Booking).
   - Section FAQ & CTA Demo Penutup.
 - **`fitur.html` (Deep Dive Modul)**:
   - Penjelasan mendalam 9 fitur inti dashboard dengan screenshot asli.
   - Tabel perbandingan: *Mengelola Rental Tradisional (Excel & Manual)* vs *Menggunakan REKEN SaaS*.
+  - Uraian alur inspeksi digital, SPJ driver, dan pemisahan deposit kas.
 - **`mitra.html` (Kemitraan & Adopsi Ekosistem)**:
   - Panduan bagi pengusaha rental lokal untuk mengadopsi software REKEN.
-  - Program kemitraan unit titip mobil dan kolaborasi antar-vendor B2B.
+  - Program kemitraan unit titip mobil dan kolaborasi bursa subleasing B2B antar-vendor.
 - **`tentang.html` (Tentang REKEN)**:
   - Cerita latar belakang pendirian REKEN sebagai software house karya anak bangsa yang fokus memodernisasi industri rental kendaraan.
-  - Visi misi, pilar keandalan sistem, dan standar keamanan data.
+  - Visi misi, pilar keandalan sistem, standar isolasi data, dan hasil 30 skenario uji otomatis lulus 100%.
 - **`kontak.html` (Jadwalkan Demo & Hubungi Kami)**:
   - Formulir kualifikasi demo interaktif 3 tahap (3-Step Click Wizard: Jumlah Armada -> Kendala Utama -> Kontak WhatsApp).
   - Hotline WhatsApp 24 jam dan info konsultasi sistem.
 
 ---
 
-## 5. Standar Desain Visual (Light Modern SaaS)
+## 6. Standar Desain Visual (Light Modern SaaS)
 - **Aesthetic**: Light, clean, airy modern SaaS (latar putih `#ffffff` & abu-abu slate `#f8fafc`).
 - **Accent**: Royal blue (`#2563eb`) & cyan/teal (`#06b6d4`) diambil langsung dari aksen UI dashboard REKEN.
 - **Contrast**: Elemen kontras gelap premium pada browser mockup shell dan banner CTA bawah.

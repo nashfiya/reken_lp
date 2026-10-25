@@ -40,6 +40,7 @@ reken_lp/
 │   ├── style.css    # Custom CSS: Light Modern SaaS tokens, animations, responsive utilities
 │   ├── script.js    # Interaktivitas: Navbar scroll spy, wizard demo 3-step, FAQ accordion, screenshot switcher
 │   └── images/      # Aset asli dashboard REKEN (fleet, calendar, booking modal, vehicle detail)
+├── SKEMA_BISNIS.md  # Piagam Perlindungan Bisnis & 7 Garansi Sistem (Aturan Baku & Keamanan)
 ├── PRD.md           # Product Requirements Document
 ├── PRODUCT.md       # Product Definition & Audience
 ├── DESIGN.md        # Impeccable Design System Tokens

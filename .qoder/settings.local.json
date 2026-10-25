@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -nE '<section|<h1|<h2|<h3|id=\"[a-z-]+\"' index.html | head -120)",
+      "Bash(cat sitemap.xml robots.txt .gitignore; echo \"---\"; du -h src/images/* src/images/partners/* whatsapp-screenshots/* 2>/dev/null | sort -h | tail -20)"
+    ]
+  }
+}

@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(grep -nE '<section|<h1|<h2|<h3|id=\"[a-z-]+\"' index.html | head -120)",
-      "Bash(cat sitemap.xml robots.txt .gitignore; echo \"---\"; du -h src/images/* src/images/partners/* whatsapp-screenshots/* 2>/dev/null | sort -h | tail -20)"
+      "Bash(cat sitemap.xml robots.txt .gitignore; echo \"---\"; du -h src/images/* src/images/partners/* whatsapp-screenshots/* 2>/dev/null | sort -h | tail -20)",
+      "Bash(find . -maxdepth 2 -name \"*.html\" -not -path \"./node_modules/*\" | head -50)",
+      "Bash(ls -la .agents .agents/rules .qoder 2>/dev/null; cat .agents/rules/reken-saas.md 2>/dev/null | head -80)",
+      "Bash(node:*)",
+      "Bash(grep -n \"viewport\\\\|screenshot\" \"C:\\\\Users\\\\USER\\\\.qoder\\\\tmp\\\\C--KAIRAV-reken-lp\\\\tool-outputs\\\\session-7bdbc7d8-7251-41fa-8f3d-19d87524077f\\\\b3b4puo6s.output\" | head -40)",
+      "Bash(grep -n \"set viewport\\\\|viewport\\\\b\\\\|--width\\\\|--mobile\\\\|emulate\" \"C:\\\\Users\\\\USER\\\\.qoder\\\\tmp\\\\C--KAIRAV-reken-lp\\\\tool-outputs\\\\session-7bdbc7d8-7251-41fa-8f3d-19d87524077f\\\\b3b4puo6s.output\" | head -30)",
+      "Bash(agent-browser --help | head -80)",
+      "Bash(python:*)",
+      "Bash(mkdir -p \"C:/Users/USER/.qoder/tmp/reken-shots\" && agent-browser screenshot --full \"C:/Users/USER/.qoder/tmp/reken-shots/kontak-desktop.png\")",
+      "Bash(grep -n \"reken-theme\\\\|prefers-color-scheme\\\\|classList.add\\('dark'\\)\\\\|classList.toggle\\('dark'\" src/script.js | head -20)",
+      "Bash(ls:*)"
     ]
   }
 }

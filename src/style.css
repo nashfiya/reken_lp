@@ -70,6 +70,17 @@ html.dark .border-slate-200 { border-color: var(--border-light); }
 html.dark .border-slate-100 { border-color: var(--border-subtle); }
 html.dark .border-slate-800\/80 { border-color: var(--border-light); }
 html.dark .hover\:bg-slate-100:hover { background-color: var(--bg-surface); }
+
+/* Keep the footer's white CTA pill white on the dark twilight card */
+html.dark .footer-mega-card .bg-white,
+body.dark-mode .footer-mega-card .bg-white {
+  background-color: #ffffff;
+}
+
+html.dark .footer-mega-card .bg-white:hover,
+body.dark-mode .footer-mega-card .bg-white:hover {
+  background-color: #f1f5f9;
+}
 html.dark .hover\:bg-slate-50:hover { background-color: var(--bg-muted); }
 html.dark .hover\:text-slate-900:hover,
 html.dark .hover\:text-slate-700:hover { color: #f1f5f9; }
@@ -940,6 +951,32 @@ body.dark-mode .feature-glass-box p {
   color: #ffffff;
 }
 
+html.dark .wizard-choice-card,
+body.dark-mode .wizard-choice-card {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .wizard-choice-card:hover,
+body.dark-mode .wizard-choice-card:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+html.dark .wizard-choice-card.selected,
+body.dark-mode .wizard-choice-card.selected {
+  border-color: #3b82f6;
+  background: rgba(37, 99, 235, 0.16);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+html.dark .wizard-step-circle,
+body.dark-mode .wizard-step-circle {
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #94a3b8;
+  background: #0f172a;
+}
+
 /* ==========================================================================
    Micro-animations & Motion System (Impeccable Craft)
    ========================================================================== */
@@ -1409,6 +1446,23 @@ html.dark .faq-card:hover .faq-icon-box {
    Motion Accessibility Guard (prefers-reduced-motion)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  .hero-animate-top,
+  .hero-animate-bottom,
+  .hero-animate-desc,
+  .hero-animate-cta,
+  .hero-animate-trust,
+  .header-island-animate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .animate-pulse,
+  .animate-ping,
+  .animate-spin,
+  .animate-bounce {
+    animation: none !important;
+  }
   .vault-panel {
     transition: none !important;
     transform: none !important;
@@ -1458,7 +1512,7 @@ html.dark .faq-card:hover .faq-icon-box {
     opacity: 1 !important;
   }
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
   * {
     transition-duration: 0.05s !important;
@@ -1492,4 +1546,177 @@ html.dark .faq-card:hover .faq-icon-box {
   background-color: #38bdf8 !important; /* sky-400 */
   width: 1.25rem !important; /* expands as pill */
   border-radius: 9999px !important;
+}
+
+/* ==========================================================================
+   Testimonial 2-Row Infinite Marquee (Card Container, Top Right, Bottom Left)
+   ========================================================================== */
+.testimonial-marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.testimonial-track-right {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: testimonial-scroll-right 48s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-track-left {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: testimonial-scroll-left 48s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-marquee-container:hover .testimonial-track-right,
+.testimonial-marquee-container:hover .testimonial-track-left {
+  animation-play-state: paused;
+}
+
+@keyframes testimonial-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes testimonial-scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track-right,
+  .testimonial-track-left {
+    animation: none;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   17. Rhoe UI Aesthetic: Geometric Drift Wireframes, Blur-Slide Text & Masked Roller
+   ========================================================================== */
+
+/* Motion Tokens */
+:root {
+  --rhoe-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --rhoe-duration: 0.28s;
+}
+
+/* 1. Blur-Slide Text Reveal Animation */
+.rhoe-blur-reveal {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--rhoe-ease),
+              transform 0.65s var(--rhoe-ease),
+              filter 0.65s var(--rhoe-ease);
+  will-change: transform, opacity, filter;
+}
+
+.rhoe-blur-reveal.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* 2. Geometric Ambient Drift Wireframes */
+.rhoe-geometry-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events-none;
+  z-index: 0;
+}
+
+.rhoe-contour-drift {
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  width: 220px;
+  height: 180px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 72% 28% 63% 37% / 38% 66% 34% 62%;
+  animation: rhoe-contour-drift 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+html.dark .rhoe-contour-drift {
+  border-color: rgba(148, 163, 184, 0.15);
+}
+
+.rhoe-square-drift {
+  position: absolute;
+  bottom: 12%;
+  right: 8%;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 26%;
+  animation: rhoe-square-drift 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+html.dark .rhoe-square-drift {
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+@keyframes rhoe-contour-drift {
+  0% {
+    transform: translate(0px, 0px) rotate(-24deg);
+  }
+  100% {
+    transform: translate(24%, 22%) rotate(34deg);
+  }
+}
+
+@keyframes rhoe-square-drift {
+  0% {
+    transform: translate(0px, 0px) rotate(22deg);
+  }
+  100% {
+    transform: translate(-22%, -26%) rotate(-36deg);
+  }
+}
+
+/* 3. Incremental Character-Reveal in Typewriter */
+@keyframes rhoe-char-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rhoe-char-reveal {
+  display: inline-block;
+  animation: rhoe-char-reveal 0.2s var(--rhoe-ease) forwards;
+}
+
+/* 4. Feathered Digit Viewport / Masked Number Roller */
+.rhoe-number-roller {
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rhoe-blur-reveal {
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 0.3s ease !important;
+  }
+  .rhoe-contour-drift,
+  .rhoe-square-drift,
+  .rhoe-char-reveal {
+    animation: none !important;
+  }
 }

@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveSimulator();
   initNewsletterForm();
   initBentoCardsGlow();
+  initBentoShowcase();
   initPilarKeunggulanAnimation();
   initVaultGuaranteesTabs();
 });
@@ -110,6 +111,8 @@ function initLaptopCarousel() {
   const slides = container.querySelectorAll('.laptop-slide');
   const dots = document.querySelectorAll('#laptop-carousel-dots .laptop-dot');
   const urlDisplay = document.getElementById('laptop-carousel-url');
+  const captionTitle = document.getElementById('laptop-caption-title');
+  const captionDesc = document.getElementById('laptop-caption-desc');
   const prevBtn = document.getElementById('laptop-prev-btn');
   const nextBtn = document.getElementById('laptop-next-btn');
 
@@ -117,7 +120,7 @@ function initLaptopCarousel() {
 
   let currentIndex = 0;
   let timer = null;
-  const interval = 4200;
+  const interval = 4500;
 
   function showSlide(index) {
     if (index < 0) index = slides.length - 1;
@@ -132,6 +135,12 @@ function initLaptopCarousel() {
         if (urlDisplay && slide.dataset.url) {
           urlDisplay.textContent = slide.dataset.url;
         }
+        if (captionTitle && slide.dataset.title) {
+          captionTitle.innerHTML = slide.dataset.title;
+        }
+        if (captionDesc && slide.dataset.desc) {
+          captionDesc.innerHTML = slide.dataset.desc;
+        }
       } else {
         slide.classList.remove('active', 'opacity-100');
         slide.classList.add('opacity-0', 'pointer-events-none');
@@ -141,12 +150,12 @@ function initLaptopCarousel() {
     dots.forEach((dot, i) => {
       if (i === currentIndex) {
         dot.classList.add('active');
-        dot.classList.remove('bg-slate-600');
-        dot.classList.add('bg-sky-400');
+        dot.classList.remove('bg-slate-700', 'w-2');
+        dot.classList.add('bg-sky-400', 'w-5');
       } else {
         dot.classList.remove('active');
-        dot.classList.remove('bg-sky-400');
-        dot.classList.add('bg-slate-600');
+        dot.classList.remove('bg-sky-400', 'w-5');
+        dot.classList.add('bg-slate-700', 'w-2');
       }
     });
   }
@@ -437,31 +446,31 @@ function initWorkflowStepSwitcher() {
   const steps = [
     {
       num: 'STEP 01',
-      title: 'Daftarkan Inventaris Armada & Tarif Sewa',
-      desc: 'Input data mobil, motor, minivan tour, dan kendaraan listrik. Atur nomor plat, kategori transmisi, garasi pool, serta tarif lepas kunci maupun dengan supir.',
-      route: 'Setup Multi-Armada & Manajemen Garasi Pool',
-      fleet: '10 Unit Siap Jalan (Mobil, Motor, HiAce, EV)'
+      title: 'Daftarkan Inventaris Armada & Tarif',
+      desc: 'Masukkan data kendaraan, nomor plat, garasi pool, serta skema tarif sewa lepas kunci maupun dengan supir.',
+      route: 'Setup Armada',
+      fleet: 'Multi Armada'
     },
     {
       num: 'STEP 02',
       title: 'Hubungkan Nomor WhatsApp Rental',
-      desc: 'Cukup hubungkan nomor WhatsApp resmi rental Anda. Asisten otomatis aktif 24 jam membalas ketersediaan unit sewa detik itu juga dan menyiapkan pesanan tanpa membuat admin begadang.',
-      route: 'Otomatisasi Balas Chat WhatsApp',
-      fleet: 'Respon Cepat 0.8 Detik 24 Jam Nonstop'
+      desc: 'Hubungkan nomor WhatsApp resmi bisnis. Asisten AI aktif 24/7 membalas ketersediaan armada detik itu juga.',
+      route: 'WhatsApp AI',
+      fleet: 'Respon Cepat'
     },
     {
       num: 'STEP 03',
-      title: 'Hubungkan Kalender Jadwal Tim',
-      desc: 'Setiap pesanan baru otomatis mengunci jadwal tim dan supir. Bebas risiko mobil dobel sewa dan jadwal bentrok.',
-      route: 'Kalender Tim Terhubung Otomatis',
-      fleet: '100% Bebas Jadwal Tabrakan'
+      title: 'Sinkronkan Kalender Tim & Supir',
+      desc: 'Pemesanan baru otomatis masuk ke Google Calendar tim dan pengemudi untuk mencegah jadwal tabrakan.',
+      route: 'Kalender Tim',
+      fleet: 'Bebas Bentrok'
     },
     {
       num: 'STEP 04',
       title: 'Terbitkan Invoice & Rekap Laporan',
-      desc: 'Hitung otomatis biaya sewa, DP, jaminan, hingga overtime. Pantau performa rental dan unduh laporan rapi dalam 1 klik.',
-      route: 'Laporan Kas & Pemakaian Unit',
-      fleet: 'Efisiensi Operasional Meningkat 70%'
+      desc: 'Kalkulasi tarif sewa, uang muka DP, deposit jaminan, dan unduh laporan kas siap cetak dalam satu klik.',
+      route: 'Laporan Kas',
+      fleet: 'Ekspor Data'
     }
   ];
 
@@ -582,7 +591,7 @@ function initScrollReveal() {
   // Helper: check if element is already inside viewport at page load
   const isAlreadyInViewport = (el) => {
     const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight * 0.95;
+    return rect.top < window.innerHeight && rect.bottom > 0;
   };
 
   // 1. Full Page Section Reveal (Smooth Opacity & Subtle Translate)
@@ -596,7 +605,7 @@ function initScrollReveal() {
           el.classList.add('is-visible');
         });
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
     sectionElements.forEach((el) => {
       if (isAlreadyInViewport(el)) {
@@ -616,11 +625,11 @@ function initScrollReveal() {
         obs.unobserve(el);
 
         // Stagger delay based on sibling index if inside a container
-        const parent = el.parentElement;
-        if (parent && parent.classList.contains('reveal-stagger-parent')) {
+        const parent = el.closest('.reveal-stagger-parent');
+        if (parent) {
           const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll'));
           const index = siblings.indexOf(el);
-          const delay = Math.min(index * 60, 360);
+          const delay = Math.min(index * 70, 420);
           el.style.transitionDelay = `${delay}ms`;
         }
 
@@ -628,7 +637,7 @@ function initScrollReveal() {
           el.classList.add('is-revealed');
         });
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
     revealElements.forEach((el) => {
       if (isAlreadyInViewport(el)) {
@@ -639,7 +648,34 @@ function initScrollReveal() {
     });
   }
 
-  // 3. QuotaRing Scroll Opacity on FAQ Cards
+  // 3. Rhoe UI Blur-Slide Text Reveal
+  const blurRevealElements = document.querySelectorAll('.rhoe-blur-reveal');
+  if (blurRevealElements.length) {
+    if (prefersReducedMotion) {
+      blurRevealElements.forEach((el) => el.classList.add('revealed'));
+    } else {
+      const blurObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          obs.unobserve(el);
+          requestAnimationFrame(() => {
+            el.classList.add('revealed');
+          });
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      blurRevealElements.forEach((el) => {
+        if (isAlreadyInViewport(el)) {
+          el.classList.add('revealed');
+        } else {
+          blurObserver.observe(el);
+        }
+      });
+    }
+  }
+
+  // 4. QuotaRing Scroll Opacity on FAQ Cards
   initFaqScrollOpacity();
 }
 
@@ -916,3 +952,133 @@ function initVaultGuaranteesTabs() {
     });
   });
 }
+
+/* ==========================================================================
+   16. Bento Showcase Dynamic Controls (Tabs, Dispatch Trigger, AI Simulation)
+   ========================================================================== */
+function initBentoShowcase() {
+  // 1. Dispatch lock button trigger
+  const dispatchBtn = document.getElementById('bento-dispatch-trigger');
+  const dispatchLabel = document.getElementById('bento-dispatch-label');
+  if (dispatchBtn && dispatchLabel) {
+    let resetTimer = null;
+    dispatchBtn.addEventListener('click', () => {
+      if (resetTimer) clearTimeout(resetTimer);
+      dispatchBtn.classList.remove('bg-white', 'text-slate-950');
+      dispatchBtn.classList.add('bg-emerald-500', 'text-white');
+      dispatchLabel.textContent = 'Terkunci ✓';
+
+      resetTimer = setTimeout(() => {
+        dispatchBtn.classList.remove('bg-emerald-500', 'text-white');
+        dispatchBtn.classList.add('bg-white', 'text-slate-950');
+        dispatchLabel.textContent = 'Kunci Reservasi';
+      }, 2500);
+    });
+  }
+
+  // 2. Bento status tabs filter
+  const bentoTabs = document.querySelectorAll('.bento-tab');
+  if (bentoTabs.length) {
+    bentoTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        bentoTabs.forEach((t) => {
+          t.classList.remove('active', 'text-emerald-400', 'font-bold', 'border-b-2', 'border-emerald-400');
+          t.classList.add('text-slate-400');
+        });
+        tab.classList.add('active', 'text-emerald-400', 'font-bold', 'border-b-2', 'border-emerald-400');
+        tab.classList.remove('text-slate-400');
+      });
+    });
+  }
+
+  // 3. WhatsApp AI simulator typewriter
+  const simulateBtn = document.getElementById('bento-simulate-btn');
+  const aiText = document.getElementById('bento-ai-text');
+  if (simulateBtn && aiText) {
+    const simulationPrompts = [
+      'Ready kak! Innova Zenix Hybrid tgl 24-26 Okt tersedia. Tarif Rp 2.550.000 lepas kunci. Jadwal kami kunci sekarang?',
+      'Unit Alphard Transformer siap di Bandara Ngurah Rai tgl 28 Okt. Include supir & BBM. Invoice DP siap diterbitkan.',
+      'HiAce Premio Luxury ready untuk tour 27-29 Okt. Kapasitas 10 seat executive. Mau dikirimkan rincian invoice?'
+    ];
+    let promptIndex = 0;
+    let isTyping = false;
+
+    simulateBtn.addEventListener('click', () => {
+      if (isTyping) return;
+      isTyping = true;
+      promptIndex = (promptIndex + 1) % simulationPrompts.length;
+      const targetText = simulationPrompts[promptIndex];
+      aiText.innerHTML = '';
+      let charIdx = 0;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        aiText.textContent = targetText;
+        isTyping = false;
+        return;
+      }
+
+      const typeInterval = setInterval(() => {
+        if (charIdx < targetText.length) {
+          const ch = targetText.charAt(charIdx);
+          const span = document.createElement('span');
+          span.className = 'rhoe-char-reveal';
+          span.textContent = ch;
+          aiText.appendChild(span);
+          charIdx++;
+        } else {
+          clearInterval(typeInterval);
+          isTyping = false;
+        }
+      }, 18);
+    });
+  }
+
+  // 4. Bento fleet stepper & dynamic revenue counter
+  const stepperVal = document.getElementById('bento-stepper-val');
+  const currencyVal = document.getElementById('bento-currency-val');
+  const btnDec = document.getElementById('bento-stepper-dec');
+  const btnInc = document.getElementById('bento-stepper-inc');
+  if (stepperVal && btnDec && btnInc) {
+    let units = 18;
+    const baseUnitRate = 8250000; // Rp 8.25jt per active rented unit
+
+    function updateStepperUI() {
+      stepperVal.textContent = units.toString();
+      if (currencyVal) {
+        const total = units * baseUnitRate;
+        currencyVal.textContent = total.toLocaleString('id-ID');
+      }
+    }
+
+    btnDec.addEventListener('click', () => {
+      if (units > 1) {
+        units--;
+        updateStepperUI();
+      }
+    });
+
+    btnInc.addEventListener('click', () => {
+      if (units < 50) {
+        units++;
+        updateStepperUI();
+      }
+    });
+  }
+
+  // 5. Bento calendar day pills selection
+  const dayPills = document.querySelectorAll('.bento-day-pill');
+  if (dayPills.length) {
+    dayPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        dayPills.forEach((p) => {
+          p.classList.remove('active', 'bg-white', 'text-slate-950', 'shadow');
+          p.classList.add('text-slate-400');
+        });
+        pill.classList.add('active', 'bg-white', 'text-slate-950', 'shadow');
+        pill.classList.remove('text-slate-400');
+      });
+    });
+  }
+}
+

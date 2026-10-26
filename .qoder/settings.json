@@ -1,0 +1,22 @@
+{
+  "autoMemoryEnabled": true,
+  "general": {
+    "vimMode": true
+  },
+  "respondToBashCommands": true,
+  "dream": {
+    "enabled": true
+  },
+  "autoMemoryUserScopeEnabled": true,
+  "ui": {
+    "escapePastedAtSymbols": true,
+    "copyFullResponse": true
+  },
+  "context": {
+    "loadMemoryFromIncludeDirectories": true
+  },
+  "experimental": {
+    "useOSC52Paste": true,
+    "useOSC52Copy": true
+  }
+}
